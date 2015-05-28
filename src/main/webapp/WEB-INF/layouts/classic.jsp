@@ -46,14 +46,14 @@
 
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title><tiles:getAsString name="title"></tiles:getAsString></title>
+    <title><tiles:getAsString name="title"/></title>
 </head>
 <body>
 
 <%@ taglib uri="http://tiles.apache.org/tags-tiles-extras"
            prefix="tilesx" %>
 
-<tilesx:useAttribute name="current"/>
+ <tilesx:useAttribute name="current"/>
 
 <div class="container" id="main">
     <div class="navbar navbar-fixed-top">
@@ -85,7 +85,7 @@
                         </ul>
                         <!-- end dropdown menu --></li>
 
-                    <li><a href="new.html">Новинки</a></li>
+                    <li><a href="<spring:url value="/book.html"/> ">Book</a></li>
 
                     <li><a href="blog.html">Рецензии</a></li>
                 </ul>
