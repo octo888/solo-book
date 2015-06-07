@@ -128,13 +128,13 @@
     <!-- end navbar -->
 
 
-    <tiles:insertAttribute name="body"></tiles:insertAttribute>
+    <tiles:insertAttribute name="body"/>
 </div>
 
 
 <hr>
 
-<tiles:insertAttribute name="footer"></tiles:insertAttribute>
+<tiles:insertAttribute name="footer"/>
 
 
 </body>
