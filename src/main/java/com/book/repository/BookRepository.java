@@ -1,0 +1,14 @@
+package com.book.repository;
+
+import com.book.entity.Book;
+import com.book.entity.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface BookRepository extends JpaRepository<Book, Integer> {
+
+    Book findByName(String name);
+    List<Book> findByCategory(Category category);
+
+}
