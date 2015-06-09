@@ -5,6 +5,8 @@ import com.book.entity.Category;
 import com.book.repository.BookRepository;
 import com.book.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -33,17 +35,9 @@ public class CategoryService {
     }
 
     @Transactional
-    public Category findOneWithBooks(int id) {
-        Category category = findOne(id);
-        List<Book> books = bookRepository.findByCategory(category);
-        category.setBooks(books);
-        return category;
-    }
-
-    @Transactional
     public Category findOneWithBooks(String title) {
         Category category = findOneByTitle(title);
-        List<Book> books = bookRepository.findByCategory(category);
+        List<Book> books = bookRepository.findByCategory(category, new PageRequest(0, 16, Sort.Direction.ASC, "name"));
         category.setBooks(books);
         return category;
     }
