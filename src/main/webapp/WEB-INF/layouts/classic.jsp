@@ -23,7 +23,7 @@
           rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/resources/includes/css/styles.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/includes/css/styles.css" rel="stylesheet">
 
 
     <script src="/resources/includes/js/modernizr-2.6.2.min.js"></script>
@@ -53,10 +53,11 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles-extras"
            prefix="tilesx" %>
 
- <tilesx:useAttribute name="current"/>
+<tilesx:useAttribute name="current"/>
 
 <div class="container" id="main">
-    <div class="navbar navbar-fixed-top">
+
+    <div class="navbar navbar-fixed-top" id="topNavbar" role="navigation">
         <div class="container">
 
             <button class="navbar-toggle"
@@ -71,7 +72,8 @@
 
             <div class="nav-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">Главная</a></li>
+                    <li class="${current == 'index' ? 'active' : '' }"><a
+                            href="<spring:url value="/index.html"></spring:url>">Главная</a></li>
 
                     <li class="dropdown"><a href="#" class="dropdown-toggle"
                                             data-toggle="dropdown">ТОП<strong class="caret"></strong></a>
@@ -85,9 +87,11 @@
                         </ul>
                         <!-- end dropdown menu --></li>
 
-                    <li><a href="<spring:url value="/book.html"/> ">Book</a></li>
+                    <li class="${current == 'users' ? 'active' : '' }"><a
+                            href='<spring:url value="/users.html"></spring:url>'>Users</a></li>
 
-                    <li><a href="blog.html">Рецензии</a></li>
+                    <li class="${current == 'register' ? 'active' : '' }"><a href="<spring:url value="/register.html">
+                            </spring:url>">Регистрация</a></li>
                 </ul>
 
                 <form class="navbar-form pull-left">
@@ -127,8 +131,21 @@
     </div>
     <!-- end navbar -->
 
-
+    <div class="wrapBody"
     <tiles:insertAttribute name="body"/>
+    </div>
+
+    <div class="row" id="sm-carousel">
+        <div class="col-12" id="wrap-sm-carousel">
+            <div class="col-2"><a href="#" id="previous"><img src="resources/images/previous.png"></a></div>
+            <div class="col-2"><a href=""><img id="imgb1" src="" class="thumbnail img-responsive" align="middle"></a></div>
+            <div class="col-2"><a href=""><img id="imgb2" src="" class="thumbnail img-responsive"></a></div>
+            <div class="col-2"><a href=""><img id="imgb3" src="" class="thumbnail img-responsive"></a></div>
+            <div class="col-2"><a href=""><img id="imgb4" src="" class="thumbnail img-responsive"></a></div>
+            <div class="col-2"><a href="#" id="next"><img src="resources/images/next.png"></a></div>
+        </div>
+    </div>
+    <!-- end sm-carousel -->
 </div>
 
 
