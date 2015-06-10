@@ -19,11 +19,26 @@
     margin-top: 60px;
 }
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 190px;
+}
+
 footer {
    background: #333;
    color: #eee;
    font-size: 11px;
    padding: 20px;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 170px;
 }
 
 
