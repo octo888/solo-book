@@ -17,16 +17,16 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- Bootstrap CSS -->
-    <link href="/resources/bootstrap/css/bootstrap.min.css"
+    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css"
           rel="stylesheet">
-    <link href="/resources/includes/css/bootstrap-glyphicons.css"
+    <link href="${pageContext.request.contextPath}/resources/includes/css/bootstrap-glyphicons.css"
           rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="${pageContext.request.contextPath}/resources/includes/css/styles.css" rel="stylesheet">
 
 
-    <script src="/resources/includes/js/modernizr-2.6.2.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/includes/js/modernizr-2.6.2.min.js"></script>
 
     <script src="http://code.jquery.com/jquery.js"></script>
     <script>
@@ -35,9 +35,9 @@
                 .write('<script src="/resources/includes/js/jquery-1.8.2.min.js"><\/script>')
     </script>
     <!-- Bootstrap JS -->
-    <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
     <!-- Custom JS -->
-    <script src="/resources/includes/js/script.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/includes/js/script.js"></script>
 
     <script type="text/javascript"
             src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
@@ -110,13 +110,12 @@
                             class="caret"></strong></a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="#">Войти</a></li>
-
-                            <li><a href="#">Регистрация</a></li>
+                            <li><a href="<spring:url value="/login.html">
+                            </spring:url>">Войти</a></li>
 
                             <li class="divider"></li>
 
-                            <li><a href="#" id="logout"><span
+                            <li><a href="<spring:url value="/logout" />" id="logout"><span
                                     class="glyphicon glyphicon-off"></span>Выйти</a></li>
                         </ul>
                     </li>

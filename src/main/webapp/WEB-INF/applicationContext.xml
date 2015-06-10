@@ -24,6 +24,8 @@
 
     <task:annotation-driven/>
 
+    <import resource="security.xml" />
+
     <beans profile="dev">
         <import resource="database-dev.xml"/>
     </beans>

@@ -7,6 +7,12 @@
           <element id="module-output" name="solobook" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:3.2.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.hsqldb:hsqldb:2.3.2" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.34" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:4.3.7.Final" />
@@ -48,7 +54,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.1.6.RELEASE" />
-          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.1.6.RELEASE" />

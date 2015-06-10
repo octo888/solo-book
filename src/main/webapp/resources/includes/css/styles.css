@@ -19,6 +19,7 @@
     margin-top: 60px;
 }
 
+/* for fix footer */
 html {
     position: relative;
     min-height: 100%;
@@ -51,6 +52,9 @@ footer {
 /* --------------------------------------
    Navbar
    -------------------------------------- */
+.navbar-form {
+    margin-left: 5px;
+}
 
 #searchInput {
    width: 200px;
