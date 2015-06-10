@@ -131,7 +131,7 @@
     </div>
     <!-- end navbar -->
 
-    <div class="wrapBody"
+    <div class="wrapBody">
     <tiles:insertAttribute name="body"/>
     </div>
 
@@ -146,9 +146,8 @@
         </div>
     </div>
     <!-- end sm-carousel -->
-</div>
 
-
+</div> <!-- end container #main -->
 <hr>
 
 <tiles:insertAttribute name="footer"/>
