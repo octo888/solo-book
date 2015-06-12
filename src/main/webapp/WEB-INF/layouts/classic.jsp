@@ -123,8 +123,8 @@
 
                             </security:authorize>
 
-
                             <security:authorize access="isAuthenticated()" >
+                                <li><a href="<spring:url value="/account.html" />">Профиль</a></li>
                                 <li><a href="<spring:url value="/logout" />" id="logout"><span
                                         class="glyphicon glyphicon-off"></span>Выйти</a></li>
                             </security:authorize>

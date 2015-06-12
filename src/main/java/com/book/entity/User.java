@@ -17,6 +17,8 @@ public class User {
 
     private String email;
 
+    private boolean enabled;
+
     @ManyToMany
     @JoinTable
     private List<Role> roles;
@@ -60,5 +62,13 @@ public class User {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }
