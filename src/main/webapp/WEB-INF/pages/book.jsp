@@ -16,7 +16,7 @@
         </div>
         <!-- end panel-heading -->
 
-        <a href="" target="_blank" class="btn btn-info btn-block" >Открыть</a>
+        <a href="" class="btn btn-info btn-block" >Открыть</a>
 
       </div>
       <!-- end panel -->

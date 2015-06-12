@@ -62,7 +62,7 @@
                 <img src="resources/images/features/${cat.title}.jpg" alt="${cat.name}">
 
 
-                <a href="<spring:url value="/category/${cat.title}.html" /> " target="_blank" class="btn btn-info btn-block">Открыть</a>
+                <a href="<spring:url value="/category/${cat.title}.html" /> "  class="btn btn-info btn-block">Открыть</a>
 
             </div>
             <!-- end panel -->

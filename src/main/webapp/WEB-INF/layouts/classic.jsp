@@ -6,6 +6,7 @@
 <head>
 
     <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+    <%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 
 
     <!-- From resources -->
@@ -68,7 +69,7 @@
             </button>
 
             <a class="navbar-brand" href="index.html"><img
-                    src="resources/images/logo.png" alt="Your Logo"></a>
+                    src="/resources/images/logo.png" alt="Your Logo"></a>
 
             <div class="nav-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav">
@@ -87,11 +88,13 @@
                         </ul>
                         <!-- end dropdown menu --></li>
 
-                    <li class="${current == 'users' ? 'active' : '' }"><a
-                            href='<spring:url value="/users.html"></spring:url>'>Users</a></li>
+                    <li><a href="#">Рецензии</a></li>
 
-                    <li class="${current == 'register' ? 'active' : '' }"><a href="<spring:url value="/register.html">
-                            </spring:url>">Регистрация</a></li>
+                    <security:authorize access="hasRole('ROLE_ADMIN')" >
+                        <li class="${current == 'users' ? 'active' : '' }"><a
+                                href='<spring:url value="/users.html"></spring:url>'>Users</a></li>
+                    </security:authorize>
+
                 </ul>
 
                 <form class="navbar-form pull-left">
@@ -110,13 +113,21 @@
                             class="caret"></strong></a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="<spring:url value="/login.html">
-                            </spring:url>">Войти</a></li>
+                            
+                            <security:authorize access="! isAuthenticated()" >
+                                <li><a href="<spring:url value="/login.html">
+                                </spring:url>">Войти</a></li>
 
-                            <li class="divider"></li>
+                                <li class="${current == 'register' ? 'active' : '' }"><a href="<spring:url value="/register.html">
+                                </spring:url>">Регистрация</a></li>
 
-                            <li><a href="<spring:url value="/logout" />" id="logout"><span
-                                    class="glyphicon glyphicon-off"></span>Выйти</a></li>
+                            </security:authorize>
+
+
+                            <security:authorize access="isAuthenticated()" >
+                                <li><a href="<spring:url value="/logout" />" id="logout"><span
+                                        class="glyphicon glyphicon-off"></span>Выйти</a></li>
+                            </security:authorize>
                         </ul>
                     </li>
                 </ul>
