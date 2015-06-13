@@ -45,4 +45,15 @@ public class CategoryService {
     public void save(Category category) {
         categoryRepository.save(category);
     }
+
+    public void delete(int id) {
+        categoryRepository.delete(id);
+    }
+
+    public Category findOneWithBooks(int id) {
+        Category category = findOne(id);
+        List<Book> books = bookRepository.findByCategory(category, new PageRequest(0, 20, Sort.Direction.ASC, "name"));
+        category.setBooks(books);
+        return category;
+    }
 }

@@ -1,9 +1,7 @@
 package com.book.service;
 
 import com.book.entity.Book;
-import com.book.entity.Category;
 import com.book.repository.BookRepository;
-import com.book.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,4 +25,7 @@ public class BookService {
     }
 
 
+    public void save(Book book) {
+        bookRepository.save(book);
+    }
 }

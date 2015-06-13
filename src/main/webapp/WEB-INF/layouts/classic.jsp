@@ -102,7 +102,7 @@
 
                 <form class="navbar-form pull-left">
                     <input type="text" class="form-control"
-                           placeholder="Search this site..." id="searchInput">
+                           placeholder="Поиск..." id="searchInput">
 
                     <button type="submit" class="btn btn-default">
                         <span class="glyphicon glyphicon-search"></span>
@@ -112,7 +112,7 @@
 
                 <ul class="nav navbar-nav pull-right">
                     <li class="dropdown"><a href="#" class="dropdown-toggle"
-                                            data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>MyAccount<strong
+                                            data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>МойПрофиль<strong
                             class="caret"></strong></a>
 
                         <ul class="dropdown-menu">

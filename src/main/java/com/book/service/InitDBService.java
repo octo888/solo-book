@@ -53,14 +53,10 @@ public class InitDBService {
             userAdmin.setRoles(roles);
             userRepository.save(userAdmin);
 
-            Category classic = new Category();
-            classic.setName("Классика");
-            classic.setTitle("classic");
+            Category classic = new Category("Классика", "classic");
             categoryRepository.save(classic);
 
-            Category modern = new Category();
-            modern.setName("Современная проза");
-            modern.setTitle("modern");
+            Category modern = new Category("Современная проза", "modern");
             categoryRepository.save(modern);
 
             Category ukr = new Category("Украинская проза", "ukr");
@@ -69,14 +65,10 @@ public class InitDBService {
             Category love = new Category("Сентиментальный роман", "love");
             categoryRepository.save(love);
 
-            Category fantastic = new Category();
-            fantastic.setName("Фантастика");
-            fantastic.setTitle("fantastic");
+            Category fantastic = new Category("Фантастика", "fantastic");
             categoryRepository.save(fantastic);
 
-            Category detective = new Category();
-            detective.setName("Детектив");
-            detective.setTitle("detective");
+            Category detective = new Category("Детектив", "detective");
             categoryRepository.save(detective);
 
             Category business = new Category("Бизнес", "business");
@@ -154,6 +146,59 @@ public class InitDBService {
             book10.setCategory(fantastic);
             book10.setDescription("Прекрасный сборник фантастических рассказов");
             bookRepository.save(book10);
+
+            Book book11 = new Book();
+            book11.setName("Сборник рассказов Шекли");
+            book11.setAuthorName("Роберт Шекли");
+            book11.setCategory(fantastic);
+            book11.setDescription("Прекрасный сборник фантастических рассказов");
+            bookRepository.save(book11);
+
+            Book book12 = new Book();
+            book12.setName("Сборник рассказов Шекли");
+            book12.setAuthorName("Роберт Шекли");
+            book12.setCategory(fantastic);
+            book12.setDescription("Прекрасный сборник фантастических рассказов");
+            bookRepository.save(book12);
+
+            Book book13 = new Book();
+            book13.setName("Сборник рассказов Шекли");
+            book13.setAuthorName("Роберт Шекли");
+            book13.setCategory(fantastic);
+            book13.setDescription("Прекрасный сборник фантастических рассказов");
+            bookRepository.save(book13);
+
+            Book book14 = new Book();
+            book14.setName("Сборник рассказов Шекли");
+            book14.setAuthorName("Роберт Шекли");
+            book14.setCategory(fantastic);
+            book14.setDescription("Прекрасный сборник фантастических рассказов");
+            bookRepository.save(book14);
+
+            Book book15 = new Book();
+            book15.setName("Сборник рассказов Шекли");
+            book15.setAuthorName("Роберт Шекли");
+            book15.setCategory(fantastic);
+            book15.setDescription("Прекрасный сборник фантастических рассказов");
+            bookRepository.save(book15);
+
+            Book book16 = new Book();
+            book16.setName("Сборник рассказов Шекли");
+            book16.setAuthorName("Роберт Шекли");
+            book16.setCategory(fantastic);
+            book16.setDescription("Прекрасный сборник фантастических рассказов");
+            bookRepository.save(book16);
+
+            for (int i = 0; i < 16; i++) {
+                Book b = new Book();
+                b.setName("book " + i);
+                b.setAuthorName("Nobody " + i);
+                b.setCategory(fantastic);
+                b.setDescription("ababagalamaga " + i);
+                bookRepository.save(b);
+            }
+
+
         }
 
     }

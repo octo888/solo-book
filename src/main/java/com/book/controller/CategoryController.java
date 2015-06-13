@@ -1,7 +1,6 @@
 package com.book.controller;
 
 import com.book.entity.Category;
-import com.book.service.BookService;
 import com.book.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,13 +35,19 @@ public class CategoryController {
 
     @RequestMapping("/categories/{id}")
     public String categoryDetail(Model model, @PathVariable int id) {
-        model.addAttribute("category", categoryService.findOne(id));
+        model.addAttribute("category", categoryService.findOneWithBooks(id));
         return "category-detail";
     }
 
     @RequestMapping(value = "/categories", method = RequestMethod.POST)
     public String doAddCategory(@ModelAttribute("category") Category category) {
         categoryService.save(category);
+        return "redirect:/categories.html";
+    }
+
+    @RequestMapping("/categories/remove/{id}")
+    public String removeCategory(@PathVariable int id) {
+        categoryService.delete(id);
         return "redirect:/categories.html";
     }
 

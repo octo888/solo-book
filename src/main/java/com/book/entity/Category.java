@@ -14,7 +14,7 @@ public class Category {
 
     private String title;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE)
     private List<Book> books;
 
     public Category() {

@@ -44,7 +44,7 @@
 
     <div class="form-group">
         <div class="col-sm-10">
-            <input type="submit" value="Save" class="btn btn-lg btn-primary pull-right" />
+            <input type="submit" value="Сохранить" class="btn btn-lg btn-primary pull-right" />
         </div>
     </div>
 
