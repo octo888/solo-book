@@ -3,15 +3,9 @@
 
 <%@ include file="../layouts/taglib.jsp" %>
 
-
-<hr>
-<hr>
-<hr>
-
 <div class="row" id="features" >
 
-    <%--@elvariable id="cat" type="com.book.entity.Category"--%>
-    <c:forEach items="${cat.books}" var="book">
+    <c:forEach items="${category.books}" var="book">
         <div class="col-sm-3 feature">
             <div class="panel">
                 <div class="panel-heading">

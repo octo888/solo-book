@@ -92,7 +92,10 @@
 
                     <security:authorize access="hasRole('ROLE_ADMIN')" >
                         <li class="${current == 'users' ? 'active' : '' }"><a
-                                href='<spring:url value="/users.html"></spring:url>'>Users</a></li>
+                                href='<spring:url value="/users.html"></spring:url>'>Пользователи</a></li>
+
+                        <li class="${current == 'categories' ? 'active' : '' }"><a
+                                href='<spring:url value="/categories.html"></spring:url>'>Добавить контент</a></li>
                     </security:authorize>
 
                 </ul>

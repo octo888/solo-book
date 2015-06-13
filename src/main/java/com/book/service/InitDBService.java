@@ -59,9 +59,15 @@ public class InitDBService {
             categoryRepository.save(classic);
 
             Category modern = new Category();
-            modern.setName("Модерн");
+            modern.setName("Современная проза");
             modern.setTitle("modern");
             categoryRepository.save(modern);
+
+            Category ukr = new Category("Украинская проза", "ukr");
+            categoryRepository.save(ukr);
+
+            Category love = new Category("Сентиментальный роман", "love");
+            categoryRepository.save(love);
 
             Category fantastic = new Category();
             fantastic.setName("Фантастика");
@@ -72,6 +78,12 @@ public class InitDBService {
             detective.setName("Детектив");
             detective.setTitle("detective");
             categoryRepository.save(detective);
+
+            Category business = new Category("Бизнес", "business");
+            categoryRepository.save(business);
+
+            Category psycho = new Category("Психология", "psycho");
+            categoryRepository.save(psycho);
 
             Book book1 = new Book();
             book1.setName("Игра Престолов");

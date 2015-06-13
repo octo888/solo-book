@@ -41,4 +41,8 @@ public class CategoryService {
         category.setBooks(books);
         return category;
     }
+
+    public void save(Category category) {
+        categoryRepository.save(category);
+    }
 }

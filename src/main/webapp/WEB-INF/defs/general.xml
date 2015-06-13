@@ -19,6 +19,18 @@
         <put-attribute name="current" value="category" />
     </definition>
 
+    <definition name="categories" extends="common">
+        <put-attribute name="title" value="SoloBook" />
+        <put-attribute name="body" value="/WEB-INF/pages/categories.jsp" />
+        <put-attribute name="current" value="categories" />
+    </definition>
+
+    <definition name="category-detail" extends="common">
+        <put-attribute name="title" value="SoloBook" />
+        <put-attribute name="body" value="/WEB-INF/pages/category-detail.jsp" />
+        <put-attribute name="current" value="categories" />
+    </definition>
+
     <definition name="book" extends="common">
         <put-attribute name="title" value="SoloBook" />
         <put-attribute name="body" value="/WEB-INF/pages/book.jsp" />

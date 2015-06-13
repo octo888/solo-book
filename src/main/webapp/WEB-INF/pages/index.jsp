@@ -51,18 +51,18 @@
 <div class="row" id="features">
 
     <%--@elvariable id="categories" type="java.util.List"--%>
-    <c:forEach items="${categories}" var="cat" >
+    <c:forEach items="${categories}" var="category" >
         <div class="col-sm-3 feature">
             <div class="panel">
                 <div class="panel-heading">
-                    <h3 class="panel-title">${cat.name}</h3>
+                    <h3 class="panel-title">${category.name}</h3>
                 </div>
                 <!-- end panel-heading -->
 
-                <img src="resources/images/features/${cat.title}.jpg" alt="${cat.name}">
+                <img src="resources/images/features/${category.title}.jpg" alt="${category.name}">
 
 
-                <a href="<spring:url value="/category/${cat.title}.html" /> "  class="btn btn-info btn-block">Открыть</a>
+                <a href="<spring:url value="/category/${category.title}.html" /> "  class="btn btn-info btn-block">Открыть</a>
 
             </div>
             <!-- end panel -->
