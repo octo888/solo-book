@@ -3,8 +3,10 @@
 
 <%@ include file="../layouts/taglib.jsp"%>
 
+
+
 <form:form commandName="addBook"
-           cssClass="form-horizontal">
+           cssClass="form-horizontal" >
 
     <div class="form-group">
         <label for="name" class="col-sm-2 control-label">Название:</label>

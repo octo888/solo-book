@@ -193,7 +193,7 @@ public class InitDBService {
                 Book b = new Book();
                 b.setName("book " + i);
                 b.setAuthorName("Nobody " + i);
-                b.setCategory(fantastic);
+                b.setCategory(love);
                 b.setDescription("ababagalamaga " + i);
                 bookRepository.save(b);
             }

@@ -4,13 +4,20 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-       <bean id="dataSource"
+        <!-- <bean id="dataSource"
              class="org.springframework.jdbc.datasource.DriverManagerDataSource">
               <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
               <property name="url" value="jdbc:mysql://127.0.0.1:3306/BooksDB"/>
               <property name="username" value="root"/>
               <property name="password" value="admin"/>
-       </bean>
+       </bean> -->
+
+         <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="driverClassName" value="org.postgresql.Driver"/>
+            <property name="url" value="jdbc:postgresql://localhost:5432/booksdb"/>
+            <property name="username" value="postgres"/>
+            <property name="password" value="admin"/>
+        </bean>
 
        <bean
                class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"

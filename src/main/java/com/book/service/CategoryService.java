@@ -34,10 +34,16 @@ public class CategoryService {
         return categoryRepository.findOneByTitle(title);
     }
 
-    @Transactional
     public Category findOneWithBooks(String title) {
         Category category = findOneByTitle(title);
         List<Book> books = bookRepository.findByCategory(category, new PageRequest(0, 16, Sort.Direction.ASC, "name"));
+        category.setBooks(books);
+        return category;
+    }
+
+    public Category findOneWithBooks(int id) {
+        Category category = findOne(id);
+        List<Book> books = bookRepository.findByCategory(category, new PageRequest(0, 20, Sort.Direction.ASC, "name"));
         category.setBooks(books);
         return category;
     }
@@ -48,12 +54,5 @@ public class CategoryService {
 
     public void delete(int id) {
         categoryRepository.delete(id);
-    }
-
-    public Category findOneWithBooks(int id) {
-        Category category = findOne(id);
-        List<Book> books = bookRepository.findByCategory(category, new PageRequest(0, 20, Sort.Direction.ASC, "name"));
-        category.setBooks(books);
-        return category;
     }
 }
