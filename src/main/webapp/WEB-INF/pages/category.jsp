@@ -1,25 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 
 <%@ include file="../layouts/taglib.jsp" %>
 
-<div class="row" id="features" >
+<div class="row" id="categoryBooks">
 
     <c:forEach items="${category.books}" var="book">
-        <div class="col-sm-3 feature">
-            <div class="panel">
-                <div class="panel-heading">
-                    <h3 class="panel-title">${book.name}</h3>
-                </div>
-                <!-- end panel-heading -->
 
-                <a href="/index.html" target="_blank" class="btn btn-info btn-block" >Открыть</a>
+        <div class="col-sm-2">
+            <div class="panel" id="categoryPanel">
 
+                <a href=""><img src="http://placehold.it/100x150" class="img-responsive thumbnail" alt="${book.name}"></a>
+
+                <!--<div class="panel-footer">-->
+                <h5 data-toggle="tooltip" data-placement="right" title="${book.name}">
+                    <a href="/index.html">${book.name}</a></h5>
+                <!--</div>-->
             </div>
-            <!-- end panel -->
         </div>
-        <!-- end col-sm-3 -->
+        <!-- end col-sm-2 -->
+
     </c:forEach>
+
 </div>
 <!-- end row -->
 

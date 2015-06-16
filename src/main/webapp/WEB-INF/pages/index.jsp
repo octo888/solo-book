@@ -280,12 +280,12 @@
 
 <div class="row" id="sm-carousel">
     <div class="col-12" id="wrap-sm-carousel">
-        <div class="col-2"><a href="#" id="previous"><img src="resources/images/previous.png"></a></div>
+        <div class="col-2"><a href="#" id="previous"><img src="/resources/images/previous.png"></a></div>
         <div class="col-2"><a href=""><img id="imgb1" src="" class="thumbnail img-responsive" align="middle"></a></div>
         <div class="col-2"><a href=""><img id="imgb2" src="" class="thumbnail img-responsive"></a></div>
         <div class="col-2"><a href=""><img id="imgb3" src="" class="thumbnail img-responsive"></a></div>
         <div class="col-2"><a href=""><img id="imgb4" src="" class="thumbnail img-responsive"></a></div>
-        <div class="col-2"><a href="#" id="next"><img src="resources/images/next.png"></a></div>
+        <div class="col-2"><a href="#" id="next"><img src="/resources/images/next.png"></a></div>
     </div>
 </div>
 <!-- end sm-carousel -->

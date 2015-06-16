@@ -16,6 +16,15 @@ public class Image {
     @Basic(fetch=FetchType.LAZY)
     private byte[] body;
 
+    public Image() {
+
+    }
+
+    public Image(String name, byte[] body) {
+        this.name = name;
+        this.body = body;
+    }
+
     public Integer getId() {
         return id;
     }

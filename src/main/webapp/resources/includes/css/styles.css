@@ -16,7 +16,24 @@
 }
 
 .wrapBody {
-    margin-top: 60px;
+    margin-top: 80px;
+}
+
+#categoryBooks {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#categoryBooks img {
+    margin: 0 15px;
+}
+#categoryPanel {
+    border-color: transparent;
+}
+#categoryBooks h5{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* for fix footer */

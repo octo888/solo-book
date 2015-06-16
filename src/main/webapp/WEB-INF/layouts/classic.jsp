@@ -91,11 +91,16 @@
                     <li><a href="#">Рецензии</a></li>
 
                     <security:authorize access="hasRole('ROLE_ADMIN')" >
+
                         <li class="${current == 'users' ? 'active' : '' }"><a
                                 href='<spring:url value="/users.html"></spring:url>'>Пользователи</a></li>
 
                         <li class="${current == 'categories' ? 'active' : '' }"><a
-                                href='<spring:url value="/categories.html"></spring:url>'>Добавить контент</a></li>
+                                href='<spring:url value="/categories.html"></spring:url>'>Категории</a></li>
+
+                        <li class="${current == 'categories' ? 'active' : '' }"><a
+                                href='<spring:url value="/addbook.html"></spring:url>'>Добавить книгу</a></li>
+
                     </security:authorize>
 
                 </ul>

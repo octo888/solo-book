@@ -127,7 +127,7 @@ public class InitDBService {
             bookRepository.save(book7);
 
             Book book8 = new Book();
-            book8.setName("Рождение Стальная Крыса");
+            book8.setName("Рождение Стальной Крысы");
             book8.setAuthorName("Гарри Гаррисон");
             book8.setCategory(fantastic);
             book8.setDescription("Первая по хронологии книга о Джиме де Гризе");
