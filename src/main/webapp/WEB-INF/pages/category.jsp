@@ -14,7 +14,7 @@
 
                 <!--<div class="panel-footer">-->
                 <h5 data-toggle="tooltip" data-placement="right" title="${book.name}">
-                    <a href="/index.html">${book.name}</a></h5>
+                    <a href="<spring:url value="/category/${category.title}/${book.id}.html"/>">${book.name}</a></h5>
                 <!--</div>-->
             </div>
         </div>

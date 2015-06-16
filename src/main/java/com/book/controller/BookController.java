@@ -1,24 +1,21 @@
 package com.book.controller;
 
 import com.book.entity.Book;
-import com.book.entity.Category;
 import com.book.entity.Image;
 import com.book.service.BookService;
 import com.book.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class BookController {
@@ -34,9 +31,9 @@ public class BookController {
         return new Book();
     } */
 
-    @RequestMapping("/book")
-     public String book(Model model) {
-        model.addAttribute("book", bookService.findAll());
+    @RequestMapping("/category/{title}/{id}")
+    public String showBook(Model model, @PathVariable int id) {
+        model.addAttribute("book", bookService.findOne(id));
         return "book";
     }
 
@@ -55,10 +52,10 @@ public class BookController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String doAddBook( @RequestParam(value="name") String name,
-                            @RequestParam(value="category") String category,
-                            @RequestParam(value="image") MultipartFile file,
-                            HttpServletRequest request,
-                            HttpServletResponse response)  {
+                             @RequestParam(value="category") String category,
+                             @RequestParam(value="image") MultipartFile file,
+                             HttpServletRequest request,
+                             HttpServletResponse response)  {
 
         try {
             Image image =  new Image(file.getOriginalFilename(), file.getBytes());
