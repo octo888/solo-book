@@ -4,16 +4,25 @@
 <%@ include file="../layouts/taglib.jsp"%>
 
 
+<div class="row" >
+    <div class="media" >
 
-<div class="" >
+        <div class="media-left" >
+            <img src="http://placehold.it/200x300" class="media-object pull-left">
+        </div>
+            <div class="media-heading">
+                <h4><b>Название:</b> ${book.name}</h4>
+                <h4><b>Автор:</b> ${book.authorName}</h4>
+            </div>
 
-    <img src="http://placehold.it/140" class="thumbnail pull-left">
-
-    <h3><b>Название:</b> ${book.name}</h3>
-    <h3><b>Автор:</b> ${book.authorName}</h3>
-
-    <p><b>Описание:</b> ${book.description}</p>
+        <div class="media-body" >
+            <h4><b>Описание:</b></h4> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
 
 </div>
-
-
