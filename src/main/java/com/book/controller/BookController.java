@@ -73,4 +73,10 @@ public class BookController {
         }
 
     }
+
+    @RequestMapping("/categories/{title}/remove/book/{id}")
+    public String removeCategory(@PathVariable int id, @PathVariable String title) {
+        bookService.delete(id);
+        return "redirect:/categories/{title}.html";
+    }
 }

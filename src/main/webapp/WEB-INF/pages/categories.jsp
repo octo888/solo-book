@@ -14,11 +14,11 @@
         <c:forEach items="${categories}" var="category">
             <tr>
                 <td>
-                    <a href='<spring:url value="/categories/${category.id}.html"/>'>
+                    <a href='<spring:url value="/categories/${category.title}.html"/>'>
                         <c:out value="${category.name}"/> </a>
                 </td>
                 <td>
-                    <a href='<spring:url value="/categories/remove/${category.id}.html" / >'
+                    <a href='<spring:url value="/categories/remove/${category.id}.html" />'
                        class="btn btn-danger triggerRemove">
                         Удалить </a>
                 </td>

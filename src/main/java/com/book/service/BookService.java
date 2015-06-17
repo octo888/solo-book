@@ -48,4 +48,8 @@ public class BookService {
     public void saveImage(Image image) {
         imageRepository.save(image);
     }
+
+    public void delete(int id) {
+        bookRepository.delete(id);
+    }
 }

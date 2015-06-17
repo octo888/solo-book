@@ -33,9 +33,9 @@ public class CategoryController {
         return "categories";
     }
 
-    @RequestMapping("/categories/{id}")
-    public String categoryDetail(Model model, @PathVariable int id) {
-        model.addAttribute("category", categoryService.findOneWithBooks(id));
+    @RequestMapping("/categories/{title}")
+    public String categoryDetail(Model model, @PathVariable String title) {
+        model.addAttribute("category", categoryService.findOneWithBooks(title));
         return "category-detail";
     }
 
