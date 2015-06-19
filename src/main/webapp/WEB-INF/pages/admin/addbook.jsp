@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 
-<%@ include file="../layouts/taglib.jsp"%>
+<%@ include file="../../layouts/taglib.jsp"%>
 
 <!--
 <form  enctype="multipart/form-data" css="form-horizontal"  action="/add" method="post">

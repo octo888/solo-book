@@ -31,20 +31,26 @@ public class BookController {
         return "book";
     }
 
-    @RequestMapping("/categories/{title}/addbook")
+    @RequestMapping("/admin/category/{title}/{id}")
+    public String showAdminBook(Model model, @PathVariable int id) {
+        model.addAttribute("book", bookService.findOne(id));
+        return "book";
+    }
+
+    @RequestMapping("/admin/categories/{title}/addbook")
     public String showAddBook() {
         return "addbook";
     }
 
 
-    @RequestMapping(value = "/categories/{title}/addbook", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/categories/{title}/addbook", method = RequestMethod.POST)
     public String doAddBook(@PathVariable String title, @ModelAttribute("add_book") Book book) {
         bookService.save(book, title);
-        return "redirect:/categories/{title}.html";
+        return "redirect:/admin/categories/{title}.html";
     }
 
 
-    /*@RequestMapping(value = "/add", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/admin/categories/{title}/addbook", method = RequestMethod.POST)
     public String doAddBook( @RequestParam(value="name") String name,
                              @RequestParam(value="category") String category,
                              @RequestParam(value="image") MultipartFile file,
@@ -68,9 +74,9 @@ public class BookController {
 
     } */
 
-    @RequestMapping("/categories/{title}/remove/book/{id}")
+    @RequestMapping("/admin/categories/{title}/remove/book/{id}")
     public String removeCategory(@PathVariable int id, @PathVariable String title) {
         bookService.delete(id);
-        return "redirect:/categories/{title}.html";
+        return "redirect:/admin/categories/{title}.html";
     }
 }

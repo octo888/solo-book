@@ -27,28 +27,28 @@ public class CategoryController {
         return "category";
     }
 
-    @RequestMapping("/categories")
+    @RequestMapping("/admin/categories")
     public String categories(Model model) {
         model.addAttribute("categories", categoryService.findAll());
         return "categories";
     }
 
-    @RequestMapping("/categories/{title}")
+    @RequestMapping("/admin/categories/{title}")
     public String categoryDetail(Model model, @PathVariable String title) {
         model.addAttribute("category", categoryService.findOneWithBooks(title));
         return "category-detail";
     }
 
-    @RequestMapping(value = "/categories", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/categories", method = RequestMethod.POST)
     public String doAddCategory(@ModelAttribute("category") Category category) {
         categoryService.save(category);
-        return "redirect:/categories.html";
+        return "redirect:/admin/categories.html";
     }
 
-    @RequestMapping("/categories/remove/{id}")
+    @RequestMapping("/admin/categories/remove/{id}")
     public String removeCategory(@PathVariable int id) {
         categoryService.delete(id);
-        return "redirect:/categories.html";
+        return "redirect:/admin/categories.html";
     }
 
 

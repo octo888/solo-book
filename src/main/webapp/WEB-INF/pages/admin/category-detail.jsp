@@ -1,11 +1,11 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<%@ include file="../layouts/taglib.jsp" %>
+<%@ include file="../../layouts/taglib.jsp" %>
 
 <div class="row">
 
-    <a href='<spring:url value="/categories/${category.title}/addbook.html"  />' class="btn btn-primary" >Добавить книгу</a>
+    <a href='<spring:url value="/admin/categories/${category.title}/addbook.html"  />' class="btn btn-primary" >Добавить книгу</a>
 
     <table class="table table-bordered table-hover table-striped">
         <thead>
@@ -18,11 +18,11 @@
         <c:forEach items="${category.books}" var="book">
             <tr>
                 <td>
-                    <a href='<spring:url value="/category/${category.title}/${book.id}.html"/>'>
+                    <a href='<spring:url value="/admin/category/${category.title}/${book.id}.html"/>'>
                         <c:out value="${book.name}" /> </a>
                 </td>
                 <td>
-                    <a href='<spring:url value="/categories/${category.title}/remove/book/${book.id}.html"  />' class="btn btn-danger triggerRemove">
+                    <a href='<spring:url value="/admin/categories/${category.title}/remove/book/${book.id}.html"  />' class="btn btn-danger triggerRemove">
                         Удалить </a>
                 </td>
 

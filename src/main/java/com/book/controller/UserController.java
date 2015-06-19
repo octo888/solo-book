@@ -23,13 +23,13 @@ public class UserController {
         return new User();
     }
 
-    @RequestMapping("/users")
+    @RequestMapping("/admin/users")
     public String users(Model model) {
         model.addAttribute("users", userService.findAll());
         return "users";
     }
 
-    @RequestMapping("/users/{id}")
+    @RequestMapping("/admin/users/{id}")
     public String detail(Model model, @PathVariable int id) {
         model.addAttribute("user", userService.findOne(id));
         return "user-detail";
@@ -53,10 +53,10 @@ public class UserController {
         return "user-detail";
     }
 
-    @RequestMapping("/users/remove/{id}")
+    @RequestMapping("/admin/users/remove/{id}")
     public String removeUser(@PathVariable int id) {
         userService.delete(id);
-        return "redirect:/users.html";
+        return "redirect:/admin/users.html";
     }
 
 }

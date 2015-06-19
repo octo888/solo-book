@@ -19,42 +19,6 @@
         <put-attribute name="current" value="category" />
     </definition>
 
-    <definition name="categories" extends="common">
-        <put-attribute name="title" value="SoloBook" />
-        <put-attribute name="body" value="/WEB-INF/pages/categories.jsp" />
-        <put-attribute name="current" value="categories" />
-    </definition>
-
-    <definition name="category-detail" extends="common">
-        <put-attribute name="title" value="SoloBook" />
-        <put-attribute name="body" value="/WEB-INF/pages/category-detail.jsp" />
-        <put-attribute name="current" value="categories" />
-    </definition>
-
-    <definition name="book" extends="common">
-        <put-attribute name="title" value="SoloBook" />
-        <put-attribute name="body" value="/WEB-INF/pages/book.jsp" />
-        <put-attribute name="current" value="book" />
-    </definition>
-
-    <definition name="addbook" extends="common">
-        <put-attribute name="title" value="SoloBook" />
-        <put-attribute name="body" value="/WEB-INF/pages/addbook.jsp" />
-        <put-attribute name="current" value="book" />
-    </definition>
-
-    <definition name="users" extends="common">
-        <put-attribute name="title" value="Users" />
-        <put-attribute name="body" value="/WEB-INF/pages/users.jsp" />
-        <put-attribute name="current" value="users" />
-    </definition>
-
-    <definition name="user-detail" extends="common">
-        <put-attribute name="title" value="User details" />
-        <put-attribute name="body" value="/WEB-INF/pages/user-detail.jsp" />
-        <put-attribute name="current" value="users" />
-    </definition>
-
     <definition name="user-register" extends="common">
         <put-attribute name="title" value="User registration" />
         <put-attribute name="body" value="/WEB-INF/pages/user-register.jsp" />
@@ -66,4 +30,44 @@
         <put-attribute name="body" value="/WEB-INF/pages/login.jsp" />
         <put-attribute name="current" value="login" />
     </definition>
+
+    <definition name="book" extends="common">
+        <put-attribute name="title" value="SoloBook" />
+        <put-attribute name="body" value="/WEB-INF/pages/book.jsp" />
+        <put-attribute name="current" value="book" />
+    </definition>
+
+    <!-- Admin -->
+
+    <definition name="categories" extends="common">
+        <put-attribute name="title" value="SoloBook" />
+        <put-attribute name="body" value="/WEB-INF/pages/admin/categories.jsp" />
+        <put-attribute name="current" value="categories" />
+    </definition>
+
+    <definition name="category-detail" extends="common">
+        <put-attribute name="title" value="SoloBook" />
+        <put-attribute name="body" value="/WEB-INF/pages/admin/category-detail.jsp" />
+        <put-attribute name="current" value="categories" />
+    </definition>
+
+    <definition name="addbook" extends="common">
+        <put-attribute name="title" value="SoloBook" />
+        <put-attribute name="body" value="/WEB-INF/pages/admin/addbook.jsp" />
+        <put-attribute name="current" value="book" />
+    </definition>
+
+    <definition name="users" extends="common">
+        <put-attribute name="title" value="Users" />
+        <put-attribute name="body" value="/WEB-INF/pages/admin/users.jsp" />
+        <put-attribute name="current" value="users" />
+    </definition>
+
+    <definition name="user-detail" extends="common">
+        <put-attribute name="title" value="User details" />
+        <put-attribute name="body" value="/WEB-INF/pages/admin/user-detail.jsp" />
+        <put-attribute name="current" value="users" />
+    </definition>
+
+
 </tiles-definitions>

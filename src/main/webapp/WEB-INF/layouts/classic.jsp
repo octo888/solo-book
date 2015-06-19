@@ -74,7 +74,7 @@
             <div class="nav-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav">
                     <li class="${current == 'index' ? 'active' : '' }"><a
-                            href="<spring:url value="/index.html"></spring:url>">Главная</a></li>
+                            href="<spring:url value="/index.html"/>">Главная</a></li>
 
                     <li class="dropdown"><a href="#" class="dropdown-toggle"
                                             data-toggle="dropdown">ТОП<strong class="caret"></strong></a>
@@ -93,13 +93,11 @@
                     <security:authorize access="hasRole('ROLE_ADMIN')" >
 
                         <li class="${current == 'users' ? 'active' : '' }"><a
-                                href='<spring:url value="/users.html"></spring:url>'>Пользователи</a></li>
+                                href='<spring:url value="/admin/users.html"/>'>Пользователи</a></li>
 
                         <li class="${current == 'categories' ? 'active' : '' }"><a
-                                href='<spring:url value="/categories.html"></spring:url>'>Категории</a></li>
+                                href='<spring:url value="/admin/categories.html"/>'>Категории</a></li>
 
-                        <li class="${current == 'categories' ? 'active' : '' }"><a
-                                href='<spring:url value="/addbook.html"></spring:url>'>Добавить книгу</a></li>
 
                     </security:authorize>
 
@@ -126,7 +124,7 @@
                                 <li><a href="<spring:url value="/login.html">
                                 </spring:url>">Войти</a></li>
 
-                                <li class="${current == 'register' ? 'active' : '' }"><a href="<spring:url value="/register.html">
+                                <li><a href="<spring:url value="/register.html">
                                 </spring:url>">Регистрация</a></li>
 
                             </security:authorize>
