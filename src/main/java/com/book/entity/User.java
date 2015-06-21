@@ -1,6 +1,9 @@
 package com.book.entity;
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -11,10 +14,13 @@ public class User {
     @GeneratedValue
     private Integer id;
 
+    @Size(min = 3, message = "Логин должен состоять как минимум из трех символов")
     private String name;
 
+    @Size(min = 4, message = "Пароль должен состоять как минимум из четырех символов")
     private String password;
 
+    @Email
     private String email;
 
     private boolean enabled;

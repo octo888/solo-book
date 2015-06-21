@@ -50,12 +50,11 @@
 
 <div class="row" id="features">
 
-    <%--@elvariable id="categories" type="java.util.List"--%>
     <c:forEach items="${categories}" var="category" >
         <div class="col-sm-3 feature">
             <div class="panel">
                 <div class="panel-heading">
-                    <h3 class="panel-title">${category.name}</h3>
+                    <h3 class="panel-title"><c:out value="${category.name}" /></h3>
                 </div>
                 <!-- end panel-heading -->
 

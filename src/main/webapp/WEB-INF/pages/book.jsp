@@ -11,8 +11,8 @@
             <img src="http://placehold.it/200x300" class="media-object pull-left">
         </div>
             <div class="media-heading">
-                <h4><b>Название:</b> ${book.name}</h4>
-                <h4><b>Автор:</b> ${book.authorName}</h4>
+                <h4><b>Название: </b> <c:out value="${book.name}"/></h4>
+                <h4><b>Автор: </b><c:out value="${book.authorName}"/></h4>
             </div>
 
         <div class="media-body" >
