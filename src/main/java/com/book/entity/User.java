@@ -20,7 +20,7 @@ public class User {
     @Size(min = 4, message = "Пароль должен состоять как минимум из четырех символов")
     private String password;
 
-    @Email
+    @Email(message = "Неверно введен email")
     private String email;
 
     private boolean enabled;

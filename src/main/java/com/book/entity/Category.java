@@ -11,10 +11,8 @@ public class Category {
     @GeneratedValue
     private Integer id;
 
-    @Size(min = 1, message = "Вы не ввели название")
     private String name;
 
-    @Size(min = 3, message = "Логин должен состоять минимум из трех символов")
     private String title;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)

@@ -53,6 +53,16 @@ public class InitDBService {
             userAdmin.setRoles(roles);
             userRepository.save(userAdmin);
 
+            User testUser = new User();
+            testUser.setEnabled(true);
+            testUser.setName("test");
+            BCryptPasswordEncoder encoder1 = new BCryptPasswordEncoder();
+            testUser.setPassword(encoder1.encode("test"));
+            List<Role> rolesTest = new ArrayList<>();
+            rolesTest.add(roleUser);
+            testUser.setRoles(rolesTest);
+            userRepository.save(testUser);
+
             Category classic = new Category("Классика", "classic");
             categoryRepository.save(classic);
 
