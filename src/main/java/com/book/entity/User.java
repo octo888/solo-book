@@ -1,5 +1,6 @@
 package com.book.entity;
 
+import com.book.annotation.UniqueUsername;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
@@ -15,6 +16,8 @@ public class User {
     private Integer id;
 
     @Size(min = 3, message = "Логин должен состоять как минимум из трех символов")
+    @Column(unique = true)
+    @UniqueUsername(message = "Выбранное имя пользователя уже существует!")
     private String name;
 
     @Size(min = 4, message = "Пароль должен состоять как минимум из четырех символов")
