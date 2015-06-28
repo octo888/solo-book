@@ -13,7 +13,7 @@
                 <a href=""><img src="http://placehold.it/100x150" class="img-responsive thumbnail" alt="${book.name}"></a>
 
                 <!--<div class="panel-footer">-->
-                <h5 data-toggle="tooltip" data-placement="right" title="${book.name}">
+                <h5 data-toggle="tooltip" data-placement="right" title="${book.description}">
                     <a href="<spring:url value="/category/${category.title}/${book.id}.html"/>">${book.name}</a></h5>
                 <!--</div>-->
             </div>
