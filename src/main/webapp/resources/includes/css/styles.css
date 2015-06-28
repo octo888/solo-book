@@ -30,7 +30,11 @@
 #categoryPanel {
     border-color: transparent;
 }
-
+/*#categoryBooks h5{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}*/
 
 /* for fix footer */
 html {
