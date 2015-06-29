@@ -28,6 +28,10 @@ public class User {
 
     private boolean enabled;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private List<Blog> blogs;
+
+
     @ManyToMany
     @JoinTable
     private List<Role> roles;
@@ -79,5 +83,13 @@ public class User {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public List<Blog> getBlogs() {
+        return blogs;
+    }
+
+    public void setBlogs(List<Blog> blogs) {
+        this.blogs = blogs;
     }
 }
