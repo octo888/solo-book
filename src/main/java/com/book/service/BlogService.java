@@ -13,7 +13,7 @@ import javax.transaction.Transactional;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 
 @Service
 @Transactional
@@ -49,5 +49,9 @@ public class BlogService {
 
     public Blog findOne(int id) {
         return blogRepository.findOne(id);
+    }
+
+    public List<Blog> findAll() {
+        return blogRepository.findAll();
     }
 }

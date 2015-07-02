@@ -55,4 +55,10 @@ public class UserController {
         return "redirect:/account.html";
     }
 
+    @RequestMapping("/blogs")
+    public String showBlogs(Model model) {
+        model.addAttribute("blogs", blogService.findAll());
+        return "blogs";
+    }
+
 }

@@ -43,6 +43,12 @@
         <put-attribute name="current" value="category" />
     </definition>
 
+    <definition name="blogs" extends="common">
+        <put-attribute name="title" value="SoloBook" />
+        <put-attribute name="body" value="/WEB-INF/pages/blogs.jsp" />
+        <put-attribute name="current" value="blogs" />
+    </definition>
+
     <!-- Admin -->
 
     <definition name="categories" extends="common">
