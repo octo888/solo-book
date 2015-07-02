@@ -10,6 +10,10 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 @Service
 @Transactional
@@ -23,6 +27,17 @@ public class BlogService {
 
     public void save(Blog blog, String name) {
         User user = userRepository.findByName(name);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy 'в' HH:mm");
+        String date = sdf.format(new Date());
+        try {
+            Date pubDate = sdf.parse(date);
+            blog.setPublishedDate(pubDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
         blog.setUser(user);
         blogRepository.save(blog);
     }

@@ -26,10 +26,6 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
-    public Category findOne(int id) {
-        return categoryRepository.findOne(id);
-    }
-
     public Category findOneByTitle(String title) {
         return categoryRepository.findOneByTitle(title);
     }
@@ -37,13 +33,6 @@ public class CategoryService {
     public Category findOneWithBooks(String title) {
         Category category = findOneByTitle(title);
         List<Book> books = bookRepository.findByCategory(category, new PageRequest(0, 16, Sort.Direction.ASC, "name"));
-        category.setBooks(books);
-        return category;
-    }
-
-    public Category findOneWithBooks(int id) {
-        Category category = findOne(id);
-        List<Book> books = bookRepository.findByCategory(category, new PageRequest(0, 20, Sort.Direction.ASC, "name"));
         category.setBooks(books);
         return category;
     }

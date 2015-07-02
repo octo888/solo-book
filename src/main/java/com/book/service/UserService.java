@@ -62,7 +62,7 @@ public class UserService {
     @Transactional
     public User findOneWithBlogs(int id) {
         User user = findOne(id);
-        List<Blog> blogs = blogRepository.findByUser(user);
+        List<Blog> blogs = blogRepository.findByUser(user, new PageRequest(0, 10, Sort.Direction.DESC, "publishedDate"));
         user.setBlogs(blogs);
         return user;
     }

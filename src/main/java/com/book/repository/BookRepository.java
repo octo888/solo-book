@@ -11,5 +11,4 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
     List<Book> findByCategory(Category category, Pageable pageable);
 
-    List<Book> findByCategory(Category category);
 }
