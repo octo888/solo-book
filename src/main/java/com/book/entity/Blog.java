@@ -1,8 +1,10 @@
 package com.book.entity;
 
-import javax.persistence.*;
-import java.util.List;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Blog {
@@ -13,12 +15,20 @@ public class Blog {
 
     private String name;
 
+    @Lob
+    @Type(type = "org.hibernate.type.StringClobType")
+    @Column(length = Integer.MAX_VALUE)
+    private String description;
+
+    @Column(name = "published_date")
+    private Date publishedDate;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "blog", cascade = CascadeType.REMOVE)
-    private List<BlogItem> blogItems;
+    /*@OneToMany(mappedBy = "blog", cascade = CascadeType.REMOVE)
+    private List<BlogItem> blogItems;*/
 
     public Integer getId() {
         return id;
@@ -44,11 +54,19 @@ public class Blog {
         this.user = user;
     }
 
-    public List<BlogItem> getBlogItems() {
-        return blogItems;
+    public String getDescription() {
+        return description;
     }
 
-    public void setBlogItems(List<BlogItem> blogItems) {
-        this.blogItems = blogItems;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getPublishedDate() {
+        return publishedDate;
+    }
+
+    public void setPublishedDate(Date publishedDate) {
+        this.publishedDate = publishedDate;
     }
 }

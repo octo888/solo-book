@@ -22,11 +22,9 @@ public class BlogService {
     private UserRepository userRepository;
 
     public void save(Blog blog, String name) {
-
         User user = userRepository.findByName(name);
         blog.setUser(user);
         blogRepository.save(blog);
-       // saveItems(blog);
     }
 
     @PreAuthorize("#blog.user.name == authentication.name or hasRole('ROLE_ADMIN')")

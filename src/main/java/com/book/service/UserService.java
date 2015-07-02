@@ -1,10 +1,8 @@
 package com.book.service;
 
 import com.book.entity.Blog;
-import com.book.entity.BlogItem;
 import com.book.entity.Role;
 import com.book.entity.User;
-import com.book.repository.BlogItemRepository;
 import com.book.repository.BlogRepository;
 import com.book.repository.RoleRepository;
 import com.book.repository.UserRepository;
@@ -31,8 +29,6 @@ public class UserService {
     @Autowired
     private BlogRepository blogRepository;
 
-    @Autowired
-    private BlogItemRepository itemRepository;
 
     public List<User> findAll() {
         return userRepository.findAll();
@@ -67,10 +63,6 @@ public class UserService {
     public User findOneWithBlogs(int id) {
         User user = findOne(id);
         List<Blog> blogs = blogRepository.findByUser(user);
-        for (Blog blog : blogs) {
-            List<BlogItem> items = itemRepository.findByBlog(blog, new PageRequest(0, 10, Sort.Direction.DESC, "publishedDate"));
-            blog.setBlogItems(items);
-        }
         user.setBlogs(blogs);
         return user;
     }

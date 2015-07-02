@@ -21,10 +21,18 @@
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Name:</label>
+                        <label for="name" class="col-sm-2 control-label">Заголовок:</label>
                         <div class="col-sm-10">
                             <form:input path="name" cssClass="form-control" />
                             <form:errors path="name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Текст:</label>
+                        <div class="col-sm-10">
+                            <form:input path="description" cssClass="form-control" />
+                            <form:errors path="description" />
                         </div>
                     </div>
 
@@ -43,7 +51,6 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.nav-tabs a:first').tab('show'); // Select first tab
         $(".triggerRemove").click(function(e) {
             e.preventDefault();
             $("#modalRemove .removeBtn").attr("href", $(this).attr("href"));
@@ -72,21 +79,6 @@
     });
 </script>
 
-<!-- Nav tabs -->
-<ul class="nav nav-tabs">
-    <c:forEach items="${user.blogs}" var="blog">
-        <li><a href="#blog_${blog.id}" data-toggle="tab"><c:out value="${blog.name}" /></a></li>
-    </c:forEach>
-</ul>
-
-<!-- Tab panes -->
-<div class="tab-content">
-    <c:forEach items="${user.blogs}" var="blog">
-        <div class="tab-pane" id="blog_${blog.id}">
-            <h1><c:out value="${blog.name}" /></h1>
-            <p>
-
-                <a href="<spring:url value="/blog/remove/${blog.id}.html" />" class="btn btn-danger triggerRemove">remove blog</a>
 
 
 
@@ -98,13 +90,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${blog.blogItems}" var="item">
+                <c:forEach items="${user.blogs}" var="item">
                     <tr>
                         <td><c:out value="${item.publishedDate}" /></td>
                         <td>
                             <strong>
-                                <a href="<c:out value="${item.link}" />" target="_blank">
-                                    <c:out value="${item.title}" />
+                                <a href="<%--<c:out value="${item.link}" />--%>" target="_blank">
+                                    <c:out value="${item.name}" />
                                 </a>
                             </strong>
                             <br />
@@ -114,9 +106,7 @@
                 </c:forEach>
                 </tbody>
             </table>
-        </div>
-    </c:forEach>
-</div>
+
 
 
 <!-- Modal -->
