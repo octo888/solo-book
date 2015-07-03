@@ -88,7 +88,8 @@
                         </ul>
                         <!-- end dropdown menu --></li>
 
-                    <li><a href="#">Рецензии</a></li>
+                    <li><a href="<spring:url value="/blogs.html">
+                                </spring:url>">Рецензии</a></li>
 
                     <security:authorize access="hasRole('ROLE_ADMIN')" >
 

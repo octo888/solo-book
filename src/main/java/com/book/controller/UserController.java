@@ -48,17 +48,6 @@ public class UserController {
         return "redirect:/account.html";
     }
 
-    @RequestMapping("/blog/remove/{id}")
-    public String removeBlog(@PathVariable int id) {
-        Blog blog = blogService.findOne(id);
-        blogService.delete(blog);
-        return "redirect:/account.html";
-    }
 
-    @RequestMapping("/blogs")
-    public String showBlogs(Model model) {
-        model.addAttribute("blogs", blogService.findAll());
-        return "blogs";
-    }
 
 }

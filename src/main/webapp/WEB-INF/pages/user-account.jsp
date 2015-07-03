@@ -89,7 +89,7 @@
                 <td><c:out value="${item.publishedDate}"/></td>
 
                 <td>
-                    <a href='<spring:url value="/blog/remove/${item.id}.html"  />' class="btn btn-danger triggerRemove">
+                    <a href='<spring:url value="/blogs/remove/${item.id}.html"  />' class="btn btn-danger triggerRemove">
                         Удалить </a>
                 </td>
             </tr>

@@ -5,6 +5,8 @@ import com.book.entity.User;
 import com.book.repository.BlogRepository;
 import com.book.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.access.method.P;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
@@ -52,6 +54,6 @@ public class BlogService {
     }
 
     public List<Blog> findAll() {
-        return blogRepository.findAll();
+        return blogRepository.findAll(new PageRequest(0, 10, Sort.Direction.DESC, "publishedDate")).getContent();
     }
 }
