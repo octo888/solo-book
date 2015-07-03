@@ -1,6 +1,7 @@
 package com.book.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Book {
@@ -18,6 +19,10 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "toplist_id")
+    private TopList topList;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id")
@@ -69,5 +74,13 @@ public class Book {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public TopList getTopList() {
+        return topList;
+    }
+
+    public void setTopList(TopList topList) {
+        this.topList = topList;
     }
 }
