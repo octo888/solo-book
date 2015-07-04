@@ -20,9 +20,9 @@ public class Book {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "toplist_id")
-    private TopList topList;
+    private List<TopList> topList;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id")
@@ -76,11 +76,11 @@ public class Book {
         this.category = category;
     }
 
-    public TopList getTopList() {
+    public List<TopList> getTopList() {
         return topList;
     }
 
-    public void setTopList(TopList topList) {
+    public void setTopList(List<TopList> topList) {
         this.topList = topList;
     }
 }

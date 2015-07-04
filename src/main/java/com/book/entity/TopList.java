@@ -1,7 +1,9 @@
 package com.book.entity;
 
 import javax.persistence.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 @Table(name = "toplist")
@@ -17,6 +19,9 @@ public class TopList {
 
     @OneToMany(mappedBy = "toplist", cascade = CascadeType.ALL)
     private List<Book> books;
+
+    @OneToMany(mappedBy = "position", cascade = CascadeType.ALL)
+    private Map<Integer, Book> position;
 
     public TopList() {
     }
