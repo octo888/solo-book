@@ -34,6 +34,9 @@ public class InitDBService {
     @Autowired
     private BlogRepository blogRepository;
 
+    @Autowired
+    private TopListRepository topListRepository;
+
     @PostConstruct
     public void init() {
         if (roleRepository.findByName("ROLE_ADMIN") == null) {
@@ -223,6 +226,9 @@ public class InitDBService {
                 blog.setUser(userAdmin);
                 blogRepository.save(blog);
             }
+
+            TopList topList = new TopList("ТОП Месяца", "topmonth");
+            topListRepository.save(topList);
 
 
         }

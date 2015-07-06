@@ -24,6 +24,7 @@ public class Book {
     @JoinColumn(name = "toplist_id")
     private List<TopList> topList;
 
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id")
     private Image image;

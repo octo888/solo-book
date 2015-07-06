@@ -17,11 +17,8 @@ public class TopList {
 
     private String title;
 
-    @OneToMany(mappedBy = "toplist", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "topList", cascade = CascadeType.ALL)
     private List<Book> books;
-
-    @OneToMany(mappedBy = "position", cascade = CascadeType.ALL)
-    private Map<Integer, Book> position;
 
     public TopList() {
     }

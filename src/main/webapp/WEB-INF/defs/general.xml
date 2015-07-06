@@ -87,7 +87,11 @@
         <put-attribute name="current" value="user" />
     </definition>
 
-
+    <definition name="toplist" extends="common">
+        <put-attribute name="title" value="SoloBook" />
+        <put-attribute name="body" value="/WEB-INF/pages/admin/toplist.jsp" />
+        <put-attribute name="current" value="toplist" />
+    </definition>
 
 
 </tiles-definitions>
