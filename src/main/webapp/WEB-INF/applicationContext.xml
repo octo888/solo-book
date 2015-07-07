@@ -19,22 +19,23 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <jpa:repositories base-package="com.book.repository" entity-manager-factory-ref="emf" transaction-manager-ref="transactionManager"/>
+    <jpa:repositories base-package="com.book.repository" entity-manager-factory-ref="emf"
+                      transaction-manager-ref="transactionManager"/>
 
 
     <task:annotation-driven/>
 
     <bean id="multipartResolver"
-          class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
     </bean>
 
-    <import resource="security.xml" />
+    <import resource="security.xml"/>
 
     <beans profile="dev">
         <import resource="database-dev.xml"/>
     </beans>
 
-    <!--<beans profile="prod">
+    <beans profile="prod">
         <import resource="database-prod.xml"/>
-    </beans>-->
+    </beans>
 </beans>
