@@ -4,7 +4,7 @@
 
 <div class="row">
 
-    <c:if test="${param.success eq true}" >
+    <c:if test="${success eq true}" >
         <div class="alert alert-success">Вы успешно зарегестрировались!</div>
     </c:if>
 
