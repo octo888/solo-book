@@ -7,6 +7,8 @@
 
     <a href='<spring:url value="/admin/categories/${category.title}/addbook.html"  />' class="btn btn-primary" >Добавить книгу</a>
 
+    <br/>
+    <br/>
     <table class="table table-bordered table-hover table-striped">
         <thead>
         <tr>

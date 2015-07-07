@@ -230,7 +230,7 @@
 
         <div class="list-group">
             <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Kale</h4>
+                <h4 class="list-group-item-heading">News 1</h4>
 
                 <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -241,7 +241,7 @@
             </a>
 
             <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Carrots</h4>
+                <h4 class="list-group-item-heading">News 2</h4>
 
                 <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -252,7 +252,7 @@
             </a>
 
             <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Meat</h4>
+                <h4 class="list-group-item-heading">News 3</h4>
 
                 <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

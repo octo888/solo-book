@@ -16,7 +16,7 @@
 }
 
 .wrapBody {
-    margin-top: 80px;
+    margin-top: 70px;
 }
 
 #categoryBooks {
@@ -27,8 +27,9 @@
 #categoryBooks img {
     margin: 0 15px;
 }
-#categoryPanel {
-    border-color: transparent;
+#categoryBooks, #categoryPanel {
+    border: none;
+    box-shadow: none;
 }
 /*#categoryBooks h5{
     white-space: nowrap;
@@ -91,9 +92,9 @@ footer {
    Carousel
    -------------------------------------- */
 
-#bigCarousel {
-    margin-top: 60px;
-}
+/*#bigCarousel {
+    margin-top: 20px;
+}*/
 
 #bigCarousel .item {
    height: 290px;

@@ -34,7 +34,7 @@
         <import resource="database-dev.xml"/>
     </beans>
 
-    <beans profile="prod">
+    <!--<beans profile="prod">
         <import resource="database-prod.xml"/>
-    </beans>
+    </beans>-->
 </beans>

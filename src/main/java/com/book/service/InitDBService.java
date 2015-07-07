@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -205,15 +206,6 @@ public class InitDBService {
             book16.setDescription("Прекрасный сборник фантастических рассказов");
             bookRepository.save(book16);
 
-            for (int i = 0; i < 16; i++) {
-                Book b = new Book();
-                b.setName("book " + i);
-                b.setAuthorName("Nobody " + i);
-                b.setCategory(love);
-                b.setDescription("ababagalamaga " + i);
-                bookRepository.save(b);
-            }
-
             for (int i = 0; i < 10; i++) {
                 Blog blog = new Blog();
                 blog.setName("Name " + i);
@@ -224,6 +216,7 @@ public class InitDBService {
                         "                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n" +
                         "                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
                 blog.setUser(userAdmin);
+                blog.setPublishedDate(new Date());
                 blogRepository.save(blog);
             }
 
