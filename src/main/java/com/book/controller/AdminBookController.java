@@ -41,30 +41,6 @@ public class AdminBookController {
     }
 
 
-    /*@RequestMapping(value = "/admin/categories/{title}/addbook", method = RequestMethod.POST)
-    public String doAddBook( @RequestParam(value="name") String name,
-                             @RequestParam(value="category") String category,
-                             @RequestParam(value="image") MultipartFile file,
-                             HttpServletRequest request,
-                             HttpServletResponse response)  {
-
-        try {
-            Image image =  new Image(file.getOriginalFilename(), file.getBytes());
-            bookService.saveImage(image);
-
-            Book book = new Book();
-            book.setName(name);
-            book.setImage(image);
-
-            bookService.save(book, category);
-            return "redirect:/categories.html";
-        } catch (IOException e) {
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            return null;
-        }
-
-    } */
-
     @RequestMapping("/{title}/remove/book/{id}")
     public String removeCategory(@PathVariable int id, @PathVariable String title) {
         bookService.delete(id);

@@ -5,10 +5,7 @@ import com.book.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/admin/categories")
@@ -43,6 +40,12 @@ public class AdminCategoryController {
     @RequestMapping("/remove/{id}")
     public String removeCategory(@PathVariable int id) {
         categoryService.delete(id);
+        return "redirect:/admin/categories.html";
+    }
+
+    @RequestMapping(value = "/rename/{id}", method = RequestMethod.POST)
+    public String renameCategory(@PathVariable int id, @RequestParam(value = "name") String name) {
+        categoryService.rename(id, name);
         return "redirect:/admin/categories.html";
     }
 }

@@ -8,15 +8,24 @@
         <tr>
             <th>Категория</th>
             <th>Действие</th>
+            <th>Действие</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${categories}" var="category">
             <tr>
+
                 <td>
                     <a href='<spring:url value="/admin/categories/${category.title}.html"/>'>
                         <c:out value="${category.name}"/> </a>
                 </td>
+
+                <td>
+                    <a href='<spring:url value="/admin/categories/rename/${category.id}.html" />'
+                       class="btn btn-info triggerRename">
+                        Переименовать</a>
+                </td>
+
                 <td>
                     <a href='<spring:url value="/admin/categories/remove/${category.id}.html" />'
                        class="btn btn-danger triggerRemove">
@@ -96,12 +105,50 @@
     </div>
 </div>
 
+<div class="modal fade" id="modalRename" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Переименовать категорию</h4>
+            </div>
+
+            <form role="form" class="form-horizontal" action="" method="post">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Название: </label>
+
+                        <div class="col-sm-10">
+                            <input id="test" type="text" name="name" class="form-control"/>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                    <input type="submit" class="btn btn-primary" value="Сохранить"/>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $(".triggerRemove").click(function (e) {
             e.preventDefault();
             $("#modalRemove .removeBtn").attr("href", $(this).attr("href"));
             $("#modalRemove").modal();
+        });
+        $(".triggerRename").click(function (e) {
+            e.preventDefault();
+            $("#modalRename .form-horizontal").attr("action", $(this).attr("href"));
+            $("#modalRename").modal();
         });
     });
 </script>
