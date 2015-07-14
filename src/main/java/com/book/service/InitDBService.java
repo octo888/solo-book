@@ -235,7 +235,7 @@ public class InitDBService {
             topLists.add(tophundred);
             topLists.add(topmonth);
 
-            book1.setTopList(topLists);
+            book1.setTopLists(topLists);
 
             bookRepository.saveAndFlush(book1);
 

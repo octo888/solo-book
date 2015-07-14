@@ -1,6 +1,7 @@
 package com.book.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,12 +23,15 @@ public class Book {
 
     @ManyToMany
     @JoinColumn(name = "toplist_id")
-    private List<TopList> topList;
+    private List<TopList> topLists;
 
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id")
     private Image image;
+
+
+    private List<Integer> rates = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -77,16 +81,19 @@ public class Book {
         this.category = category;
     }
 
-    public List<TopList> getTopList() {
-        return topList;
+    public List<TopList> getTopLists() {
+        return topLists;
     }
 
-    public void setTopList(List<TopList> topLists) {
-        this.topList = topLists;
+    public void setTopLists(List<TopList> topLists) {
+        this.topLists = topLists;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
+    public List<Integer> getRates() {
+        return rates;
+    }
+
+    public void setRates(List<Integer> rates) {
+        this.rates = rates;
     }
 }

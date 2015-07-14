@@ -17,7 +17,7 @@ public class TopList {
 
     private String title;
 
-    @ManyToMany(mappedBy = "topList", cascade = CascadeType.MERGE)
+    @ManyToMany(mappedBy = "topLists", cascade = CascadeType.MERGE)
     private List<Book> books;
 
     public TopList() {
