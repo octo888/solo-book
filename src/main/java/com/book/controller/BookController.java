@@ -18,7 +18,13 @@ public class BookController {
     private BookService bookService;
 
     @RequestMapping("/category/{title}/{id}")
-    public String showBook(Model model, @PathVariable int id) {
+    public String showBookInCategory(Model model, @PathVariable int id) {
+        model.addAttribute("book", bookService.findOne(id));
+        return "book";
+    }
+
+    @RequestMapping("/toplist/{title}/{id}")
+    public String showBookInTopList(Model model, @PathVariable int id) {
         model.addAttribute("book", bookService.findOne(id));
         return "book";
     }

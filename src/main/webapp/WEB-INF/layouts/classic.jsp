@@ -53,6 +53,7 @@
 
 <%@ taglib uri="http://tiles.apache.org/tags-tiles-extras"
            prefix="tilesx" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <tilesx:useAttribute name="current"/>
 
@@ -80,11 +81,10 @@
                                             data-toggle="dropdown">ТОП<strong class="caret"></strong></a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="#">Топ Месяца</a></li>
-
-                            <li><a href="#">Топ 100</a></li>
-
-                            <li><a href="#">Хиты продаж</a></li>
+                            <c:forEach items="${toplists}" var="toplist" >
+                                <li><a href='<spring:url value="/toplist/${toplist.title}.html"/>' >
+                                    <c:out value="${toplist.name}" /></a></li>
+                            </c:forEach>
                         </ul>
                         <!-- end dropdown menu --></li>
 

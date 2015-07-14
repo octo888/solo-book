@@ -18,7 +18,7 @@
                 1-99
             </td>
             <td>
-                <a href='<spring:url value="/admin/toplists/${toplist.title}/${book.id}.html"/>'>
+                <a href='<spring:url value="/toplist/${toplist.title}/${book.id}.html"/>'>
                     <c:out value="${book.name}" /> </a>
             </td>
             <td>

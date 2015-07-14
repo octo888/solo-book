@@ -8,7 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class TopListController {
+@RequestMapping("/admin/toplists")
+public class AdminTopListController {
 
     @Autowired
     private TopListService topListService;
@@ -18,33 +19,36 @@ public class TopListController {
         return new TopList();
     }
 
-    @RequestMapping("/admin/toplists")
+
+    @RequestMapping
     public String toplist(Model model) {
         model.addAttribute("toplists", topListService.findAll());
         return "toplists";
     }
 
-    @RequestMapping("/admin/toplists/{title}")
+    @RequestMapping("/{title}")
     public String topListDetail(Model model, @PathVariable String title) {
         model.addAttribute("toplist", topListService.findOneWithBooks(title));
         return "toplist-detail";
     }
 
-    @RequestMapping(value = "/admin/toplists", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public String doAddTopList(@ModelAttribute("toplist") TopList topList) {
         topListService.save(topList);
         return "redirect:/admin/toplists.html";
     }
 
-    @RequestMapping("/admin/toplists/remove/{id}")
+    @RequestMapping("/remove/{id}")
     public String removeTopList(@PathVariable int id) {
         topListService.delete(id);
         return "redirect:/admin/toplists.html";
     }
 
-    @RequestMapping(value = "/admin/toplists/rename/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/rename/{id}", method = RequestMethod.POST)
     public String renameTopList(@PathVariable int id, @RequestParam(value = "name") String name) {
         topListService.rename(id, name);
         return "redirect:/admin/toplists.html";
     }
+
+
 }
