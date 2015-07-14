@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/admin/categories")
+@RequestMapping("/admin/categories/{title}")
 public class AdminBookController {
 
     @Autowired
@@ -22,26 +22,26 @@ public class AdminBookController {
         return new Book();
     }
 
-    @RequestMapping("/{title}/{id}")
+    @RequestMapping("/{id}")
     public String showAdminBook(Model model, @PathVariable int id) {
         model.addAttribute("book", bookService.findOne(id));
         return "book";
     }
 
-    @RequestMapping("/{title}/addbook")
+    @RequestMapping("/addbook")
     public String showAddBook() {
         return "addbook";
     }
 
 
-    @RequestMapping(value = "/{title}/addbook", method = RequestMethod.POST)
+    @RequestMapping(value = "/addbook", method = RequestMethod.POST)
     public String doAddBook(@PathVariable String title, @ModelAttribute("add_book") Book book) {
         bookService.save(book, title);
         return "redirect:/admin/categories/{title}.html";
     }
 
 
-    @RequestMapping("/{title}/remove/book/{id}")
+    @RequestMapping("/remove/book/{id}")
     public String removeCategory(@PathVariable int id, @PathVariable String title) {
         bookService.delete(id);
         return "redirect:/admin/categories/{title}.html";

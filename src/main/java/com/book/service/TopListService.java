@@ -56,4 +56,19 @@ public class TopListService {
     public TopList findOne(String title) {
         return topListRepository.findOneByTitle(title);
     }
+
+    public void addBook(String title, String bookName) {
+        TopList topList = findOneWithBooks(title);
+
+        Book book = bookRepository.findOneByName(bookName);
+
+        List<TopList> bookTops = topListRepository.findByBooks(book);
+        bookTops.add(topList);
+
+        List<Book> books = bookRepository.findByTopList(topList, new PageRequest(0, 50, Sort.Direction.ASC, "name"));
+        books.add(book);
+
+        topList.setBooks(books);
+        topListRepository.saveAndFlush(topList);
+    }
 }

@@ -84,4 +84,9 @@ public class Book {
     public void setTopList(List<TopList> topLists) {
         this.topList = topLists;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

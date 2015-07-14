@@ -3,6 +3,19 @@
 
 <%@ include file="../../layouts/taglib.jsp" %>
 
+<form role="form" css="form-horizontal"  action="/admin/toplists/${toplist.title}.html" method="post">
+
+    <div class="form-group"><input type="text" class="form-control" name="name" placeholder="Name"></div>
+    <div class="form-group">
+        <form:select path="books" name="selectedBook" >
+            <form:option value="NONE" label="--- Select ---" />
+            <form:options items="${books}" />
+        </form:select>
+    </div>
+
+    <div class="form-group"><input type="submit" class="btn btn-primary" value="Добавить"></div>
+</form>
+
 <table class="table table-bordered table-hover table-striped">
     <thead>
     <tr>
