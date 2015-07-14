@@ -5,10 +5,7 @@ import com.book.service.TopListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class TopListController {
@@ -16,27 +13,38 @@ public class TopListController {
     @Autowired
     private TopListService topListService;
 
-    @RequestMapping("/admin/toplist")
-    public String toplist(Model model) {
-        model.addAttribute("toplist", topListService.findAll());
-        return "toplist";
+    @ModelAttribute("toplist")
+    public TopList constructToplist(){
+        return new TopList();
     }
 
-    @RequestMapping("/admin/toplist/{title}")
+    @RequestMapping("/admin/toplists")
+    public String toplist(Model model) {
+        model.addAttribute("toplists", topListService.findAll());
+        return "toplists";
+    }
+
+    @RequestMapping("/admin/toplists/{title}")
     public String topListDetail(Model model, @PathVariable String title) {
         model.addAttribute("toplist", topListService.findOneWithBooks(title));
         return "toplist-detail";
     }
 
-    @RequestMapping(value = "/admin/toplist", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/toplists", method = RequestMethod.POST)
     public String doAddTopList(@ModelAttribute("toplist") TopList topList) {
         topListService.save(topList);
-        return "redirect:/admin/toplist.html";
+        return "redirect:/admin/toplists.html";
     }
 
-    @RequestMapping("/admin/toplist/remove/{id}")
+    @RequestMapping("/admin/toplists/remove/{id}")
     public String removeTopList(@PathVariable int id) {
         topListService.delete(id);
-        return "redirect:/admin/toplist.html";
+        return "redirect:/admin/toplists.html";
+    }
+
+    @RequestMapping(value = "/admin/toplists/rename/{id}", method = RequestMethod.POST)
+    public String renameTopList(@PathVariable int id, @RequestParam(value = "name") String name) {
+        topListService.rename(id, name);
+        return "redirect:/admin/toplists.html";
     }
 }

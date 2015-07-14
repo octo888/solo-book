@@ -81,7 +81,7 @@ public class Book {
         return topList;
     }
 
-    public void setTopList(List<TopList> topList) {
-        this.topList = topList;
+    public void setTopList(List<TopList> topLists) {
+        this.topList = topLists;
     }
 }

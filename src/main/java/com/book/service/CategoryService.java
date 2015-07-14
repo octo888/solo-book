@@ -45,9 +45,6 @@ public class CategoryService {
         categoryRepository.delete(id);
     }
 
-    public Category findOne(int id) {
-        return categoryRepository.findOne(id);
-    }
 
     public void rename(int id, String name) {
         Category category = categoryRepository.findOne(id);
@@ -55,7 +52,4 @@ public class CategoryService {
         categoryRepository.saveAndFlush(category);
     }
 
-    public void merge() {
-
-    }
 }

@@ -37,9 +37,6 @@ public class BookService {
         Category category = categoryRepository.findOneByTitle(title);
         book.setCategory(category);
 
-       /* Image image = imageRepository.findOne(id);
-        book.setImage(image); */
-
         bookRepository.save(book);
     }
 

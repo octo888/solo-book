@@ -104,7 +104,7 @@
                                     href='<spring:url value="/admin/categories.html"/>'>Категории</a></li>
 
                             <li class="${current == 'toplist' ? 'active' : '' }"><a
-                                    href='<spring:url value="/admin/toplist.html"/>'>Топы</a></li>
+                                    href='<spring:url value="/admin/toplists.html"/>'>Топы</a></li>
 
                             <li><a href="<spring:url value="/account.html" />">Добавить рецензию</a></li>
                          </ul>

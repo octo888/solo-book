@@ -220,8 +220,27 @@ public class InitDBService {
                 blogRepository.save(blog);
             }
 
-            TopList topList = new TopList("ТОП Месяца", "topmonth");
-            topListRepository.save(topList);
+            List<TopList> topLists = new ArrayList<>();
+
+            TopList topmonth = new TopList("ТОП Месяца", "topmonth");
+            TopList tophundred = new TopList("ТОП 100", "tophundred");
+
+                List<Book> books = new ArrayList<>();
+                books.add(book1);
+                topmonth.setBooks(books);
+
+            topListRepository.save(topmonth);
+            topListRepository.save(tophundred);
+
+            topLists.add(tophundred);
+            topLists.add(topmonth);
+
+            book1.setTopList(topLists);
+
+            bookRepository.saveAndFlush(book1);
+
+
+
 
 
         }

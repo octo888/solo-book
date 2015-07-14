@@ -23,18 +23,18 @@ public class TopListService {
     @Autowired
     private BookRepository bookRepository;
 
-    @ModelAttribute("toplist")
-    public TopList constructTopList() {
-        return new TopList();
-    }
 
     public List<TopList> findAll() {
         return topListRepository.findAll();
     }
 
+
     public TopList findOneWithBooks(String title) {
+
         TopList topList = topListRepository.findOneByTitle(title);
+
         List<Book> books = bookRepository.findByTopList(topList, new PageRequest(0, 50, Sort.Direction.ASC, "name"));
+
         topList.setBooks(books);
         return topList;
     }
@@ -45,5 +45,15 @@ public class TopListService {
 
     public void delete(int id) {
         topListRepository.delete(id);
+    }
+
+    public void rename(int id, String name) {
+        TopList topList = topListRepository.findOne(id);
+        topList.setName(name);
+        topListRepository.saveAndFlush(topList);
+    }
+
+    public TopList findOne(String title) {
+        return topListRepository.findOneByTitle(title);
     }
 }
