@@ -1,14 +1,16 @@
 package com.book.controller;
 
 import com.book.entity.Book;
+import com.book.entity.Image;
 import com.book.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/admin/categories/{title}")
@@ -34,10 +36,29 @@ public class AdminBookController {
     }
 
 
-    @RequestMapping(value = "/addbook", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/addbook", method = RequestMethod.POST)
     public String doAddBook(@PathVariable String title, @ModelAttribute("add_book") Book book) {
         bookService.save(book, title);
         return "redirect:/admin/categories/{title}.html";
+    }*/
+
+    @RequestMapping(value = "/addbook", method = RequestMethod.POST)
+    public String doAddBook(@PathVariable String title, @RequestParam(value = "name") String name,
+                            @RequestParam(value = "image") MultipartFile image,
+                            HttpServletResponse response) {
+
+        try {
+            Book book = new Book();
+            book.setName(name);
+            book.setImage(image.isEmpty() ? null : new Image(image.getOriginalFilename(), image.getBytes()));
+
+            bookService.save(book, title);
+            return "redirect:/admin/categories/{title}.html";
+        } catch (IOException e) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            return null;
+        }
+
     }
 
 

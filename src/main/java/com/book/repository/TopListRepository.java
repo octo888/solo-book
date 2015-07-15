@@ -11,6 +11,5 @@ import java.util.List;
 public interface TopListRepository extends JpaRepository<TopList, Integer> {
     TopList findOneByTitle(String title);
 
-
     List<TopList> findByBooks(Book book);
 }

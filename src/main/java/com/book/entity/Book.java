@@ -30,8 +30,8 @@ public class Book {
     @JoinColumn(name = "image_id")
     private Image image;
 
-
-    private List<Integer> rates = new ArrayList<>();
+    @ElementCollection
+    private List<Integer> rates;
 
     public Integer getId() {
         return id;

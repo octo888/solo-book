@@ -64,6 +64,8 @@ public class TopListService {
         List<TopList> bookTops = topListRepository.findByBooks(book);
         bookTops.add(topList);
 
+        book.setTopLists(bookTops);
+
         List<Book> books = bookRepository.findByTopLists(topList, new PageRequest(0, 50, Sort.Direction.ASC, "name"));
         books.add(book);
 

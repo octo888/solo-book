@@ -10,6 +10,7 @@ import com.book.repository.RateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -50,4 +51,6 @@ public class BookService {
     public void delete(int id) {
         bookRepository.delete(id);
     }
+
+
 }
