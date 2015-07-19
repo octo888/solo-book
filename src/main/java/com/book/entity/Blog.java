@@ -27,6 +27,10 @@ public class Blog {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public String getDateAsString() {
+        return null;
+    }
+
     public Integer getId() {
         return id;
     }

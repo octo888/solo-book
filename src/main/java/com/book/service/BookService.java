@@ -27,8 +27,6 @@ public class BookService {
     @Autowired
     private ImageRepository imageRepository;
 
-    @Autowired
-    private RateRepository rateRepository;
 
     public List<Book> findAll() {
         return bookRepository.findAll();
@@ -44,13 +42,20 @@ public class BookService {
         bookRepository.save(book);
     }
 
-    public void saveImage(Image image) {
-        imageRepository.save(image);
-    }
 
     public void delete(int id) {
         bookRepository.delete(id);
     }
 
+    public Image getImage(int id) {
+        return imageRepository.findOne(id);
+    }
 
+
+    /*public Book findOneWithImage(int id) {
+        Book book = bookRepository.findOne(id);
+        Image image = imageRepository.findByBook(book);
+        book.setImage(image);
+        return book;
+    }*/
 }

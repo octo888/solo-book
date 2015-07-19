@@ -34,7 +34,7 @@ public class BlogService {
         String date = sdf.format(new Date());
         try {
             Date pubDate = sdf.parse(date);
-            blog.setPublishedDate(pubDate);
+            blog.setPublishedDate(new Date());
         } catch (ParseException e) {
             e.printStackTrace();
         }

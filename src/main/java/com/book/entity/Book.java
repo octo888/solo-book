@@ -96,4 +96,11 @@ public class Book {
     public void setRates(List<Integer> rates) {
         this.rates = rates;
     }
+
+
+
+    @Override
+    public String toString() {
+        return name ;
+    }
 }

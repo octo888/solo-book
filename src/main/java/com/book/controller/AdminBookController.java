@@ -31,7 +31,8 @@ public class AdminBookController {
     }
 
     @RequestMapping("/addbook")
-    public String showAddBook() {
+    public String showAddBook(Model model, @PathVariable String title) {
+        model.addAttribute("title", title);
         return "addbook";
     }
 
@@ -50,6 +51,7 @@ public class AdminBookController {
         try {
             Book book = new Book();
             book.setName(name);
+
             book.setImage(image.isEmpty() ? null : new Image(image.getOriginalFilename(), image.getBytes()));
 
             bookService.save(book, title);

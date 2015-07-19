@@ -8,7 +8,7 @@
     <div class="media" >
 
         <div class="media-left" >
-            <img src="http://placehold.it/200x300" class="media-object pull-left">
+            <img src="/image/imageDisplay?id=${book.image.id}" class="media-object pull-left">
         </div>
             <div class="media-heading">
                 <h4><b>Название: </b> <c:out value="${book.name}"/></h4>

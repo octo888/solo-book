@@ -4,7 +4,7 @@
 <%@ include file="../../layouts/taglib.jsp"%>
 
 
-<form role="form"  enctype="multipart/form-data" class="form-horizontal"  action="/admin/categories/{title}/addbook.html"
+<form role="form"  enctype="multipart/form-data" class="form-horizontal"  action="/admin/categories/${title}/addbook.html"
       method="post">
 
     <div class="form-group"><input type="text" class="form-control" name="name" placeholder="Name"></div>
