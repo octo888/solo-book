@@ -20,7 +20,7 @@
         <c:forEach items="${category.books}" var="book">
             <tr>
                 <td>
-                    <a href='<spring:url value="/admin/categories/${category.title}/${book.id}.html"/>'>
+                    <a href='<spring:url value="/category/${category.title}/${book.id}.html"/>'>
                         <c:out value="${book.name}" /> </a>
                 </td>
                 <td>

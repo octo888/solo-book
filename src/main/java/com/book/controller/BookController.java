@@ -1,7 +1,9 @@
 package com.book.controller;
 
+import com.book.entity.Book;
 import com.book.entity.Image;
 import com.book.service.BookService;
+import com.book.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +15,13 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
+    @Autowired
+    private CategoryService categoryService;
+
     @RequestMapping("/category/{title}/{id}")
-    public String showBookInCategory(Model model, @PathVariable int id) {
-        model.addAttribute("book", bookService.findOne(id));
+    public String showBookInCategory(Model model, @PathVariable int id, @PathVariable String title) {
+        model.addAttribute("book", bookService.findOneAndCountRate(id));
+        model.addAttribute("category", categoryService.findOneByTitle(title));
         return "book";
     }
 
@@ -23,6 +29,12 @@ public class BookController {
     public String showBookInTopList(Model model, @PathVariable int id) {
         model.addAttribute("book", bookService.findOne(id));
         return "book";
+    }
+
+    @RequestMapping(value = "/category/{title}/rate/{id}")
+    public String doAddRate(@PathVariable int id, @RequestParam(value = "rate") Integer rate) {
+        bookService.addRate(id, rate);
+        return "redirect:/category/{title}/{id}.html";
     }
 
     /*@RequestMapping("/image/{file_id}")
@@ -50,13 +62,13 @@ public class BookController {
             response.getOutputStream().close();
     }*/
 
-    @RequestMapping(value = "/image/imageDisplay", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/image/imageDisplay", method = RequestMethod.GET)
     @ResponseBody
     public byte[] showImage(@RequestParam("id") Integer id)
     {
         Image image = bookService.getImage(id);
         return image.getBody();
-    }
+    }*/
 
 
 

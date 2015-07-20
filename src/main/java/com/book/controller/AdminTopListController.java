@@ -45,15 +45,13 @@ public class AdminTopListController {
     }
 
 
-
-
     @RequestMapping(value = "/{title}", method = RequestMethod.POST)
-    public String doAddBooksInTopList(@RequestParam(value = "selectedBook") String bookName, @PathVariable String title) {
+    public String doAddBooksInTopList(@RequestParam(value = "selectedBook") String bookName,
+                                      @RequestParam(value = "key") Integer key,
+                                      @PathVariable String title) {
         topListService.addBook(title, bookName);
         return "redirect:/admin/toplists/{title}.html";
     }
-
-
 
 
     @RequestMapping("/remove/{id}")

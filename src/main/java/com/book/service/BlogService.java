@@ -29,17 +29,7 @@ public class BlogService {
 
     public void save(Blog blog, String name) {
         User user = userRepository.findByName(name);
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy 'в' HH:mm");
-        String date = sdf.format(new Date());
-        try {
-            Date pubDate = sdf.parse(date);
-            blog.setPublishedDate(new Date());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-
+        blog.setPublishedDate(new Date());
         blog.setUser(user);
         blogRepository.save(blog);
     }

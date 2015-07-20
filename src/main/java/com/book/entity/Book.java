@@ -30,8 +30,10 @@ public class Book {
     @JoinColumn(name = "image_id")
     private Image image;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<Integer> rates;
+
+    private Double rate;
 
     public Integer getId() {
         return id;
@@ -97,7 +99,13 @@ public class Book {
         this.rates = rates;
     }
 
+    public Double getRate() {
+        return rate;
+    }
 
+    public void setRate(Double rate) {
+        this.rate = rate;
+    }
 
     @Override
     public String toString() {

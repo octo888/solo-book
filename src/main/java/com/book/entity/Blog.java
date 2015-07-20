@@ -3,6 +3,7 @@ package com.book.entity;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -27,9 +28,6 @@ public class Blog {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public String getDateAsString() {
-        return null;
-    }
 
     public Integer getId() {
         return id;
@@ -70,4 +68,6 @@ public class Blog {
     public void setPublishedDate(Date publishedDate) {
         this.publishedDate = publishedDate;
     }
+
+
 }

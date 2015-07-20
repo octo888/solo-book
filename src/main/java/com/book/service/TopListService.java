@@ -32,7 +32,7 @@ public class TopListService {
 
         TopList topList = topListRepository.findOneByTitle(title);
 
-        List<Book> books = bookRepository.findByTopLists(topList, new PageRequest(0, 50, Sort.Direction.ASC, "name"));
+        List<Book> books = bookRepository.findByTopLists(topList);
 
         topList.setBooks(books);
         return topList;
@@ -66,7 +66,7 @@ public class TopListService {
 
         book.setTopLists(bookTops);
 
-        List<Book> books = bookRepository.findByTopLists(topList, new PageRequest(0, 50, Sort.Direction.ASC, "name"));
+        List<Book> books = bookRepository.findByTopLists(topList);
         books.add(book);
 
         topList.setBooks(books);

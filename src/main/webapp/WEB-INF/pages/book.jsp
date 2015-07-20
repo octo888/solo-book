@@ -8,7 +8,7 @@
     <div class="media" >
 
         <div class="media-left" >
-            <img src="/image/imageDisplay?id=${book.image.id}.jpg" class="media-object pull-left">
+            <img src="http://placehold.it/100x150" class="media-object pull-left">
         </div>
             <div class="media-heading">
                 <h4><b>Название: </b> <c:out value="${book.name}"/></h4>
@@ -23,6 +23,19 @@
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
+        <form role="form" action="/category/${category.title}/rate/${book.id}.html" class="form-inline">
+            <div class="form-group">
+                <input id="input-id" type="number" name="rate" min=0 max=5 step=1 data-size="xs" data-rtl="false">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Rate">
+            </div>
+        </form>
     </div>
 
+    <c:forEach items="${book.rates}" var="rate">
+        <h4>${rate}</h4>
+    </c:forEach>
+
+    <h4>${book.rate}</h4>
 </div>
