@@ -1,18 +1,11 @@
 package com.book.controller;
 
-import com.book.entity.Book;
 import com.book.entity.Image;
 import com.book.service.BookService;
-import com.book.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @Controller
 public class BookController {
@@ -45,7 +38,7 @@ public class BookController {
 
     }*/
 
-    @RequestMapping(value = "/image/imageDisplay", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/image/imageDisplay", method = RequestMethod.GET)
     @ResponseBody
     public void showImage(@RequestParam("id") Integer id, HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
@@ -55,8 +48,16 @@ public class BookController {
             response.getOutputStream().write(image.getBody());
             response.getOutputStream().flush();
             response.getOutputStream().close();
+    }*/
 
-
+    @RequestMapping(value = "/image/imageDisplay", method = RequestMethod.GET)
+    @ResponseBody
+    public byte[] showImage(@RequestParam("id") Integer id)
+    {
+        Image image = bookService.getImage(id);
+        return image.getBody();
     }
+
+
 
 }
