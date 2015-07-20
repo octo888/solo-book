@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 @Transactional
@@ -220,22 +218,17 @@ public class InitDBService {
                 blogRepository.save(blog);
             }
 
-            List<TopList> topLists = new ArrayList<>();
+
 
             TopList topmonth = new TopList("ТОП Месяца", "topmonth");
             TopList tophundred = new TopList("ТОП 100", "tophundred");
 
-                List<Book> books = new ArrayList<>();
-                books.add(book1);
-                topmonth.setBooks(books);
+            Map<Integer, Book> books = new HashMap<>();
+            books.put(1, book1);
+            topmonth.setBooks(books);
 
             topListRepository.save(topmonth);
             topListRepository.save(tophundred);
-
-            topLists.add(tophundred);
-            topLists.add(topmonth);
-
-            book1.setTopLists(topLists);
 
             bookRepository.saveAndFlush(book1);
 

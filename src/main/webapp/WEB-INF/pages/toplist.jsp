@@ -15,11 +15,11 @@
   <c:forEach items="${toplist.books}" var="book">
     <tr>
       <td>
-        1-99
+        <c:out value="${book.key}" />
       </td>
       <td>
-        <a href='<spring:url value="/toplist/${toplist.title}/${book.id}.html"/>'>
-          <c:out value="${book.name}" /> </a>
+        <a href='<spring:url value="/toplist/${toplist.title}/${book.value.id}.html"/>'>
+          <c:out value="${book.value.name}" /> </a>
       </td>
 
 

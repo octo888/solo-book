@@ -10,7 +10,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -28,14 +30,10 @@ public class TopListService {
     }
 
 
-    public TopList findOneWithBooks(String title) {
+    public TopList findOneByTitle(String title) {
 
-        TopList topList = topListRepository.findOneByTitle(title);
+        return topListRepository.findOneByTitle(title);
 
-        List<Book> books = bookRepository.findByTopLists(topList);
-
-        topList.setBooks(books);
-        return topList;
     }
 
     public void save(TopList topList) {
@@ -52,22 +50,14 @@ public class TopListService {
         topListRepository.saveAndFlush(topList);
     }
 
-    public TopList findOne(String title) {
-        return topListRepository.findOneByTitle(title);
-    }
 
-    public void addBook(String title, String bookName) {
-        TopList topList = findOneWithBooks(title);
+    public void addBook(String title, String bookName, Integer key) {
+        TopList topList = topListRepository.findOneByTitle(title);
 
         Book book = bookRepository.findOneByName(bookName);
 
-        List<TopList> bookTops = topListRepository.findByBooks(book);
-        bookTops.add(topList);
-
-        book.setTopLists(bookTops);
-
-        List<Book> books = bookRepository.findByTopLists(topList);
-        books.add(book);
+        Map<Integer, Book> books = topList.getBooks();
+        books.put(key, book);
 
         topList.setBooks(books);
         topListRepository.saveAndFlush(topList);

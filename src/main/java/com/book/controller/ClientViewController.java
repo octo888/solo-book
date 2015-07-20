@@ -29,7 +29,7 @@ public class ClientViewController {
 
     @RequestMapping("/toplist/{title}")
     public String toplist(Model model, @PathVariable String title) {
-        model.addAttribute("toplist", topListService.findOneWithBooks(title));
+        model.addAttribute("toplist", topListService.findOneByTitle(title));
         return "toplist";
     }
 

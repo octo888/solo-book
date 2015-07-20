@@ -33,7 +33,7 @@ public class AdminTopListController {
 
     @RequestMapping("/{title}")
     public String topListDetail(Model model, @PathVariable String title) {
-        model.addAttribute("toplist", topListService.findOneWithBooks(title));
+        model.addAttribute("toplist", topListService.findOneByTitle(title));
         model.addAttribute("books", bookService.findAll());
         return "toplist-detail";
     }
@@ -49,7 +49,7 @@ public class AdminTopListController {
     public String doAddBooksInTopList(@RequestParam(value = "selectedBook") String bookName,
                                       @RequestParam(value = "key") Integer key,
                                       @PathVariable String title) {
-        topListService.addBook(title, bookName);
+        topListService.addBook(title, bookName, key);
         return "redirect:/admin/toplists/{title}.html";
     }
 

@@ -17,8 +17,8 @@ public class TopList {
 
     private String title;
 
-    @ManyToMany(mappedBy = "topLists", cascade = CascadeType.MERGE)
-    private List<Book> books;
+    @ManyToMany(fetch = FetchType.EAGER) /*(mappedBy = "topLists", cascade = CascadeType.MERGE) оставлю для напоминания*/
+    private Map<Integer, Book> books;
 
     public TopList() {
     }
@@ -52,11 +52,11 @@ public class TopList {
         this.title = title;
     }
 
-    public List<Book> getBooks() {
+    public Map<Integer, Book> getBooks() {
         return books;
     }
 
-    public void setBooks(List<Book> books) {
+    public void setBooks(Map<Integer, Book> books) {
         this.books = books;
     }
 
