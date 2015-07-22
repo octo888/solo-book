@@ -12,7 +12,7 @@
             <img src="http://placehold.it/150x200">
             <div class="caption">
                 <h5>Оценка: ${book.rate}</h5>
-                <form role="form" action="/category/${category.title}/rate/${book.id}.html"
+                <form role="form" action="<%--/category/${category.title}--%>/rate/${book.id}.html"
                       class="form-inline" style="max-width:100px">
                     <div class="input-group">
 

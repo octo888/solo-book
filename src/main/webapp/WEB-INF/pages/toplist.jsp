@@ -18,7 +18,7 @@
         <c:out value="${book.key}" />
       </td>
       <td>
-        <a href='<spring:url value="/toplist/${toplist.title}/${book.value.id}.html"/>'>
+        <a href='<spring:url value="/${book.value.id}.html"/>'>
           <c:out value="${book.value.name}" /> </a>
       </td>
 

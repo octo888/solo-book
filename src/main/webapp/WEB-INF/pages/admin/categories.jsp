@@ -60,16 +60,14 @@
 
                             <div class="col-sm-8">
                                 <form:input path="name" cssClass="form-control"/>
-                                <form:errors path="name"/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">Title:</label>
+                            <label for="title" class="col-sm-2 control-label">Title:</label>
 
                             <div class="col-sm-8">
                                 <form:input path="title" cssClass="form-control"/>
-                                <form:errors path="title"/>
                             </div>
                         </div>
 

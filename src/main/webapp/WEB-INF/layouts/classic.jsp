@@ -106,6 +106,9 @@
                             <li class="${current == 'toplist' ? 'active' : '' }"><a
                                     href='<spring:url value="/admin/toplists.html"/>'>Топы</a></li>
 
+                            <li class="${current == 'newsblog' ? 'active' : '' }"><a
+                                    href='<spring:url value="/admin/newsblog.html"/>'>Новости</a></li>
+
                             <li><a href="<spring:url value="/account.html" />">Добавить рецензию</a></li>
                          </ul>
                         </li>

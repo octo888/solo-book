@@ -24,6 +24,7 @@ public class UserController {
     @Autowired
     private BlogService blogService;
 
+
     @ModelAttribute("blog")
     public Blog constructBlog() {
         return new Blog();

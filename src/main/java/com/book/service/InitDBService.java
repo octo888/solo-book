@@ -36,6 +36,9 @@ public class InitDBService {
     @Autowired
     private TopListRepository topListRepository;
 
+    @Autowired
+    private NewsBlogRepository newsBlogRepository;
+
     @PostConstruct
     public void init() {
         if (roleRepository.findByName("ROLE_ADMIN") == null) {
@@ -232,10 +235,20 @@ public class InitDBService {
 
             bookRepository.saveAndFlush(book1);
 
-
-
-
-
+            {
+                NewsBlog bookNews = new NewsBlog();
+                bookNews.setName("BookBrowse");
+                bookNews
+                        .setUrl("https://www.bookbrowse.com/rss/book_news.rss");
+                newsBlogRepository.save(bookNews);
+            }
+            /*{
+                NewsBlog bookNews = new NewsBlog();
+                bookNews.setName("NyTimes");
+                bookNews
+                        .setUrl("http://www.nytimes.com/services/xml/rss/nyt/Books.xml");
+                newsBlogRepository.save(bookNews);
+            }*/
         }
 
     }

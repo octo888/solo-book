@@ -18,23 +18,18 @@ public class BookController {
     @Autowired
     private CategoryService categoryService;
 
-    @RequestMapping("/category/{title}/{id}")
-    public String showBookInCategory(Model model, @PathVariable int id, @PathVariable String title) {
+    @RequestMapping("/{id}")
+    public String showBook(Model model, @PathVariable int id) {
         model.addAttribute("book", bookService.findOneAndCountRate(id));
-        model.addAttribute("category", categoryService.findOneByTitle(title));
+        /*model.addAttribute("category", categoryService.findOneByTitle(title));*/
         return "book";
     }
 
-    @RequestMapping("/toplist/{title}/{id}")
-    public String showBookInTopList(Model model, @PathVariable int id) {
-        model.addAttribute("book", bookService.findOne(id));
-        return "book";
-    }
 
-    @RequestMapping(value = "/category/{title}/rate/{id}")
+    @RequestMapping(value = "/rate/{id}")
     public String doAddRate(@PathVariable int id, @RequestParam(value = "rate") Integer rate) {
         bookService.addRate(id, rate);
-        return "redirect:/category/{title}/{id}.html";
+        return "redirect:/{id}.html";
     }
 
     /*@RequestMapping("/image/{file_id}")
