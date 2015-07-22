@@ -72,7 +72,7 @@ public class BookService {
                 sum += rates.get(i);
             }
             double res = (double) sum / divider;
-            res = new BigDecimal(res).setScale(2, RoundingMode.UP).doubleValue();
+            res = new BigDecimal(res).setScale(1, RoundingMode.UP).doubleValue();
             book.setRate(res);
             bookRepository.saveAndFlush(book);
         }

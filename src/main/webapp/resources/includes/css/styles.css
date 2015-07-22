@@ -31,11 +31,7 @@
     border: none;
     box-shadow: none;
 }
-/*#categoryBooks h5{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}*/
+
 
 /* for fix footer */
 html {
@@ -92,9 +88,6 @@ footer {
    Carousel
    -------------------------------------- */
 
-/*#bigCarousel {
-    margin-top: 20px;
-}*/
 
 #bigCarousel .item {
    height: 290px;
@@ -219,4 +212,9 @@ footer {
 #slide3 {
       background: url('../../images/carousel/image3_lg.jpg') top center no-repeat;
    }
+}
+
+#book-img {
+    border: none;
+    box-shadow: none;
 }
