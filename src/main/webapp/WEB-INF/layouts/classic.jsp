@@ -77,18 +77,11 @@
                     <li class="${current == 'index' ? 'active' : '' }"><a
                             href="<spring:url value="/index.html"/>">Главная</a></li>
 
-                    <li class="dropdown"><a href="#" class="dropdown-toggle"
-                                            data-toggle="dropdown">ТОП<strong class="caret"></strong></a>
 
-                        <ul class="dropdown-menu">
-                            <c:forEach items="${toplists}" var="toplist" >
-                                <li><a href='<spring:url value="/toplist/${toplist.title}.html"/>' >
-                                    <c:out value="${toplist.name}" /></a></li>
-                            </c:forEach>
-                        </ul>
-                        <!-- end dropdown menu --></li>
+                    <li class="${current == 'toplists' ? 'active' : '' }"><a href="<spring:url value="/toplists.html">
+                                </spring:url>">Списки лучших</a></li>
 
-                    <li><a href="<spring:url value="/blogs.html">
+                    <li class="${current == 'blogs' ? 'active' : '' }"><a href="<spring:url value="/blogs.html">
                                 </spring:url>">Рецензии</a></li>
 
                     <security:authorize access="hasRole('ROLE_ADMIN')" >
@@ -96,6 +89,8 @@
                     <li class="dropdown"><a href="#" class="dropdown-toggle"
                                             data-toggle="dropdown">АдминПанель<strong class="caret"></strong></a>
                         <ul class="dropdown-menu">
+
+                            <li><a href="<spring:url value="/admin/addbook.html" />">Добавить книгу</a></li>
 
                             <li class="${current == 'users' ? 'active' : '' }"><a
                                     href='<spring:url value="/admin/users.html"/>'>Пользователи</a></li>

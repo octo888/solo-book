@@ -1,5 +1,7 @@
 package com.book.entity;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,6 +16,9 @@ public class Book {
 
     private String authorName;
 
+    @Lob
+    @Type(type = "org.hibernate.type.StringClobType")
+    @Column(length = Integer.MAX_VALUE)
     private String description;
 
     @ManyToOne

@@ -28,7 +28,7 @@ public class AdminTopListController {
     @RequestMapping
     public String toplist(Model model) {
         model.addAttribute("toplists", topListService.findAll());
-        return "toplists";
+        return "toplists-admin";
     }
 
     @RequestMapping("/{title}")
@@ -66,5 +66,10 @@ public class AdminTopListController {
         return "redirect:/admin/toplists.html";
     }
 
+    @RequestMapping("/{title}/remove/book/{id}")
+    public String removeBookFromToplist(@PathVariable int id, @PathVariable String title) {
+        topListService.removeBook(title, id);
+        return "redirect:/admin/toplists/{title}.html";
+    }
 
 }

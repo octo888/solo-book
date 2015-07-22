@@ -1,8 +1,10 @@
 package com.book.controller;
 
 import com.book.entity.Book;
+import com.book.entity.Category;
 import com.book.entity.Image;
 import com.book.service.BookService;
+import com.book.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,49 +15,42 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
-@RequestMapping("/admin/categories/{title}")
 public class AdminBookController {
 
     @Autowired
     private BookService bookService;
 
-    @ModelAttribute("add_book")
-    public Book constructBook() {
-        return new Book();
-    }
+    @Autowired
+    private CategoryService categoryService;
 
-    @RequestMapping("/{id}")
-    public String showAdminBook(Model model, @PathVariable int id) {
-        model.addAttribute("book", bookService.findOne(id));
-        return "book";
-    }
-
-    @RequestMapping("/addbook")
-    public String showAddBook(Model model, @PathVariable String title) {
-        model.addAttribute("title", title);
+    @RequestMapping("/admin/addbook")
+    public String showAddBook(Model model) {
+        model.addAttribute("categories", categoryService.findAll());
         return "addbook";
     }
 
 
-    /*@RequestMapping(value = "/addbook", method = RequestMethod.POST)
-    public String doAddBook(@PathVariable String title, @ModelAttribute("add_book") Book book) {
-        bookService.save(book, title);
-        return "redirect:/admin/categories/{title}.html";
-    }*/
-
-    @RequestMapping(value = "/addbook", method = RequestMethod.POST)
-    public String doAddBook(@PathVariable String title, @RequestParam(value = "name") String name,
+    @RequestMapping(value = "/admin/addbook", method = RequestMethod.POST)
+    public String doAddBook(@RequestParam(value = "selectCategory") String categoryName,
+                            @RequestParam(value = "name") String name,
+                            @RequestParam(value = "authorName") String authorName,
+                            @RequestParam(value = "description") String description,
                             @RequestParam(value = "image") MultipartFile image,
                             HttpServletResponse response) {
 
         try {
+            Category category = categoryService.findOneByName(categoryName);
+
             Book book = new Book();
             book.setName(name);
+            book.setAuthorName(authorName);
+            book.setDescription(description);
+            book.setCategory(category);
 
             book.setImage(image.isEmpty() ? null : new Image(image.getOriginalFilename(), image.getBytes()));
 
-            bookService.save(book, title);
-            return "redirect:/admin/categories/{title}.html";
+            bookService.save(book);
+            return "redirect:/admin/addbook.html";
         } catch (IOException e) {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             return null;
@@ -64,8 +59,8 @@ public class AdminBookController {
     }
 
 
-    @RequestMapping("/remove/book/{id}")
-    public String removeCategory(@PathVariable int id, @PathVariable String title) {
+    @RequestMapping("/admin/categories/{title}/remove/book/{id}")
+    public String removeBook(@PathVariable int id, @PathVariable String title) {
         bookService.delete(id);
         return "redirect:/admin/categories/{title}.html";
     }

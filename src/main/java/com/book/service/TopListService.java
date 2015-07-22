@@ -62,4 +62,18 @@ public class TopListService {
         topList.setBooks(books);
         topListRepository.saveAndFlush(topList);
     }
+
+    public void removeBook(String title, int id) {
+        TopList topList = topListRepository.findOneByTitle(title);
+
+        Book book = bookRepository.findOne(id);
+
+        Map<Integer, Book> books = topList.getBooks();
+
+        while (books.values().remove(book));
+
+        topList.setBooks(books);
+        topListRepository.saveAndFlush(topList);
+
+    }
 }

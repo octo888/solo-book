@@ -37,9 +37,9 @@ public class BookService {
         return bookRepository.findOne(id);
     }
 
-    public void save(Book book, String title) {
-        Category category = categoryRepository.findOneByTitle(title);
-        book.setCategory(category);
+    public void save(Book book) {
+        /*Category category = categoryRepository.findOneByTitle(title);
+        book.setCategory(category);*/
         bookRepository.save(book);
     }
 

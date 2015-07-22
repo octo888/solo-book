@@ -1,50 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 
-<%@ include file="../../layouts/taglib.jsp"%>
+<%@ include file="../../layouts/taglib.jsp" %>
 
 
-<form role="form"  enctype="multipart/form-data" class="form-horizontal"  action="/admin/categories/${title}/addbook.html"
+<form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/addbook.html"
       method="post">
 
-    <div class="form-group"><input type="text" class="form-control" name="name" placeholder="Name"></div>
-    <div class="form-group">Image: <input type="file" name="image"></div>
-
-    <div class="form-group"><input type="submit" class="btn btn-primary" value="Add"></div>
-</form>
-
-
-<%--<form:form commandName="add_book"
-           cssClass="form-horizontal" enctype="multipart/form-data" >
-
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">Название:</label>
+        <label for="bookName" class="col-sm-2 control-label">Название:</label>
+
         <div class="col-sm-8">
-            <form:input path="name" cssClass="form-control" />
-            <form:errors path="name" />
+            <input type="text" id="bookName" class="form-control" name="name" placeholder="Название">
         </div>
     </div>
-
     <div class="form-group">
         <label for="authorName" class="col-sm-2 control-label">Автор:</label>
+
         <div class="col-sm-8">
-            <form:input path="authorName" cssClass="form-control" />
-            <form:errors path="authorName" />
+            <input type="text" id="authorName" class="form-control col-sm-8" name="authorName" placeholder="Автор">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="bookDescription" class="col-sm-2 control-label">Описание:</label>
+
+        <div class="col-sm-8">
+            <textarea id="bookDescription" class="form-control" name="description" rows="5"></textarea>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="description" class="col-sm-2 control-label">Описание:</label>
+        <label for="selectCategory" class="col-sm-2 control-label">Выберите категорию</label>
+
         <div class="col-sm-8">
-            <form:input path="description" cssClass="form-control" />
-            <form:errors path="description" />
+            <form:select path="categories" name="selectCategory" cssClass="form-control">
+                <form:option value="NONE" label="--- Select ---"/>
+                <form:options items="${categories}"/>
+            </form:select>
         </div>
     </div>
 
+    <div class="form-group">
+        <label for="bookImage" class="col-sm-2 control-label">Изображение:</label>
+
+        <div class="col-sm-8">
+            <input class="form-control" type="file" id="bookImage" name="image"></div>
+    </div>
     <div class="form-group">
         <div class="col-sm-10">
-            <input type="submit" value="Сохранить" class="btn btn-lg btn-primary pull-right" />
+            <input type="submit" class="btn btn-primary pull-right" value="Добавить">
         </div>
     </div>
+</form>
 
-</form:form>--%>

@@ -30,6 +30,10 @@ public class CategoryService {
         return categoryRepository.findOneByTitle(title);
     }
 
+    public Category findOneByName(String categoryName) {
+        return categoryRepository.findOneByName(categoryName);
+    }
+
     public Category findOneWithBooks(String title) {
         Category category = findOneByTitle(title);
         List<Book> books = bookRepository.findByCategory(category, new PageRequest(0, 16, Sort.Direction.ASC, "name"));
@@ -51,5 +55,6 @@ public class CategoryService {
         category.setName(name);
         categoryRepository.saveAndFlush(category);
     }
+
 
 }

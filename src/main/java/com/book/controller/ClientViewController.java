@@ -31,6 +31,12 @@ public class ClientViewController {
         return "category";
     }
 
+    @RequestMapping("/toplists")
+    public String allToplists(Model model) {
+        model.addAttribute("toplists", topListService.findAll());
+        return "toplists";
+    }
+
     @RequestMapping("/toplist/{title}")
     public String toplist(Model model, @PathVariable String title) {
         model.addAttribute("toplist", topListService.findOneByTitle(title));

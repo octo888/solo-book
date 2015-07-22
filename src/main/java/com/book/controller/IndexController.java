@@ -17,15 +17,11 @@ public class IndexController {
     private CategoryService categoryService;
 
     @Autowired
-    private TopListService topListService;
-
-    @Autowired
     private NewsBlogService newsBlogService;
 
     @RequestMapping("/index")
     public String index(Model model) {
         model.addAttribute("categories", categoryService.findAll());
-        model.addAttribute("toplists", topListService.findAll());
         model.addAttribute("news", newsBlogService.getItemsForIndex());
         return "index";
     }
