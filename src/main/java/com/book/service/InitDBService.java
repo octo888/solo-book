@@ -37,7 +37,7 @@ public class InitDBService {
     private TopListRepository topListRepository;
 
     @Autowired
-    private NewsBlogRepository newsBlogRepository;
+    private NewsBlogService newsBlogService;
 
     @PostConstruct
     public void init() {
@@ -240,15 +240,9 @@ public class InitDBService {
                 bookNews.setName("BookBrowse");
                 bookNews
                         .setUrl("https://www.bookbrowse.com/rss/book_news.rss");
-                newsBlogRepository.save(bookNews);
+                newsBlogService.save(bookNews);
             }
-            /*{
-                NewsBlog bookNews = new NewsBlog();
-                bookNews.setName("NyTimes");
-                bookNews
-                        .setUrl("http://www.nytimes.com/services/xml/rss/nyt/Books.xml");
-                newsBlogRepository.save(bookNews);
-            }*/
+
         }
 
     }

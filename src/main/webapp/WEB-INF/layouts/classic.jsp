@@ -111,8 +111,8 @@
 
                 </ul>
 
-                <form class="navbar-form pull-left">
-                    <input type="text" class="form-control"
+                <form role="search" class="navbar-form pull-left searchForm" action="/search.html" method="post" >
+                    <input type="text" name="pattern" class="form-control"
                            placeholder="Поиск..." id="searchInput">
 
                     <button type="submit" class="btn btn-default">
@@ -167,3 +167,24 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".searchForm").validate(
+                {
+                    rules: {
+                        pattern: {
+                            required : true,
+                            minlength : 4
+                        }
+                    },
+                    highlight: function(element) {
+                        $(element).closest('.form-control').removeClass('has-success').addClass('has-error');
+                    },
+                    unhighlight: function(element) {
+                        $(element).closest('.form-control').removeClass('has-error').addClass('has-success');
+                    }
+                }
+        );
+    });
+</script>
