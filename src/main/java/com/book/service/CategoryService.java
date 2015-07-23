@@ -5,6 +5,7 @@ import com.book.entity.Category;
 import com.book.repository.BookRepository;
 import com.book.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,12 @@ public class CategoryService {
         return category;
     }
 
+    public Page<Book> getPageWithBooks(String title, int pageNumber) {
+        Category category = findOneByTitle(title);
+        PageRequest pageRequest = new PageRequest(pageNumber - 1, 18, Sort.Direction.ASC, "name");
+        return bookRepository.findPagesByCategory(category, pageRequest);
+    }
+
     public void save(Category category) {
         categoryRepository.save(category);
     }
@@ -48,7 +55,6 @@ public class CategoryService {
     public void delete(int id) {
         categoryRepository.delete(id);
     }
-
 
     public void rename(int id, String name) {
         Category category = categoryRepository.findOne(id);

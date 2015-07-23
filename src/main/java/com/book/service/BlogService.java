@@ -48,7 +48,7 @@ public class BlogService {
         return blogRepository.findAll(new PageRequest(0, 5, Sort.Direction.DESC, "publishedDate")).getContent();
     }
 
-    public Page<Blog> getPage(int pageNumber) {
+    public Page<Blog> getBlogPage(int pageNumber) {
         PageRequest pageRequest = new PageRequest(pageNumber - 1, 5, Sort.Direction.DESC, "publishedDate");
         return blogRepository.findAll(pageRequest);
     }

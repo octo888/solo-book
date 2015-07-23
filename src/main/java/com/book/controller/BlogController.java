@@ -1,7 +1,9 @@
 package com.book.controller;
 
 import com.book.entity.Blog;
+import com.book.entity.User;
 import com.book.service.BlogService;
+import com.book.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -19,17 +22,13 @@ public class BlogController {
     @Autowired
     private BlogService blogService;
 
-    @RequestMapping("/remove/{id}")
-    public String removeBlog(@PathVariable int id) {
-        Blog blog = blogService.findOne(id);
-        blogService.delete(blog);
-        return "redirect:/account.html";
-    }
+    @Autowired
+    private UserService userService;
 
     @RequestMapping
-    public String showBlogs(Model model) {
-        model.addAttribute("blogs", blogService.findAll());
-        return "blogs";
+    public String showBlogs(Model model, Integer pageNumber) {
+        pageNumber = 1;
+        return getBlogPage(pageNumber, model);
     }
 
     @RequestMapping("/{id}")
@@ -39,21 +38,31 @@ public class BlogController {
     }
 
     @RequestMapping(value = "/page/{pageNumber}", method = RequestMethod.GET)
-    public String getRunbookPage(@PathVariable Integer pageNumber, Model model) {
-        Page<Blog> page = blogService.getPage(pageNumber);
-
+    public String getBlogPage(@PathVariable Integer pageNumber, Model model) {
+        Page<Blog> page = blogService.getBlogPage(pageNumber);
         List<Blog> blogs = page.getContent();
         model.addAttribute("blogs", blogs);
 
-        /*int current = page.getNumber() + 1;
-        int begin = Math.max(1, current - 5);
-        int end = Math.min(begin + 10, page.getTotalPages());
+        int current = page.getNumber() + 1;
+        int begin = 1;//Math.max(1, current - 2);
+        int end = page.getTotalPages();//Math.min(begin + 10, page.getTotalPages());
 
-        model.addAttribute("blogPages", page);
+        model.addAttribute("current", current);
         model.addAttribute("beginIndex", begin);
         model.addAttribute("endIndex", end);
-        model.addAttribute("currentIndex", current);*/
 
         return "blogs";
     }
+
+    @RequestMapping("/remove/{id}")
+    public String removeBlog(@PathVariable int id, Principal principal) {
+        Blog blog = blogService.findOne(id);
+        blogService.delete(blog);
+        String name = principal.getName();
+        if (name.equals("admin")){
+            return "redirect:/blogs.html";
+        }
+        return "redirect:/account.html";
+    }
+
 }

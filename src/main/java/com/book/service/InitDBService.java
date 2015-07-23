@@ -207,7 +207,21 @@ public class InitDBService {
             book16.setDescription("Прекрасный сборник фантастических рассказов");
             bookRepository.save(book16);
 
-            for (int i = 0; i < 20; i++) {
+            for (int i = 0; i < 51; i++) {
+                Book book20 = new Book();
+                book20.setName("Name " + i);
+                book20.setAuthorName("Author");
+                book20.setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n" +
+                        "                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n" +
+                        "                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n" +
+                        "                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n" +
+                        "                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n" +
+                        "                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+                book20.setCategory(classic);
+                bookRepository.save(book20);
+            }
+
+            for (int i = 0; i < 51; i++) {
                 Blog blog = new Blog();
                 blog.setName("Name " + i);
                 blog.setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n" +

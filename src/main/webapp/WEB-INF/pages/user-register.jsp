@@ -12,7 +12,7 @@
            cssClass="form-horizontal registrationForm">
 
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">Name:</label>
+        <label for="name" class="col-sm-2 control-label">Имя пользователя:</label>
         <div class="col-sm-8">
             <form:input path="name" cssClass="form-control" />
             <form:errors path="name" />
@@ -28,7 +28,7 @@
     </div>
 
     <div class="form-group">
-        <label for="password" class="col-sm-2 control-label">Password:</label>
+        <label for="password" class="col-sm-2 control-label">Пароль:</label>
         <div class="col-sm-8">
             <form:password path="password" cssClass="form-control" />
             <form:errors path="password" />
@@ -36,7 +36,7 @@
     </div>
 
     <div class="form-group">
-        <label for="password" class="col-sm-2 control-label">Password again:</label>
+        <label for="password" class="col-sm-2 control-label">Повторите пароль:</label>
         <div class="col-sm-8">
             <input type="password" name="password_again" id="password_again" class="form-control" />
         </div>

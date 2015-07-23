@@ -2,13 +2,13 @@ package com.book.repository;
 
 import com.book.entity.Book;
 import com.book.entity.Category;
-import com.book.entity.TopList;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.TreeMap;
+
 
 public interface BookRepository extends JpaRepository<Book, Integer> {
 
@@ -16,4 +16,5 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
     Book findOneByName(String bookName);
 
+    Page<Book> findPagesByCategory(Category category, Pageable pageable);
 }
