@@ -207,7 +207,7 @@ public class InitDBService {
             book16.setDescription("Прекрасный сборник фантастических рассказов");
             bookRepository.save(book16);
 
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 20; i++) {
                 Blog blog = new Blog();
                 blog.setName("Name " + i);
                 blog.setDescription("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n" +

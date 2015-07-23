@@ -5,6 +5,7 @@ import com.book.entity.User;
 import com.book.repository.BlogRepository;
 import com.book.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.access.method.P;
@@ -44,6 +45,11 @@ public class BlogService {
     }
 
     public List<Blog> findAll() {
-        return blogRepository.findAll(new PageRequest(0, 10, Sort.Direction.DESC, "publishedDate")).getContent();
+        return blogRepository.findAll(new PageRequest(0, 5, Sort.Direction.DESC, "publishedDate")).getContent();
+    }
+
+    public Page<Blog> getPage(int pageNumber) {
+        PageRequest pageRequest = new PageRequest(pageNumber - 1, 5, Sort.Direction.DESC, "publishedDate");
+        return blogRepository.findAll(pageRequest);
     }
 }

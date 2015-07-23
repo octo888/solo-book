@@ -17,3 +17,24 @@
         </div>
     </c:forEach>
 </div>
+
+<nav>
+    <ul class="pagination">
+        <li>
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li><a href="/blogs/page/1.html">1</a></li>
+        <li><a href="/blogs/page/2.html">2</a></li>
+        <li><a href="/blogs/page/3.html">3</a></li>
+        <li><a href="/blogs/page/4.html">4</a></li>
+        <li><a href="/blogs/page/5.html">5</a></li>
+        <li>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
