@@ -13,8 +13,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -51,5 +49,13 @@ public class BlogService {
     public Page<Blog> getBlogPage(int pageNumber) {
         PageRequest pageRequest = new PageRequest(pageNumber - 1, 5, Sort.Direction.DESC, "publishedDate");
         return blogRepository.findAll(pageRequest);
+    }
+
+    public Page<Blog> getBlogPageForUser(int pageNumber, String name) {
+        User user = userRepository.findByName(name);
+        PageRequest pageRequest = new PageRequest(pageNumber - 1, 10, Sort.Direction.DESC, "publishedDate");
+        List<Blog> blogs = blogRepository.findByUser(user, pageRequest).getContent();
+        user.setBlogs(blogs);
+        return blogRepository.findByUser(user, pageRequest);
     }
 }

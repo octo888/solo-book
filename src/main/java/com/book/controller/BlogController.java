@@ -1,7 +1,6 @@
 package com.book.controller;
 
 import com.book.entity.Blog;
-import com.book.entity.User;
 import com.book.service.BlogService;
 import com.book.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -35,6 +35,80 @@
 
     <br/><br/>
 
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+        <tr>
+            <th>Рецензия</th>
+            <th>Дата публикации</th>
+            <th>Действие</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${blogs}" var="item">
+            <tr>
+
+                <td>
+                    <strong>
+                        <a href="" target="_blank">
+                            <c:out value="${item.name}"/>
+                        </a>
+                    </strong>
+                </td>
+
+                <td><c:out value="${item.publishedDate}"/></td>
+
+                <td>
+                    <a href='<spring:url value="/blogs/remove/${item.id}.html"  />' class="btn btn-danger triggerRemove">
+                        Удалить </a>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+
+    <div align="center">
+        <nav>
+            <ul class="pagination">
+                <%--<li>
+                    <a href="/blogs/page/${current - 1}.html" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>--%>
+
+                <c:forEach var="i" begin="${beginIndex}" end="${endIndex}">
+                    <c:set var="active" value="${i}"/>
+                    <li class="${current == active ? 'active' : '' }"><a href="/account/page/${i}.html">${i}</a></li>
+                </c:forEach>
+
+                <%--<li>
+                    <a href="/blogs/page/${current + 1}.html" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>--%>
+            </ul>
+        </nav>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Удалить запись</h4>
+                </div>
+                <div class="modal-body">
+                    Удалить?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                    <a href="" class="btn btn-danger removeBtn">Удалить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $(".triggerRemove").click(function (e) {
@@ -60,55 +134,3 @@
             );
         });
     </script>
-
-
-    <table class="table table-bordered table-hover table-striped">
-        <thead>
-        <tr>
-            <th>Рецензия</th>
-            <th>Дата публикации</th>
-            <th>Действие</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${user.blogs}" var="item">
-            <tr>
-
-                <td>
-                    <strong>
-                        <a href="" target="_blank">
-                            <c:out value="${item.name}"/>
-                        </a>
-                    </strong>
-                </td>
-
-                <td><c:out value="${item.publishedDate}"/></td>
-
-                <td>
-                    <a href='<spring:url value="/blogs/remove/${item.id}.html"  />' class="btn btn-danger triggerRemove">
-                        Удалить </a>
-                </td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="modalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Удалить запись</h4>
-                </div>
-                <div class="modal-body">
-                    Удалить?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
-                    <a href="" class="btn btn-danger removeBtn">Удалить</a>
-                </div>
-            </div>
-        </div>
-    </div>

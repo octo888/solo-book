@@ -17,7 +17,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${category.books}" var="book">
+        <c:forEach items="${books}" var="book">
             <tr>
                 <td>
                     <a href='<spring:url value="/${book.id}.html"/>'>
@@ -32,6 +32,31 @@
         </c:forEach>
         </tbody>
     </table>
+</div>
+
+<div align="center">
+    <nav>
+        <ul class="pagination">
+            <%--<li>
+                <a href="/blogs/page/${current - 1}.html" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>--%>
+
+            <c:forEach var="i" begin="${beginIndex}" end="${endIndex}">
+                <c:set var="active" value="${i}"/>
+                <li class="${current == active ? 'active' : '' }">
+                    <a href="/admin/categories/${category.title}/page/${i}.html">${i}</a>
+                </li>
+            </c:forEach>
+
+            <%--<li>
+                <a href="/blogs/page/${current + 1}.html" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>--%>
+        </ul>
+    </nav>
 </div>
 
 <!-- Modal -->

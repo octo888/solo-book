@@ -29,6 +29,7 @@
     </c:forEach>
 </div>
 
+<div align="center">
 <nav>
     <ul class="pagination">
         <%--<li>
@@ -49,6 +50,7 @@
         </li>--%>
     </ul>
 </nav>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="modalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

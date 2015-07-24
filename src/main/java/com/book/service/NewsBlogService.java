@@ -30,7 +30,7 @@ public class NewsBlogService {
     }
 
     public List<NewsItem> getItems() {
-        return newsItemRepository.findAll(new PageRequest(0, 10, Sort.Direction.DESC, "publishedDate")).getContent();
+        return newsItemRepository.findAll(new PageRequest(0, 20, Sort.Direction.DESC, "publishedDate")).getContent();
     }
 
     public void saveItems(NewsBlog blog) {
