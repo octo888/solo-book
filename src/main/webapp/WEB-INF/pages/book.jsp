@@ -9,7 +9,9 @@
 
         <div class="col-sm-2">
         <div class="media-left thumbnail" id="book-img">
-            <img src="http://placehold.it/150x200">
+            <a href="/image/${book.image.id}.html" target="_blank">
+                <img src="/image/${book.image.id}.html" height="300" width="200" align="center" class="img-responsive">
+            </a>
             <div class="caption">
                 <h5>Оценка: ${book.rate}</h5>
                 <form role="form" action="/rate/${book.id}.html"

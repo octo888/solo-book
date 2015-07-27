@@ -5,6 +5,8 @@ import com.book.entity.Category;
 import com.book.entity.Image;
 import com.book.service.BookService;
 import com.book.service.CategoryService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ import java.io.IOException;
 
 @Controller
 public class AdminBookController {
+
+    private static final Logger log = LoggerFactory.getLogger(AdminBookController.class);
 
     @Autowired
     private BookService bookService;
@@ -46,7 +50,6 @@ public class AdminBookController {
             book.setAuthorName(authorName);
             book.setDescription(description);
             book.setCategory(category);
-
             book.setImage(image.isEmpty() ? null : new Image(image.getOriginalFilename(), image.getBytes()));
 
             bookService.save(book);
