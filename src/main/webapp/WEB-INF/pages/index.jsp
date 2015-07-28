@@ -50,18 +50,18 @@
 
 <div class="row" id="features">
 
-    <c:forEach items="${categories}" var="category" >
+    <c:forEach items="${categories}" var="category">
         <div class="col-sm-3 feature">
             <div class="panel">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><c:out value="${category.name}" /></h3>
+                    <h3 class="panel-title"><c:out value="${category.name}"/></h3>
                 </div>
                 <!-- end panel-heading -->
 
                 <img src="resources/images/features/${category.title}.jpg" alt="${category.name}">
 
 
-                <a href="<spring:url value="/category/${category.title}.html" /> "  class="btn btn-info btn-block">Открыть</a>
+                <a href="<spring:url value="/category/${category.title}.html" /> " class="btn btn-info btn-block">Открыть</a>
 
             </div>
             <!-- end panel -->
@@ -238,22 +238,76 @@
             </div>
         </c:forEach>
         <!-- end list-group -->
-        <a href="<spring:url value='/news.html'/> " class="pull-right" >more news...</a>
+        <a href="<spring:url value='/news.html'/> " class="pull-right">more news...</a>
     </div>
     <!-- end col-sm-6 -->
 </div>
 <!-- end moreInfo -->
 
 <div class="row" id="sm-carousel">
+    <h3 align="middle" style="color: #999999">Топ Месяца</h3>
     <div class="col-12" id="wrap-sm-carousel">
-        <div class="col-2"><a href="#" id="previous"><img src="/resources/images/previous.png"></a></div>
-        <div class="col-2"><a href=""><img id="imgb1" src="" class="thumbnail img-responsive" align="middle"></a></div>
-        <div class="col-2"><a href=""><img id="imgb2" src="" class="thumbnail img-responsive"></a></div>
-        <div class="col-2"><a href=""><img id="imgb3" src="" class="thumbnail img-responsive"></a></div>
-        <div class="col-2"><a href=""><img id="imgb4" src="" class="thumbnail img-responsive"></a></div>
-        <div class="col-2"><a href="#" id="next"><img src="/resources/images/next.png"></a></div>
+        <div class="col-2"><a href="#" id="previous"><img src="${pageContext.request.contextPath}/resources/images/previous.png"></a></div>
+        <div class="col-2"><a href="" id="link1"><img id="img1" src="" class="thumbnail img-responsive" align="middle"></a>
+        </div>
+        <div class="col-2"><a href="" id="link2"><img id="img2" src="" class="thumbnail img-responsive"></a></div>
+        <div class="col-2"><a href="" id="link3"><img id="img3" src="" class="thumbnail img-responsive"></a></div>
+        <div class="col-2"><a href="" id="link4"><img id="img4" src="" class="thumbnail img-responsive"></a></div>
+        <div class="col-2"><a href="#" id="next"><img src="${pageContext.request.contextPath}/resources/images/next.png"></a></div>
     </div>
 </div>
 <!-- end sm-carousel -->
 
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var images = ${pluginImages};
+        var links = ${pluginLinks};
+        var currentBook = 0;
+
+        $("#img1").attr("src", images[currentBook]);
+        $("#img2").attr("src", images[currentBook + 1]);
+        $("#img3").attr("src", images[currentBook + 2]);
+        $("#img4").attr("src", images[currentBook + 3]);
+
+        $("#link1").attr("href", links[currentBook]);
+        $("#link2").attr("href", links[currentBook + 1]);
+        $("#link3").attr("href", links[currentBook + 2]);
+        $("#link4").attr("href", links[currentBook + 3]);
+
+
+        $("#previous").click(function () {
+            if (currentBook != 0) {
+                currentBook--;
+                $("#img1").attr("src", images[currentBook]);
+                $("#img2").attr("src", images[currentBook + 1]);
+                $("#img3").attr("src", images[currentBook + 2]);
+                $("#img4").attr("src", images[currentBook + 3]);
+
+                $("#link1").attr("href", links[currentBook]);
+                $("#link2").attr("href", links[currentBook + 1]);
+                $("#link3").attr("href", links[currentBook + 2]);
+                $("#link4").attr("href", links[currentBook + 3]);
+            }
+            return false;
+        });
+        $("#next").click(function () {
+            if (currentBook != images.length - 4) {
+                currentBook++;
+                $("#img1").attr("src", images[currentBook]);
+                $("#img2").attr("src", images[currentBook + 1]);
+                $("#img3").attr("src", images[currentBook + 2]);
+                $("#img4").attr("src", images[currentBook + 3]);
+
+                $("#link1").attr("href", links[currentBook]);
+                $("#link2").attr("href", links[currentBook + 1]);
+                $("#link3").attr("href", links[currentBook + 2]);
+                $("#link4").attr("href", links[currentBook + 3]);
+
+            }
+            return false;
+        });
+    });
+</script>
 		

@@ -239,6 +239,7 @@ public class InitDBService {
 
             TopList topmonth = new TopList("ТОП Месяца", "topmonth");
             TopList tophundred = new TopList("ТОП 100", "tophundred");
+            TopList toptwentymonth = new TopList("ТОП 20 Месяца", "toptwentymonth");
 
             Map<Integer, Book> books = new HashMap<>();
             books.put(1, book1);
@@ -246,6 +247,7 @@ public class InitDBService {
 
             topListRepository.save(topmonth);
             topListRepository.save(tophundred);
+            topListRepository.save(toptwentymonth);
 
             bookRepository.saveAndFlush(book1);
 
