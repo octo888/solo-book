@@ -89,11 +89,23 @@ public class InitDBService {
             Category detective = new Category("Детектив", "detective");
             categoryRepository.save(detective);
 
+            Category thriller = new Category("Триллер/Мистика", "thriller");
+            categoryRepository.save(thriller);
+
             Category business = new Category("Бизнес", "business");
             categoryRepository.save(business);
 
             Category psycho = new Category("Психология", "psycho");
             categoryRepository.save(psycho);
+
+            Category history = new Category("История/Политика", "history");
+            categoryRepository.save(history);
+
+            Category philosophy = new Category("Философия", "philosophy");
+            categoryRepository.save(philosophy);
+
+            Category memoirs = new Category("Мемуары", "memoirs");
+            categoryRepository.save(memoirs);
 
             Book book1 = new Book();
             book1.setName("Игра Престолов");
@@ -253,9 +265,9 @@ public class InitDBService {
 
             {
                 NewsBlog bookNews = new NewsBlog();
-                bookNews.setName("BookBrowse");
+                bookNews.setName("BooksFreeCom");
                 bookNews
-                        .setUrl("https://www.bookbrowse.com/rss/book_news.rss");
+                        .setUrl("http://www.booksfree.com/rss/NewReleasesBooks.xml");
                 newsBlogService.save(bookNews);
             }
 

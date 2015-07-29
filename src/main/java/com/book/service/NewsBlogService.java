@@ -26,7 +26,7 @@ public class NewsBlogService {
     NewsItemRepository newsItemRepository;
 
     public List<NewsItem> getItemsForIndex() {
-        return newsItemRepository.findAll(new PageRequest(0, 3, Sort.Direction.DESC, "publishedDate")).getContent();
+        return newsItemRepository.findAll(new PageRequest(0, 5, Sort.Direction.DESC, "publishedDate")).getContent();
     }
 
     public List<NewsItem> getItems() {

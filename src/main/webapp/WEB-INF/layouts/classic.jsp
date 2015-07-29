@@ -29,12 +29,8 @@
 
     <script src="${pageContext.request.contextPath}/resources/includes/js/modernizr-2.6.2.min.js"></script>
 
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script>
-        window.jQuery
-        || document
-                .write('<script src="/resources/includes/js/jquery-1.8.2.min.js"><\/script>')
-    </script>
+    <script src="${pageContext.request.contextPath}/resources/includes/js/jquery-1.8.2.min.js"></script>
+
     <!-- Bootstrap JS -->
     <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
     <!-- Custom JS -->
@@ -70,7 +66,7 @@
             </button>
 
             <a class="navbar-brand" href="index.html"><img
-                    src="/resources/images/logo.png" alt="Your Logo"></a>
+                    src="${pageContext.request.contextPath}/resources/images/logo.png" alt="Your Logo"></a>
 
             <div class="nav-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav">

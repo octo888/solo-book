@@ -58,7 +58,7 @@
                 </div>
                 <!-- end panel-heading -->
 
-                <img src="resources/images/features/${category.title}.jpg" alt="${category.name}">
+                <img src="${pageContext.request.contextPath}/resources/images/features/${category.title}.jpg" alt="${category.name}">
 
 
                 <a href="<spring:url value="/category/${category.title}.html" /> " class="btn btn-info btn-block">Открыть</a>
@@ -226,7 +226,7 @@
     <!-- end col-sm-6 -->
 
     <div class="col-sm-6">
-        <h3>News From Book World</h3>
+        <h3 align="middle">News Of The Book World</h3>
 
         <c:forEach items="${news}" var="news">
             <div class="list-group">
