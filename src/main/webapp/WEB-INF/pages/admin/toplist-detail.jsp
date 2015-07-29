@@ -8,7 +8,7 @@
 
     <div class="form-group">
         <label for="key">Номер</label>
-        <input name="key" id="key" type="number" class="form-control" />
+        <input name="key" id="key" type="number" class="form-control" min=1 />
     </div>
     <div class="form-group">
         <label for="selectedBook">Выберите книгу</label>

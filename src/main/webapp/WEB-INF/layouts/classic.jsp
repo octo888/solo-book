@@ -75,7 +75,18 @@
 
 
                     <li class="${current == 'toplists' ? 'active' : '' }"><a href="<spring:url value="/toplists.html">
-                                </spring:url>">Списки лучших</a></li>
+                                </spring:url>">Списки</a></li>
+
+                    <%-- Dropdown category--%>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                            data-toggle="dropdown">Категории<strong class="caret"></strong></a>
+                        <ul class="dropdown-menu">
+
+                            <c:forEach items="${globalCategories}" var="category">
+                                <li><a href="<spring:url value="/category/${category.title}.html" />">${category.name}</a></li>
+                            </c:forEach>
+                        </ul>
+                    </li>
 
                     <li class="${current == 'blogs' ? 'active' : '' }"><a href="<spring:url value="/blogs.html">
                                 </spring:url>">Рецензии</a></li>

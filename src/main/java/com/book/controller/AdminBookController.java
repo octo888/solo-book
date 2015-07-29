@@ -19,8 +19,6 @@ import java.io.IOException;
 @Controller
 public class AdminBookController {
 
-    private static final Logger log = LoggerFactory.getLogger(AdminBookController.class);
-
     @Autowired
     private BookService bookService;
 
@@ -59,6 +57,14 @@ public class AdminBookController {
             return null;
         }
 
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    public String doAddTopListIntoBook(@PathVariable Integer id,
+                                       @RequestParam(value = "selectTopList") String topListName,
+                                       @RequestParam(value = "key") Integer key) {
+        bookService.addTopListIntoBook(id, key, topListName);
+        return "redirect:/{id}.html";
     }
 
 

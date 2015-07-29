@@ -58,5 +58,8 @@ public class TopList {
         this.books = books;
     }
 
-
+    @Override
+    public String toString() {
+        return name;
+    }
 }

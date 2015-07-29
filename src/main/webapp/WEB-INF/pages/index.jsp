@@ -50,7 +50,7 @@
 
 <div class="row" id="features">
 
-    <c:forEach items="${categories}" var="category">
+    <c:forEach items="${globalCategories}" var="category">
         <div class="col-sm-3 feature">
             <div class="panel">
                 <div class="panel-heading">

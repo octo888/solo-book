@@ -4,6 +4,7 @@ import com.book.entity.Book;
 import com.book.entity.Image;
 import com.book.service.BookService;
 import com.book.service.CategoryService;
+import com.book.service.TopListService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,13 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
+    @Autowired
+    private TopListService topListService;
+
     @RequestMapping("/{id}")
     public String showBook(Model model, @PathVariable int id) {
         model.addAttribute("book", bookService.findOneAndCountRate(id));
+        model.addAttribute("toplists", topListService.findAll());
         return "book";
     }
 

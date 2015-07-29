@@ -1,7 +1,9 @@
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 
 <%@ include file="../layouts/taglib.jsp" %>
+
 
 
 <div class="row">
@@ -46,6 +48,29 @@
         </div>
 
     </div>
+    <security:authorize access="hasRole('ROLE_ADMIN')">
+        <form role="form" class="form-inline" action="/${book.id}.html" method="post" style="max-width:200px">
+            <div class="form-group">
+                <label for="key">Позиция</label>
+                <input name="key" id="key" type="number" class="form-control" min=1 />
+            </div>
 
+            <div class="form-group">
+                <label for="selectTopList" >Выберите список</label>
+
+                <form:select path="toplists" name="selectTopList" cssClass="form-control">
+                    <form:option value="NONE" label="--- Select ---"/>
+                    <form:options items="${toplists}"/>
+                </form:select>
+
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Добавить">
+            </div>
+        </form>
+    </security:authorize>
 
 </div>
+
+

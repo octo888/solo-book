@@ -9,6 +9,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -22,9 +23,6 @@ import java.util.Map;
 public class IndexController {
 
     @Autowired
-    private CategoryService categoryService;
-
-    @Autowired
     private NewsBlogService newsBlogService;
 
     @Autowired
@@ -34,7 +32,6 @@ public class IndexController {
 
     @RequestMapping("/index")
     public String index(Model model) {
-        model.addAttribute("categories", categoryService.findAll());
         model.addAttribute("news", newsBlogService.getItemsForIndex());
         model.addAttribute("pluginImages", pluginImages());
         model.addAttribute("pluginLinks", pluginLinks());

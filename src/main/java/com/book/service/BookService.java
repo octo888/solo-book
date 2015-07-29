@@ -3,9 +3,11 @@ package com.book.service;
 import com.book.entity.Book;
 import com.book.entity.Category;
 import com.book.entity.Image;
+import com.book.entity.TopList;
 import com.book.repository.BookRepository;
 import com.book.repository.CategoryRepository;
 import com.book.repository.ImageRepository;
+import com.book.repository.TopListRepository;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -23,10 +26,10 @@ public class BookService {
     private BookRepository bookRepository;
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private ImageRepository imageRepository;
 
     @Autowired
-    private ImageRepository imageRepository;
+    private TopListRepository topListRepository;
 
 
     public List<Book> findAll() {
@@ -38,8 +41,6 @@ public class BookService {
     }
 
     public void save(Book book) {
-        /*Category category = categoryRepository.findOneByTitle(title);
-        book.setCategory(category);*/
         bookRepository.save(book);
     }
 
@@ -80,11 +81,15 @@ public class BookService {
         return book;
     }
 
-
-    /*public Book findOneWithImage(int id) {
+    public void addTopListIntoBook(Integer id, Integer key, String topListName) {
         Book book = bookRepository.findOne(id);
-        Image image = imageRepository.findByBook(book);
-        book.setImage(image);
-        return book;
-    }*/
+        TopList topList = topListRepository.findOneByName(topListName);
+
+        Map<Integer, Book> books = topList.getBooks();
+        books.put(key, book);
+
+        topList.setBooks(books);
+        topListRepository.saveAndFlush(topList);
+    }
+
 }
