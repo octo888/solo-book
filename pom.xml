@@ -71,6 +71,11 @@
             <version>9.3-1100-jdbc41</version>
         </dependency>
 
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
 
         <dependency>
             <groupId>org.hsqldb</groupId>
@@ -237,14 +242,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-        </dependency>
-
-        <!-- Spring MVC for Portlet Environments (depends on spring-core, spring-beans,
-            spring-context, spring-web) Define this if you use Spring MVC with a Portlet
-            Container (org.springframework.web.portlet.*) -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc-portlet</artifactId>
         </dependency>
 
         <!-- Support for testing Spring applications with tools such as JUnit and

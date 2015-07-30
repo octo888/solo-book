@@ -13,8 +13,11 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 @Transactional
@@ -26,8 +29,22 @@ public class BlogService {
     @Autowired
     private UserRepository userRepository;
 
-    public void save(Blog blog, String name) {
+    public void save(Blog blog, String name)  {
         User user = userRepository.findByName(name);
+
+        /*java.util.Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z");
+        String formatted = simpleDateFormat.format(date);
+        java.sql.Date pubDate = null;
+        try {
+            pubDate = simpleDateFormat.parse(formatted);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }*/
+
+        /*java.util.Date utilDate = new java.util.Date();
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());*/
+
         blog.setPublishedDate(new Date());
         blog.setUser(user);
         blogRepository.save(blog);

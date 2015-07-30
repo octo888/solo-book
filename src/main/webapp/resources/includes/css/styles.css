@@ -2,6 +2,24 @@
 /* --------------------------------------
    Layout
    -------------------------------------- */
+#blog-text {
+
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.hideOverflow
+{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    width:100%;
+    display:block;
+}
+
 #features {
    text-align: center;
    margin-top: 20px;
@@ -217,4 +235,27 @@ footer {
 #book-img {
     border: none;
     box-shadow: none;
+}
+
+#categoryPanel .panel-footer {
+    background: none;
+    border: none;
+}
+
+#blog-text {
+
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.hideOverflow
+{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    width:100%;
+    display:block;
 }

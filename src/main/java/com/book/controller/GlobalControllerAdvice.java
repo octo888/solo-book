@@ -20,7 +20,6 @@ public class GlobalControllerAdvice {
     @Autowired
     private CategoryService categoryService;
 
-
     @ModelAttribute
     public void globalAttributes(Model model) {
         model.addAttribute("globalCategories", categoryService.findAll());

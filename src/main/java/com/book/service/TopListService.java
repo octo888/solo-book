@@ -4,12 +4,15 @@ import com.book.entity.Book;
 import com.book.entity.TopList;
 import com.book.repository.BookRepository;
 import com.book.repository.TopListRepository;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,11 +27,11 @@ public class TopListService {
     @Autowired
     private BookRepository bookRepository;
 
+    private final String TOPLIST_FOR_CAROUSEL = "topmonth";
 
     public List<TopList> findAll() {
         return topListRepository.findAll();
     }
-
 
     public TopList findOneByTitle(String title) {
 
@@ -75,5 +78,43 @@ public class TopListService {
         topList.setBooks(books);
         topListRepository.saveAndFlush(topList);
 
+    }
+
+    public String pluginImages() {
+        Map<Integer, Book> map = topListRepository.findOneByTitle(TOPLIST_FOR_CAROUSEL).getBooks();
+        List<Book> books = new ArrayList<>(map.values());
+        List<String> list = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getImage() != null) {
+                list.add("/image/" + book.getImage().getId() + ".html");
+            } else list.add("#");
+        }
+        ObjectMapper objectMapper = new ObjectMapper();
+        String result = "";
+        try {
+            result = objectMapper.writeValueAsString(list);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public String pluginLinks() {
+        Map<Integer, Book> map = topListRepository.findOneByTitle(TOPLIST_FOR_CAROUSEL).getBooks();
+        List<Book> books = new ArrayList<>(map.values());
+        List<String> list = new ArrayList<>();
+        for (Book book : books) {
+            if (book != null) {
+                list.add("/" + book.getId() + ".html");
+            } else list.add("#");
+        }
+        ObjectMapper objectMapper = new ObjectMapper();
+        String result = "";
+        try {
+            result = objectMapper.writeValueAsString(list);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }

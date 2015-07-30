@@ -49,7 +49,7 @@
 
                 <td>
                     <strong>
-                        <a href="" target="_blank">
+                        <a href='<spring:url value="/blogs/${item.id}.html"  />' target="_blank">
                             <c:out value="${item.name}"/>
                         </a>
                     </strong>

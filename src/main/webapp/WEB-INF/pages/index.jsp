@@ -75,29 +75,25 @@
 
 <div class="row" id="moreInfo">
     <div class="col-sm-6">
-        <h3>Лучший книжный магазин Киева, по версии нашего сайта</h3>
+        <h3>Рекомендуемый для посещения книжный магазин в Киеве</h3>
 
         <div class="tabbable">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
-                <li><a href="#tab2" data-toggle="tab">Section 2</a></li>
+                <%--<li><a href="#tab2" data-toggle="tab">Section 2</a></li>--%>
             </ul>
 
             <div class="tab-content">
                 <div class="tab-pane active" id="tab1">
-                    <h4><span class="glyphicon glyphicon-map-marker"></span>Читай-город
+                    <h4><span class="glyphicon glyphicon-map-marker"></span>Буква
                         <small>в первом Дрим-Тауне</small>
                     </h4>
 
                     <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d4249.257029723502!2d30.501406958876927!3d50.50887620150562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0LTRgNC40Lwg0YLQsNGD0L0!5e1!3m2!1sru!2sua!4v1421352512391"
                             width="100%" height="300" frameborder="0" style="border:0"></iframe>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>В этом месте я еще не придумал контент, который бы мне нравился
+                        и выглядел адекватно на первой странице</p>
 
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -108,116 +104,6 @@
                 </div>
                 <!-- end tab-pane -->
 
-                <div class="tab-pane" id="tab2">
-                    <h4>A Left Floated Picture
-                        <small>Using Placehold.it</small>
-                    </h4>
-
-                    <img src="http://placehold.it/140" class="thumbnail pull-left">
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                    <hr>
-
-                    <a href="#myModal" role="button" class="btn btn-warning" data-toggle="modal"><span
-                            class="glyphicon glyphicon-hand-up"></span>Click for a modal window</a>
-
-                    <div class="modal fade" id="myModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button class="close" data-dismiss="modal">&times;</button>
-
-                                    <h4 class="modal-title">A Modal Window</h4>
-                                </div>
-                                <!-- end modal-header -->
-
-                                <div class="modal-body">
-                                    <h4>Text in modal</h4>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                                    <h4>Popovers in modal</h4>
-                                    <a href="#" class="btn btn-danger pop" data-toggle="popover" data-placement="top"
-                                       data-original-title="You clicked it!" data-content="I knew you would.">Dont click
-                                        this button</a>
-
-                                    <h4>Tooltips in modal</h4>
-                                    <a href="" data-original-title="Tooltip" rel="tooltip">This link</a> should have a
-                                    tooltip, and so should <a href="#" data-original-title="Woohoo!" rel="tooltip">this
-                                    one</a>!
-
-                                    <hr>
-
-                                    <p>
-                                        <small class="text-muted">This form doesnt do anything</small>
-                                    </p>
-
-                                    <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <label class="col-lg-2 control-label" for="inputName">Name</label>
-
-                                            <div class="col-lg-10">
-                                                <input class="form-control" id="inputName" placeholder="Name"
-                                                       type="text">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-lg-2 control-label" for="inputEmail">Email</label>
-
-                                            <div class="col-lg-10">
-                                                <input class="form-control" id="inputEmail" placeholder="Email"
-                                                       type="email">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-lg-2 control-label" for="inputMessage">Message</label>
-
-                                            <div class="col-lg-10">
-                                                <textarea class="form-control" id="inputMessage" placeholder="Message"
-                                                          rows="3"></textarea>
-                                                <button class="btn btn-success pull-right" type="submit">Send!</button>
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                </div>
-                                <!-- end modal-body -->
-
-                                <div class="modal-footer">
-                                    <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
-                                    <button class="btn btn-primary" type="button">Save changes</button>
-                                </div>
-                                <!-- end modal-footer -->
-
-                            </div>
-                            <!-- modal-content -->
-                        </div>
-                        <!-- modal-dialog -->
-                    </div>
-                    <!-- end myModal -->
-
-                </div>
-                <!-- end tab pane -->
             </div>
             <!-- end tab-content -->
         </div>

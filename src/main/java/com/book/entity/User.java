@@ -23,6 +23,9 @@ public class User {
     @Size(min = 4, message = "Пароль должен состоять как минимум из четырех символов")
     private String password;
 
+    @Size(min = 3, message = "Никнейм должен состоять как минимум из трех символов")
+    private String nickName;
+
     @Email(message = "Неверно введен email")
     private String email;
 
@@ -59,6 +62,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public String getEmail() {

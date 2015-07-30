@@ -3,8 +3,12 @@
 
 <%@ include file="../layouts/taglib.jsp" %>
 
-<h4><b><c:out value="${blog.name}"/></b> </h4>
-<h4><b>Автор: </b><c:out value="${blog.user.name}"/></h4>
-<h4><b>Дата публикации: </b><c:out value="${blog.publishedDate}"/></h4>
-
-<p>${blog.description}</p>
+<div class="row">
+    <h4 align="middle"><b><c:out value="${blog.name}"/></b></h4>
+    <h5 ><b>Автор: </b><c:out value="${blog.user.nickName}"/></h5>
+    <h5 ><b>Дата публикации: </b><c:out value="${blog.publishedDate}"/></h5>
+    <br/>
+    <div class="col-sm-8 col-center-block" id="blog-text" >
+        <p class="text-justify">${blog.description}</p>
+    </div>
+</div>

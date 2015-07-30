@@ -20,6 +20,14 @@
     </div>
 
     <div class="form-group">
+        <label for="nickName" class="col-sm-2 control-label">Никнейм на сайте:</label>
+        <div class="col-sm-8">
+            <form:input path="nickName" cssClass="form-control" />
+            <form:errors path="nickName" />
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="email" class="col-sm-2 control-label">Email:</label>
         <div class="col-sm-8">
             <form:input path="email" cssClass="form-control" />
@@ -73,8 +81,12 @@
                             }
                         },
                         email: {
-                            required : true,
+                            required : false,
                             email: true
+                        },
+                        nickName: {
+                            required : true,
+                            minlength : 3
                         },
                         password: {
                             required : true,

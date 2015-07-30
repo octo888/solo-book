@@ -10,13 +10,16 @@
         <div class="col-sm-2">
             <div class="panel" id="categoryPanel">
 
-                <a href=""><img src="http://placehold.it/100x150" class="img-responsive thumbnail"
-                                alt="${book.name}"></a>
+                <div class="panel-body">
+                    <a href="<spring:url value="/${book.id}.html"/>">
+                        <img src="/image/${book.image.id}.html" class="thumbnail" height="150" width="100"
+                             alt="${book.name}"></a>
+                </div>
 
-
-                <h5 data-toggle="tooltip" data-placement="right" title="${book.description}">
-                    <a href="<spring:url value="/${book.id}.html"/>">${book.name}</a></h5>
-
+                <div class="panel-footer">
+                    <h5 data-toggle="tooltip" data-placement="right" title="${book.description}">
+                        <a href="<spring:url value="/${book.id}.html"/>">${book.name}</a></h5>
+                </div>
             </div>
         </div>
         <!-- end col-sm-2 -->
