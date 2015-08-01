@@ -8,7 +8,7 @@
     <div class="list-group">
       <a href="${item.link}" target="_blank" class="list-group-item">
         <h4 class="list-group-item-heading">${item.title}</h4>
-        <small>${item.publishedDate}</small>
+        <small>${item.getDateAsString()}</small>
         <p class="list-group-item-text">${item.description}</p>
       </a>
     </div>

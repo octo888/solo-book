@@ -33,14 +33,7 @@ public class ImageOfDayService {
         try {
             ImageOfDay imageOfDay = new ImageOfDay();
             imageOfDay.setName(name);
-
-            Date date = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-            String formattedDate = sdf.format(date);
-
-            imageOfDay.setPubDate(date);
-            imageOfDay.setFormattedDate(formattedDate);
-
+            imageOfDay.setPubDate(new Date());
             imageOfDay.setImage(image.isEmpty() ? null : new Image(image.getOriginalFilename(), image.getBytes()));
             imageOfDayRepository.save(imageOfDay);
 

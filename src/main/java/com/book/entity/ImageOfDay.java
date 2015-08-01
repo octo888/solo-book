@@ -1,6 +1,7 @@
 package com.book.entity;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -16,12 +17,15 @@ public class ImageOfDay {
     @Column(name = "published_date")
     private Date pubDate;
 
-    @Column(name = "formatted_date")
-    private String formattedDate;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id")
     private Image image;
+
+    public String getDateAsString() {
+        Date date = this.pubDate;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        return sdf.format(date);
+    }
 
     public Integer getId() {
         return id;
@@ -55,11 +59,4 @@ public class ImageOfDay {
         this.pubDate = publishedDate;
     }
 
-    public String getFormattedDate() {
-        return formattedDate;
-    }
-
-    public void setFormattedDate(String formattedDate) {
-        this.formattedDate = formattedDate;
-    }
 }

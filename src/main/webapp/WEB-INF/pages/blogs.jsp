@@ -15,7 +15,7 @@
         <div class="list-group">
             <a href="<spring:url value="/blogs/${item.id}.html"/>" class="list-group-item">
                 <h4 class="list-group-item-heading">${item.name}</h4>
-                <h5 class="list-group-item-heading">${item.publishedDate}</h5>
+                <h5 class="list-group-item-heading">${item.getDateAsString()}</h5>
                 <h5 class="list-group-item-heading"><i>${item.user.nickName}</i></h5>
                 <p class="list-group-item-text hideOverflow">${item.description}</p>
 

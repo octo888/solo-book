@@ -55,7 +55,7 @@
                     </strong>
                 </td>
 
-                <td><c:out value="${item.publishedDate}"/></td>
+                <td><c:out value="${item.getDateAsString()}"/></td>
 
                 <td>
                     <a href='<spring:url value="/blogs/remove/${item.id}.html"  />' class="btn btn-danger triggerRemove">

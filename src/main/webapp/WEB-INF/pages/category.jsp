@@ -14,9 +14,8 @@
                     <a href="<spring:url value="/${book.id}.html"/>">
                         <img src="/image/${book.image.id}.html" class="thumbnail" height="150" width="100"
                              alt="${book.name}"></a>
-                </div>
 
-                <div class="panel-footer">
+
                     <h5 data-toggle="tooltip" data-placement="right" title="${book.description}">
                         <a href="<spring:url value="/${book.id}.html"/>">${book.name}</a></h5>
                 </div>

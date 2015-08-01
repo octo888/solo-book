@@ -15,9 +15,8 @@
     <div class="carousel-inner">
         <div class="item active" id="slide1">
             <div class="carousel-caption">
-                <p>Good friends, good books and a sleepy conscience: this is
-                    the ideal life.</p>
-                <h4>Mark Twain</h4>
+                <p>Хорошие друзья, хорошие книги и спящая совесть — вот идеальная жизнь.</p>
+                <h4>Марк Твен</h4>
             </div>
             <!-- end carousel caption -->
         </div>
@@ -38,7 +37,7 @@
             <div class="carousel-caption">
                 <p>В сумасшедшем доме каждый мог говорить все, что взбредет
                     ему в голову, словно в парламенте.</p>
-                <h4>Бравый солдат Швейк</h4>
+                <h4>Ярослав Гашек</h4>
             </div>
             <!-- end carousel caption -->
         </div>
@@ -81,7 +80,7 @@
         <div class="tabbable">
             <ul class="nav nav-tabs">
                 <c:forEach items="${dayImage}" var="day">
-                    <li><a href="#day_${day.id}" data-toggle="tab"><c:out value="${day.formattedDate}"/></a></li>
+                    <li><a href="#day_${day.id}" data-toggle="tab"><c:out value="${day.getDateAsString()}"/></a></li>
                 </c:forEach>
             </ul>
 
@@ -111,7 +110,7 @@
             <div class="list-group">
                 <a href="${news.link}" class="list-group-item" target="_blank">
                     <h4 class="list-group-item-heading">${news.title}</h4>
-                    <small>${news.publishedDate}</small>
+                    <small>${news.getDateAsString()}</small>
                     <p class="list-group-item-text">${news.description}</p>
                 </a>
             </div>

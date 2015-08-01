@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @Entity
 public class Blog {
@@ -28,6 +29,12 @@ public class Blog {
     @JoinColumn(name = "user_id")
     private User user;
 
+
+    public String getDateAsString() {
+        Date date = this.publishedDate;
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd-MM-yyyy");
+        return sdf.format(date);
+    }
 
     public Integer getId() {
         return id;

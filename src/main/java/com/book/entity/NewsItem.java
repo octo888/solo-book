@@ -3,6 +3,7 @@ package com.book.entity;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -29,6 +30,12 @@ public class NewsItem {
     @ManyToOne
     @JoinColumn(name = "newsblog_id")
     private NewsBlog newsBlog;
+
+    public String getDateAsString() {
+        Date date = this.publishedDate;
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd-MM-yyyy");
+        return sdf.format(date);
+    }
 
     public Long getId() {
         return id;
