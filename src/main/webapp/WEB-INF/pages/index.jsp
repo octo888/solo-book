@@ -104,7 +104,7 @@
     <!-- end col-sm-6 -->
 
     <div class="col-sm-6">
-        <h3 align="middle">News Of The Book World</h3>
+        <h3 align="middle">Книжные новости на английском</h3>
 
         <c:forEach items="${news}" var="news">
             <div class="list-group">

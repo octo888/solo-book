@@ -189,11 +189,11 @@
                             minlength : 4
                         }
                     },
-                    highlight: function(element) {
-                        $(element).closest('.form-control').removeClass('has-success').addClass('has-error');
-                    },
-                    unhighlight: function(element) {
-                        $(element).closest('.form-control').removeClass('has-error').addClass('has-success');
+                    messages: {
+                        pattern: {
+                            required: "Заполните поле",
+                            minlength: "4 символа"
+                        }
                     }
                 }
         );

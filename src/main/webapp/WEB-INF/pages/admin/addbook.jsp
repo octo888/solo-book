@@ -4,7 +4,7 @@
 <%@ include file="../../layouts/taglib.jsp" %>
 
 
-<form role="form" enctype="multipart/form-data" class="form-horizontal" action="/admin/addbook.html"
+<form role="form" enctype="multipart/form-data" class="form-horizontal addBookForm" action="/admin/addbook.html"
       method="post">
 
     <div class="form-group">
@@ -30,11 +30,11 @@
     </div>
 
     <div class="form-group">
-        <label for="selectCategory" class="col-sm-2 control-label">Выберите категорию</label>
+        <label for="selectCategory" class="col-sm-2 control-label">Выберите категорию:</label>
 
         <div class="col-sm-8">
-            <form:select path="categories" name="selectCategory" cssClass="form-control">
-                <form:option value="NONE" label="--- Select ---"/>
+            <form:select path="categories"  name="selectCategory" cssClass="form-control">
+                <form:option value="" label="--- Select ---"/>
                 <form:options items="${categories}"/>
             </form:select>
         </div>
@@ -52,4 +52,27 @@
         </div>
     </div>
 </form>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".addBookForm").validate({
+            rules: {
+                selectCategory: {
+                    required: true
+                }
+            },
+            highlight: function(element) {
+                $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+            },
+            unhighlight: function(element) {
+                $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+            },
+            messages: {
+                selectCategory: {
+                    required: "Выберите категорию"
+                }
+            }
+        })
+    })
+</script>
 
