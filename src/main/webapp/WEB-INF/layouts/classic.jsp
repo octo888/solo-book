@@ -97,7 +97,8 @@
                                             data-toggle="dropdown">АдминПанель<strong class="caret"></strong></a>
                         <ul class="dropdown-menu">
 
-                            <li><a href="<spring:url value="/admin/addbook.html" />">Добавить книгу</a></li>
+                            <li class="${current == 'addbook' ? 'active' : '' }">
+                                <a href="<spring:url value="/admin/addbook.html" />">Добавить книгу</a></li>
 
                             <li class="${current == 'users' ? 'active' : '' }"><a
                                     href='<spring:url value="/admin/users.html"/>'>Пользователи</a></li>
@@ -112,6 +113,9 @@
                                     href='<spring:url value="/admin/newsblog.html"/>'>Новости</a></li>
 
                             <li><a href="<spring:url value="/account.html" />">Добавить рецензию</a></li>
+
+                            <li class="${current == 'add-day-image' ? 'active' : '' }">
+                                <a href="<spring:url value="/admin/day-image.html" />">Картинка дня</a></li>
                          </ul>
                         </li>
                     </security:authorize>

@@ -38,4 +38,8 @@
     <beans profile="prod">
         <import resource="database-prod.xml"/>
     </beans>
+
+    <beans profile="heroku">
+        <import resource="database-heroku.xml"/>
+    </beans>
 </beans>

@@ -80,7 +80,7 @@ public class TopListService {
 
     }
 
-    public String pluginImages() {
+    public String getPluginImages() {
         Map<Integer, Book> map = topListRepository.findOneByTitle(TOPLIST_FOR_CAROUSEL).getBooks();
         List<Book> books = new ArrayList<>(map.values());
         List<String> list = new ArrayList<>();
@@ -99,7 +99,7 @@ public class TopListService {
         return result;
     }
 
-    public String pluginLinks() {
+    public String getPluginLinks() {
         Map<Integer, Book> map = topListRepository.findOneByTitle(TOPLIST_FOR_CAROUSEL).getBooks();
         List<Book> books = new ArrayList<>(map.values());
         List<String> list = new ArrayList<>();

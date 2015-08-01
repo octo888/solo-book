@@ -135,4 +135,10 @@
         <put-attribute name="current" value="newsblog" />
     </definition>
 
+    <definition name="day-image" extends="common">
+        <put-attribute name="title" value="SoloBook" />
+        <put-attribute name="body" value="/WEB-INF/pages/admin/day-image.jsp" />
+        <put-attribute name="current" value="day-image" />
+    </definition>
+
 </tiles-definitions>

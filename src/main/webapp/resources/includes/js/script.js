@@ -11,5 +11,7 @@ $(function() {
 	
 	$('[rel="tooltip"]').tooltip();
 
+	$('.nav-tabs a:first').tab('show');
+
 });
 

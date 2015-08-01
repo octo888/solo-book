@@ -58,7 +58,8 @@
                 </div>
                 <!-- end panel-heading -->
 
-                <img src="${pageContext.request.contextPath}/resources/images/features/${category.title}.jpg" alt="${category.name}">
+                <img src="${pageContext.request.contextPath}/resources/images/features/${category.title}.jpg"
+                     alt="${category.name}">
 
 
                 <a href="<spring:url value="/category/${category.title}.html" /> " class="btn btn-info btn-block">Открыть</a>
@@ -75,35 +76,27 @@
 
 <div class="row" id="moreInfo">
     <div class="col-sm-6">
-        <h3>Рекомендуемый для посещения книжный магазин в Киеве</h3>
+        <h3>Картинка дня</h3>
 
         <div class="tabbable">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
-                <%--<li><a href="#tab2" data-toggle="tab">Section 2</a></li>--%>
+                <c:forEach items="${dayImage}" var="day">
+                    <li><a href="#day_${day.id}" data-toggle="tab"><c:out value="${day.formattedDate}"/></a></li>
+                </c:forEach>
             </ul>
 
             <div class="tab-content">
-                <div class="tab-pane active" id="tab1">
-                    <h4><span class="glyphicon glyphicon-map-marker"></span>Буква
-                        <small>в первом Дрим-Тауне</small>
-                    </h4>
+                <c:forEach items="${dayImage}" var="day">
+                    <div class="tab-pane active" id="day_${day.id}">
+                        <h4 class="text-center"><c:out value="${day.name}"/></h4>
 
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d4249.257029723502!2d30.501406958876927!3d50.50887620150562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0LTRgNC40Lwg0YLQsNGD0L0!5e1!3m2!1sru!2sua!4v1421352512391"
-                            width="100%" height="300" frameborder="0" style="border:0"></iframe>
-
-                    <p>В этом месте я еще не придумал контент, который бы мне нравился
-                        и выглядел адекватно на первой странице</p>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-                <!-- end tab-pane -->
-
+                        <a href="/image/${day.image.id}.html" target="_blank">
+                            <img src="/image/${day.image.id}.html" class="img-responsive thumbnail" height="500"
+                                 width="400"/>
+                        </a>
+                    </div>
+                    <!-- end tab-pane -->
+                </c:forEach>
             </div>
             <!-- end tab-content -->
         </div>
@@ -132,14 +125,17 @@
 
 <div class="row" id="sm-carousel">
     <h3 align="middle" style="color: #999999">Топ Месяца</h3>
+
     <div class="col-12" id="wrap-sm-carousel">
-        <div class="col-2"><a href="#" id="previous"><img src="${pageContext.request.contextPath}/resources/images/previous.png"></a></div>
+        <div class="col-2"><a href="#" id="previous"><img
+                src="${pageContext.request.contextPath}/resources/images/previous.png"></a></div>
         <div class="col-2"><a href="" id="link1"><img id="img1" src="" class="thumbnail img-responsive" align="middle"></a>
         </div>
         <div class="col-2"><a href="" id="link2"><img id="img2" src="" class="thumbnail img-responsive"></a></div>
         <div class="col-2"><a href="" id="link3"><img id="img3" src="" class="thumbnail img-responsive"></a></div>
         <div class="col-2"><a href="" id="link4"><img id="img4" src="" class="thumbnail img-responsive"></a></div>
-        <div class="col-2"><a href="#" id="next"><img src="${pageContext.request.contextPath}/resources/images/next.png"></a></div>
+        <div class="col-2"><a href="#" id="next"><img
+                src="${pageContext.request.contextPath}/resources/images/next.png"></a></div>
     </div>
 </div>
 <!-- end sm-carousel -->

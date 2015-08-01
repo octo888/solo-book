@@ -2,6 +2,10 @@
 /* --------------------------------------
    Layout
    -------------------------------------- */
+#moreInfo .tab-content .img-responsive {
+    margin-left: 15%;
+}
+
 #blog-text {
 
     float: none;

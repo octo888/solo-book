@@ -16,9 +16,6 @@ public class Image {
     @Basic(fetch=FetchType.LAZY)
     private byte[] body;
 
-    /*@OneToOne(mappedBy = "image", cascade = CascadeType.MERGE)
-    private Book book;*/
-
     public Image() {
 
     }
@@ -52,11 +49,4 @@ public class Image {
         this.body = body;
     }
 
-    /*public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }*/
 }

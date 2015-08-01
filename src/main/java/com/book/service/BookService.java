@@ -31,14 +31,10 @@ public class BookService {
     @Autowired
     private TopListRepository topListRepository;
 
-
     public List<Book> findAll() {
         return bookRepository.findAll();
     }
 
-    public Book findOne(int id) {
-        return bookRepository.findOne(id);
-    }
 
     public void save(Book book) {
         bookRepository.save(book);
