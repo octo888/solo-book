@@ -8,7 +8,7 @@
         <tr>
             <th>Категория</th>
             <th>Действие</th>
-            <th>Действие</th>
+            <%--<th>Действие</th>--%>
         </tr>
         </thead>
         <tbody>
@@ -26,11 +26,11 @@
                         Переименовать</a>
                 </td>
 
-                <td>
+                <%--<td>
                     <a href='<spring:url value="/admin/categories/remove/${category.id}.html" />'
                        class="btn btn-danger triggerRemove">
                         Удалить </a>
-                </td>
+                </td>--%>
 
             </tr>
         </c:forEach>

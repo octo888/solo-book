@@ -11,7 +11,8 @@
             <c:forEach items="${lists}" var="list">
                 "${list.name}",
             </c:forEach>
-            Вам следует прежде удалить либо заменить ее там</div>
+            Вам следует прежде удалить либо заменить ее там
+        </div>
     </c:if>
 
     <div class="row">
@@ -42,7 +43,7 @@
             </div>
         </form>
     </div>
-    <a href="/admin/remove/book/${book.id}.html" class="btn btn-danger pull-right" >Удалить книгу</a>
+    <a href="/admin/remove/book/${book.id}.html" class="btn btn-danger pull-right">Удалить книгу</a>
     <br/>
 </security:authorize>
 
@@ -66,9 +67,9 @@
 
                             <input class="form-control" type="number" name="rate" min=1 max=5 step=1 data-size="xs"
                                    data-rtl="false">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit">Go!</button>
-                    </span>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Go!</button>
+                            </span>
                         </div>
                     </form>
                 </div>
@@ -79,6 +80,9 @@
             <h4><b>Название: </b> <c:out value="${book.name}"/></h4>
             <h4><b>Автор: </b><c:out value="${book.authorName}"/></h4>
             <h4><b>Жанр: </b><c:out value="${book.category.name}"/></h4>
+        <security:authorize access="hasRole('ROLE_USER')">
+            <a href="<spring:url value="/account/userlist/${book.id}.html"/>" class="btn btn-success">Добавить в свой список</a>
+        </security:authorize>
         </div>
 
         <div class="media-body">

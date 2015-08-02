@@ -2,6 +2,7 @@ package com.book.controller;
 
 import com.book.entity.Blog;
 import com.book.service.BlogService;
+import com.book.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,8 @@ public class UserController {
     @Autowired
     private BlogService blogService;
 
+    @Autowired
+    private UserService userService;
 
     @ModelAttribute("blog")
     public Blog constructBlog() {
@@ -38,10 +41,12 @@ public class UserController {
     @RequestMapping(value = "/page/{pageNumber}", method = RequestMethod.GET)
     public String getBlogPage(@PathVariable Integer pageNumber,
                               Model model, Principal principal) {
-        Page<Blog> page = blogService.getBlogPageForUser(pageNumber, principal.getName());
+        String userName = principal.getName();
+        Page<Blog> page = blogService.getBlogPageForUser(pageNumber, userName);
         List<Blog> blogs = page.getContent();
 
         model.addAttribute("blogs", blogs);
+        model.addAttribute("books", userService.getUserBookList(userName));
 
         int current = page.getNumber() + 1;
         int begin = 1;//Math.max(1, current - 2);
@@ -75,5 +80,18 @@ public class UserController {
     }
 
 
+    @RequestMapping("/userlist/{id}")
+    public String addBookToUserBookList(@PathVariable Integer id, Principal principal) {
+        String name = principal.getName();
+        userService.addBookInList(id, name);
+        return "redirect:/{id}.html";
+    }
+
+    @RequestMapping("/userlist/remove/{id}")
+    public String removeFromUserBookList(@PathVariable Integer id, Principal principal) {
+        String name = principal.getName();
+        userService.removeFromBookList(id, name);
+        return "redirect:/account.html";
+    }
 
 }

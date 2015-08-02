@@ -8,7 +8,7 @@
     <div class="tabbable">
         <ul class="nav nav-tabs" >
             <li><a href="#blogs-tab" data-toggle="tab">Рецензии</a></li>
-            <li><a href="#books-tab" data-toggle="tab">Книги</a></li>
+            <li><a href="#books-tab" data-toggle="tab">Мой список книг</a></li>
         </ul>
 
         <div class="tab-content">
@@ -105,7 +105,37 @@
             </div>
 
 
-                <div class="tab-pane" id="books-tab">Книги</div>
+                <div class="tab-pane" id="books-tab">
+                    <br/>
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Действие</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${books}" var="book">
+                            <tr>
+
+                                <td>
+                                    <strong>
+                                        <a href='<spring:url value="/${book.id}.html"  />' target="_blank">
+                                            <c:out value="${book.name}"/>
+                                        </a>
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    <a href='<spring:url value="/account/userlist/remove/${book.id}.html"  />'
+                                       class="btn btn-danger triggerRemove">
+                                        Удалить из списка </a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
 
         </div>
 
@@ -119,7 +149,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Удалить запись</h4>
+                <h4 class="modal-title" id="myModalLabel">Удалить</h4>
             </div>
             <div class="modal-body">
                 Удалить?

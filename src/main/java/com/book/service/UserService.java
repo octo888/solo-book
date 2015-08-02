@@ -1,8 +1,10 @@
 package com.book.service;
 
 
+import com.book.entity.Book;
 import com.book.entity.Role;
 import com.book.entity.User;
+import com.book.repository.BookRepository;
 import com.book.repository.RoleRepository;
 import com.book.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,8 @@ public class UserService {
     @Autowired
     private RoleRepository roleRepository;
 
+    @Autowired
+    private BookRepository bookRepository;
 
     public List<User> findAll() {
         return userRepository.findAll();
@@ -52,4 +56,31 @@ public class UserService {
         userRepository.delete(id);
     }
 
+    public void addBookInList(Integer id, String name) {
+        User user = userRepository.findByName(name);
+        Book book = bookRepository.findOne(id);
+
+        List<Book> books = user.getBooks();
+        books.add(book);
+        user.setBooks(books);
+
+        userRepository.saveAndFlush(user);
+    }
+
+    public List<Book> getUserBookList(String userName) {
+        User user = userRepository.findByName(userName);
+        List<Book> books = user.getBooks();
+        return books;
+    }
+
+    public void removeFromBookList(Integer id, String name) {
+        User user = userRepository.findByName(name);
+        Book book = bookRepository.findOne(id);
+
+        List<Book> books = user.getBooks();
+        books.remove(book);
+        user.setBooks(books);
+
+        userRepository.saveAndFlush(user);
+    }
 }
