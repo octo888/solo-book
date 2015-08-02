@@ -34,11 +34,12 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Blog> blogs;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Book> books;
 
     @ManyToMany
     @JoinTable
     private List<Role> roles;
-
 
     public Integer getId() {
         return id;
@@ -102,5 +103,13 @@ public class User {
 
     public void setBlogs(List<Blog> blogs) {
         this.blogs = blogs;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }

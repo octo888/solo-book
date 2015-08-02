@@ -77,7 +77,7 @@
     <div class="col-sm-6">
         <h3>Картинка дня</h3>
 
-        <div class="tabbable">
+
             <ul class="nav nav-tabs">
                 <c:forEach items="${dayImage}" var="day">
                     <li><a href="#day_${day.id}" data-toggle="tab"><c:out value="${day.getDateAsString()}"/></a></li>
@@ -98,8 +98,7 @@
                 </c:forEach>
             </div>
             <!-- end tab-content -->
-        </div>
-        <!-- end tabbable -->
+
     </div>
     <!-- end col-sm-6 -->
 
