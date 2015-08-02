@@ -5,7 +5,8 @@
 
 <div class="row">
 
-        <ul class="nav-tabs">
+    <div class="tabbable">
+        <ul class="nav nav-tabs" >
             <li><a href="#blogs-tab" data-toggle="tab">Рецензии</a></li>
             <li><a href="#books-tab" data-toggle="tab">Книги</a></li>
         </ul>
@@ -103,12 +104,13 @@
 
             </div>
 
+
+                <div class="tab-pane" id="books-tab">Книги</div>
+
         </div>
 
-        <div class="tab-content">
-            <div class="tab-pane" id="books-tab">Книги</div>
-        </div>
 
+    </div>
 </div>
 
 <!-- Modal -->

@@ -22,6 +22,9 @@ public class InitDBService {
     private RoleRepository roleRepository;
 
     @Autowired
+    private BlogRepository blogRepository;
+
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -110,6 +113,8 @@ public class InitDBService {
             bookNews
                     .setUrl("http://www.booksfree.com/rss/NewReleasesBooks.xml");
             newsBlogService.save(bookNews);
+
+
         }
 
     }
