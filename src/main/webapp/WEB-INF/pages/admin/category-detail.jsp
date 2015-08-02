@@ -5,7 +5,7 @@
 
 <div class="row">
 
-    <a href='<spring:url value="/admin/categories/${category.title}/addbook.html"  />' class="btn btn-primary" >Добавить книгу</a>
+    <a href='<spring:url value="/admin/addbook.html"  />' class="btn btn-primary" >Добавить книгу</a>
 
     <br/>
     <br/>
@@ -24,7 +24,7 @@
                         <c:out value="${book.name}" /> </a>
                 </td>
                 <td>
-                    <a href='<spring:url value="/admin/categories/${category.title}/remove/book/${book.id}.html"  />' class="btn btn-danger triggerRemove">
+                    <a href='<spring:url value="/admin/remove/book/${book.id}.html"  />' class="btn btn-danger triggerRemove">
                         Удалить </a>
                 </td>
 

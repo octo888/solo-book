@@ -4,6 +4,48 @@
 
 <%@ include file="../layouts/taglib.jsp" %>
 
+<security:authorize access="hasRole('ROLE_ADMIN')">
+
+    <c:if test="${message eq true}">
+        <div class="alert alert-danger">Книга содержится в списках:
+            <c:forEach items="${lists}" var="list">
+                "${list.name}",
+            </c:forEach>
+            Вам следует прежде удалить либо заменить ее там</div>
+    </c:if>
+
+    <div class="row">
+        <form role="form" class="form-inline" style="margin-left: 10%" action="/${book.id}.html" method="post">
+            <div class="form-group">
+
+                <div class="col-sm-1">
+                    <label for="key">Позиция в списке</label>
+                </div>
+                <div class="col-sm-2">
+                    <input name="key" id="key" type="number" class="form-control" min=1/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-1" for="selectTopList">Выберите список</label>
+
+                <div class="col-sm-4">
+                    <form:select path="toplists" name="selectTopList" cssClass="form-control">
+                        <form:option value="NONE" label="--- Select ---"/>
+                        <form:options items="${toplists}"/>
+                    </form:select>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-2">
+                <input type="submit" class="btn btn-primary" value="Добавить">
+            </div>
+        </form>
+    </div>
+    <a href="/admin/remove/book/${book.id}.html" class="btn btn-danger pull-right" >Удалить книгу</a>
+    <br/>
+</security:authorize>
+
 
 <div class="row">
     <div class="media">
@@ -36,6 +78,7 @@
         <div class="media-heading">
             <h4><b>Название: </b> <c:out value="${book.name}"/></h4>
             <h4><b>Автор: </b><c:out value="${book.authorName}"/></h4>
+            <h4><b>Жанр: </b><c:out value="${book.category.name}"/></h4>
         </div>
 
         <div class="media-body">
@@ -45,28 +88,6 @@
         </div>
 
     </div>
-    <security:authorize access="hasRole('ROLE_ADMIN')">
-        <form role="form" class="form-inline" action="/${book.id}.html" method="post" style="max-width:150px">
-            <div class="form-group">
-                <label for="key">Позиция</label>
-                <input name="key" id="key" type="number" class="form-control" min=1/>
-            </div>
-
-            <div class="form-group">
-                <label for="selectTopList">Выберите список</label>
-
-                <form:select path="toplists" name="selectTopList" cssClass="form-control">
-                    <form:option value="NONE" label="--- Select ---"/>
-                    <form:options items="${toplists}"/>
-                </form:select>
-
-            </div>
-
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Добавить">
-            </div>
-        </form>
-    </security:authorize>
 
 </div>
 

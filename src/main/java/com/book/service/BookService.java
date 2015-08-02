@@ -31,6 +31,8 @@ public class BookService {
     @Autowired
     private TopListRepository topListRepository;
 
+
+
     public List<Book> findAll() {
         return bookRepository.findAll();
     }
@@ -42,6 +44,12 @@ public class BookService {
 
 
     public void delete(int id) {
+        /*Book book = bookRepository.findOne(id);
+        TopList topList = topListRepository.findByBooks(book);
+        if (topList != null) {
+            topListService.removeBook(topList.getTitle(), id);
+        }*/
+
         bookRepository.delete(id);
     }
 

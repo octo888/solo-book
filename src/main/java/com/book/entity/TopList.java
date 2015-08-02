@@ -15,7 +15,7 @@ public class TopList {
 
     private String title;
 
-    @ManyToMany(fetch = FetchType.EAGER) /*(mappedBy = "topLists", cascade = CascadeType.MERGE) оставлю для напоминания*/
+    @ManyToMany(fetch = FetchType.EAGER)
     private Map<Integer, Book> books;
 
     public TopList() {

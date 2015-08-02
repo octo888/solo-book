@@ -117,4 +117,10 @@ public class TopListService {
         }
         return result;
     }
+
+
+    public List<TopList> findByBookId(int id) {
+        Book book = bookRepository.findOne(id);
+        return topListRepository.findByBooks(book);
+    }
 }

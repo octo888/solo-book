@@ -28,9 +28,6 @@ public class InitDBService {
     private CategoryRepository categoryRepository;
 
     @Autowired
-    private BlogRepository blogRepository;
-
-    @Autowired
     private TopListRepository topListRepository;
 
     @Autowired
@@ -50,6 +47,7 @@ public class InitDBService {
             User userAdmin = new User();
             userAdmin.setEnabled(true);
             userAdmin.setName("admin");
+            userAdmin.setNickName("SoloBook");
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             userAdmin.setPassword(encoder.encode("admin"));
             List<Role> roles = new ArrayList<>();
