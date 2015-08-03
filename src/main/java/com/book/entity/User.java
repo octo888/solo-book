@@ -34,7 +34,7 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Blog> blogs;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     private List<Book> books;
 
     @ManyToMany

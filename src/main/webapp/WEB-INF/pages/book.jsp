@@ -4,49 +4,6 @@
 
 <%@ include file="../layouts/taglib.jsp" %>
 
-<security:authorize access="hasRole('ROLE_ADMIN')">
-
-    <c:if test="${message eq true}">
-        <div class="alert alert-danger">Книга содержится в списках:
-            <c:forEach items="${lists}" var="list">
-                "${list.name}",
-            </c:forEach>
-            Вам следует прежде удалить либо заменить ее там
-        </div>
-    </c:if>
-
-    <div class="row">
-        <form role="form" class="form-inline" style="margin-left: 10%" action="/${book.id}.html" method="post">
-            <div class="form-group">
-
-                <div class="col-sm-1">
-                    <label for="key">Позиция в списке</label>
-                </div>
-                <div class="col-sm-2">
-                    <input name="key" id="key" type="number" class="form-control" min=1/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-sm-1" for="selectTopList">Выберите список</label>
-
-                <div class="col-sm-4">
-                    <form:select path="toplists" name="selectTopList" cssClass="form-control">
-                        <form:option value="NONE" label="--- Select ---"/>
-                        <form:options items="${toplists}"/>
-                    </form:select>
-                </div>
-            </div>
-
-            <div class="form-group col-sm-2">
-                <input type="submit" class="btn btn-primary" value="Добавить">
-            </div>
-        </form>
-    </div>
-    <a href="/admin/remove/book/${book.id}.html" class="btn btn-danger pull-right">Удалить книгу</a>
-    <br/>
-</security:authorize>
-
 
 <div class="row">
     <div class="media">
@@ -95,4 +52,77 @@
 
 </div>
 
+<security:authorize access="hasRole('ROLE_ADMIN')">
+
+    <c:if test="${message eq true}">
+        <div class="alert alert-danger">Книга содержится в списках:
+            <c:forEach items="${lists}" var="list">
+                "${list.name}",
+            </c:forEach>
+            Вам следует прежде удалить либо заменить ее там
+        </div>
+    </c:if>
+
+    <div class="row">
+        <form role="form" class="form-inline" style="margin-left: 10%" action="/${book.id}.html" method="post">
+            <div class="form-group">
+
+                <div class="col-sm-1">
+                    <label for="key">Позиция в списке</label>
+                </div>
+                <div class="col-sm-2">
+                    <input name="key" id="key" type="number" class="form-control" min=1/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-1" for="selectTopList">Выберите список</label>
+
+                <div class="col-sm-4">
+                    <form:select path="toplists" name="selectTopList" cssClass="form-control">
+                        <form:option value="NONE" label="--- Select ---"/>
+                        <form:options items="${toplists}"/>
+                    </form:select>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-2">
+                <input type="submit" class="btn btn-primary" value="Добавить">
+            </div>
+        </form>
+    </div>
+    <a href="/admin/remove/book/${book.id}.html" class="btn btn-danger triggerRemove">Удалить книгу</a>
+    <br/>
+</security:authorize>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Удалить книгу</h4>
+            </div>
+            <div class="modal-body">
+                Вы уверены что хотите удалить книгу?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                <a href="" class="btn btn-danger removeBtn">Удалить</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".triggerRemove").click(function (e) {
+            e.preventDefault();
+            $("#modalRemove .removeBtn").attr("href", $(this).attr("href"));
+            $("#modalRemove").modal();
+        });
+    });
+</script>
 

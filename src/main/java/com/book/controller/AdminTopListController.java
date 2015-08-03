@@ -1,6 +1,5 @@
 package com.book.controller;
 
-import com.book.entity.Book;
 import com.book.entity.TopList;
 import com.book.service.BookService;
 import com.book.service.TopListService;
@@ -44,7 +43,6 @@ public class AdminTopListController {
         return "redirect:/admin/toplists.html";
     }
 
-
     @RequestMapping(value = "/{title}", method = RequestMethod.POST)
     public String doAddBooksInTopList(@RequestParam(value = "selectedBook") String bookName,
                                       @RequestParam(value = "key") Integer key,
@@ -52,7 +50,6 @@ public class AdminTopListController {
         topListService.addBook(title, bookName, key);
         return "redirect:/admin/toplists/{title}.html";
     }
-
 
     @RequestMapping("/remove/{id}")
     public String removeTopList(@PathVariable int id) {

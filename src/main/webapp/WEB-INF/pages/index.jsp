@@ -115,7 +115,7 @@
             </div>
         </c:forEach>
         <!-- end list-group -->
-        <a href="<spring:url value='/news.html'/> " class="pull-right">more news...</a>
+        <a href="<spring:url value='/news.html'/> " class="pull-right">больше новостей...</a>
     </div>
     <!-- end col-sm-6 -->
 </div>

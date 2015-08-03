@@ -29,10 +29,11 @@ public class Book {
     @JoinColumn(name = "image_id")
     private Image image;
 
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection
     private List<Integer> rates;
 
     private Double rate;
+
 
     public Integer getId() {
         return id;

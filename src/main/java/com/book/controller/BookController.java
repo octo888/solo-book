@@ -1,12 +1,9 @@
 package com.book.controller;
 
-import com.book.entity.Book;
+
 import com.book.entity.Image;
 import com.book.service.BookService;
-import com.book.service.CategoryService;
 import com.book.service.TopListService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,7 +29,6 @@ public class BookController {
         return "book";
     }
 
-
     @RequestMapping(value = "/rate/{id}")
     public String doAddRate(@PathVariable int id, @RequestParam(value = "rate") Integer rate) {
         bookService.addRate(id, rate);
@@ -50,6 +46,5 @@ public class BookController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

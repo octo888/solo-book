@@ -1,7 +1,6 @@
 package com.book.controller;
 
-import com.book.entity.Image;
-import com.book.entity.ImageOfDay;
+
 import com.book.service.ImageOfDayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

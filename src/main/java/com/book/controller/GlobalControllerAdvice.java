@@ -25,11 +25,11 @@ public class GlobalControllerAdvice {
         model.addAttribute("globalCategories", categoryService.findAll());
     }
 
-    /*@ExceptionHandler(Exception.class)
+    @ExceptionHandler(Exception.class)
     public ModelAndView myError(Exception exception) {
         ModelAndView mav = new ModelAndView();
         mav.addObject("exception", exception);
         mav.setViewName("error");
         return mav;
-    }*/
+    }
 }

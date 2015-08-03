@@ -31,25 +31,15 @@ public class BookService {
     @Autowired
     private TopListRepository topListRepository;
 
-
-
     public List<Book> findAll() {
         return bookRepository.findAll();
     }
-
 
     public void save(Book book) {
         bookRepository.save(book);
     }
 
-
     public void delete(int id) {
-        /*Book book = bookRepository.findOne(id);
-        TopList topList = topListRepository.findByBooks(book);
-        if (topList != null) {
-            topListService.removeBook(topList.getTitle(), id);
-        }*/
-
         bookRepository.delete(id);
     }
 
@@ -59,7 +49,6 @@ public class BookService {
 
     public void addRate(int id, Integer rate) {
         Book book = bookRepository.findOne(id);
-        /*Hibernate.initialize(book.getRates());*/
         List<Integer> rates = book.getRates();
         rates.add(rate);
         bookRepository.saveAndFlush(book);

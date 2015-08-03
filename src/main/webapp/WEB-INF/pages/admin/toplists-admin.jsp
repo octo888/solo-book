@@ -9,12 +9,12 @@
         Добавить список
     </button>
 
-    <form:form commandName="toplist" cssClass="form-horizontal">
+    <form:form commandName="toplist" cssClass="form-horizontal addToplistForm">
         <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content ">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
@@ -23,7 +23,7 @@
                     <div class="modal-body">
 
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">Название:</label>
+                            <label for="name" class="col-sm-3 control-label">Название:</label>
 
                             <div class="col-sm-8">
                                 <form:input path="name" cssClass="form-control"/>
@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="title" class="col-sm-2 control-label">Title:</label>
+                            <label for="title" class="col-sm-3 control-label">Латиницей(ex. tophundred):</label>
 
                             <div class="col-sm-8">
                                 <form:input path="title" cssClass="form-control"/>
@@ -140,6 +140,25 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            $(".addToplistForm").validate({
+               rules: {
+                   name: {
+                       required: true,
+                       minlength: 3
+                   },
+                   title: {
+                       required: true,
+                       minlength: 3
+                   }
+               },
+                highlight: function(element) {
+                    $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+                },
+                unhighlight: function(element) {
+                    $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+                }
+            });
+
             $(".triggerRemove").click(function (e) {
                 e.preventDefault();
                 $("#modalRemove .removeBtn").attr("href", $(this).attr("href"));

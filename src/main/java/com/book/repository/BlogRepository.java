@@ -10,5 +10,4 @@ public interface BlogRepository extends JpaRepository<Blog, Integer> {
 
     Page<Blog> findByUser(User user, Pageable pageable);
 
-
 }

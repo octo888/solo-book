@@ -1,12 +1,10 @@
 package com.book.controller;
 
-import com.book.entity.Book;
-import com.book.entity.Category;
-import com.book.entity.Image;
-import com.book.entity.TopList;
+import com.book.entity.*;
 import com.book.service.BookService;
 import com.book.service.CategoryService;
 import com.book.service.TopListService;
+import com.book.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +29,9 @@ public class AdminBookController {
 
     @Autowired
     private TopListService topListService;
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/admin/addbook")
     public String showAddBook(Model model) {
@@ -78,11 +79,19 @@ public class AdminBookController {
     @RequestMapping("/admin/remove/book/{id}")
     public String removeBook(@PathVariable int id, RedirectAttributes redirectAttributes) {
         List<TopList> topLists = topListService.findByBookId(id);
+        List<User> users = userService.findInBookList(id);
+
         if (!topLists.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", true);
             redirectAttributes.addFlashAttribute("lists", topLists);
             return "redirect:/{id}.html";
-        } else bookService.delete(id);
+        }
+        if (!users.isEmpty()) {
+            for (User user: users) {
+                userService.removeFromBookList(id, user.getName());
+            }
+        }
+        bookService.delete(id);
         return "redirect:/admin/categories.html";
     }
 }

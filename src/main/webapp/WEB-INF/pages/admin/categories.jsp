@@ -38,9 +38,9 @@
     </table>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    <%--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
         Добавить категорию
-    </button>
+    </button>--%>
 
     <form:form commandName="category" cssClass="form-horizontal">
         <!-- Modal -->
@@ -64,7 +64,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="title" class="col-sm-2 control-label">Title:</label>
+                            <label for="title" class="col-sm-2 control-label">Название латиницей(ex. fantastic):</label>
 
                             <div class="col-sm-8">
                                 <form:input path="title" cssClass="form-control"/>

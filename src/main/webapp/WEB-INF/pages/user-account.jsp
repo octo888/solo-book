@@ -7,7 +7,7 @@
 
     <div class="tabbable">
         <ul class="nav nav-tabs" >
-            <li><a href="#blogs-tab" data-toggle="tab">Рецензии</a></li>
+            <li><a href="#blogs-tab" data-toggle="tab">Мои рецензии</a></li>
             <li><a href="#books-tab" data-toggle="tab">Мой список книг</a></li>
         </ul>
 

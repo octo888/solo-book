@@ -83,4 +83,9 @@ public class UserService {
 
         userRepository.saveAndFlush(user);
     }
+
+    public List<User> findInBookList(int id) {
+        Book book = bookRepository.findOne(id);
+        return userRepository.findByBooks(book);
+    }
 }

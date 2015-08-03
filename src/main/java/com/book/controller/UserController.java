@@ -37,7 +37,6 @@ public class UserController {
         return getBlogPage(1, model, principal);
     }
 
-
     @RequestMapping(value = "/page/{pageNumber}", method = RequestMethod.GET)
     public String getBlogPage(@PathVariable Integer pageNumber,
                               Model model, Principal principal) {
@@ -59,7 +58,6 @@ public class UserController {
         return "user-account";
     }
 
-
     @RequestMapping(method = RequestMethod.POST)
     public String addBlog(Model model,
                             @Valid @ModelAttribute("blog") Blog blog, BindingResult result,
@@ -78,7 +76,6 @@ public class UserController {
                             Principal principal) {
         return addBlog(model, blog, result, principal);
     }
-
 
     @RequestMapping("/userlist/{id}")
     public String addBookToUserBookList(@PathVariable Integer id, Principal principal) {

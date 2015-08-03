@@ -15,7 +15,7 @@ public class TopList {
 
     private String title;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     private Map<Integer, Book> books;
 
     public TopList() {
