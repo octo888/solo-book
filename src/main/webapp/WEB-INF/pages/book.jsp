@@ -37,9 +37,10 @@
             <h4><b>Название: </b> <c:out value="${book.name}"/></h4>
             <h4><b>Автор: </b><c:out value="${book.authorName}"/></h4>
             <h4><b>Жанр: </b><c:out value="${book.category.name}"/></h4>
-        <security:authorize access="hasRole('ROLE_USER')">
-            <a href="<spring:url value="/account/userlist/${book.id}.html"/>" class="btn btn-success">Добавить в свой список</a>
-        </security:authorize>
+
+            <a href="<spring:url value="/account/userbooklist/${book.id}.html"/>" class="btn btn-success">
+                Добавить в свой список</a>
+
         </div>
 
         <div class="media-body">

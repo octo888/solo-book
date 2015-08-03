@@ -127,7 +127,7 @@
                                 </td>
 
                                 <td>
-                                    <a href='<spring:url value="/account/userlist/remove/${book.id}.html"  />'
+                                    <a href='<spring:url value="/account/userbooklist/remove/${book.id}.html"  />'
                                        class="btn btn-danger triggerRemove">
                                         Удалить из списка </a>
                                 </td>

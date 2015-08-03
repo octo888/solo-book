@@ -77,14 +77,14 @@ public class UserController {
         return addBlog(model, blog, result, principal);
     }
 
-    @RequestMapping("/userlist/{id}")
+    @RequestMapping("/userbooklist/{id}")
     public String addBookToUserBookList(@PathVariable Integer id, Principal principal) {
         String name = principal.getName();
         userService.addBookInList(id, name);
         return "redirect:/{id}.html";
     }
 
-    @RequestMapping("/userlist/remove/{id}")
+    @RequestMapping("/userbooklist/remove/{id}")
     public String removeFromUserBookList(@PathVariable Integer id, Principal principal) {
         String name = principal.getName();
         userService.removeFromBookList(id, name);
