@@ -110,6 +110,7 @@
                     <table class="table table-bordered table-hover table-striped">
                         <thead>
                         <tr>
+                            <th>Обложка</th>
                             <th>Название</th>
                             <th>Действие</th>
                         </tr>
@@ -118,6 +119,9 @@
                         <c:forEach items="${books}" var="book">
                             <tr>
 
+                                <td>
+                                    <img src="/image/${book.image.id}.html" height="125" width="75" align="middle">
+                                </td>
                                 <td>
                                     <strong>
                                         <a href='<spring:url value="/${book.id}.html"  />' target="_blank">

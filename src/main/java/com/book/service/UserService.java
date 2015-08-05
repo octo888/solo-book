@@ -67,9 +67,13 @@ public class UserService {
         userRepository.saveAndFlush(user);
     }
 
+
     public List<Book> getUserBookList(String userName) {
         User user = userRepository.findByName(userName);
         List<Book> books = user.getBooks();
+        for (Book book : books) {
+            book.getImage().getId();
+        }
         return books;
     }
 
@@ -83,6 +87,7 @@ public class UserService {
 
         userRepository.saveAndFlush(user);
     }
+
 
     public List<User> findInBookList(int id) {
         Book book = bookRepository.findOne(id);

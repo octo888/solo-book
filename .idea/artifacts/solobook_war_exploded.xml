@@ -17,7 +17,7 @@
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:3.2.7.RELEASE" />
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
           <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:3.2.7.RELEASE" />
-          <element id="library" level="project" name="Maven: org.postgresql:postgresql:9.3-1100-jdbc41" />
+          <element id="library" level="project" name="Maven: org.postgresql:postgresql:9.4-1201-jdbc41" />
           <element id="library" level="project" name="Maven: commons-dbcp:commons-dbcp:1.4" />
           <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.5.4" />
           <element id="library" level="project" name="Maven: org.hsqldb:hsqldb:2.3.2" />

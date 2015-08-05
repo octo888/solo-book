@@ -1,5 +1,7 @@
 package com.book.entity;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +16,7 @@ public class Image {
 
     @Lob
     @Basic(fetch=FetchType.LAZY)
+    //@Type(type = "org.hibernate.type.BinaryType")
     private byte[] body;
 
     public Image() {

@@ -3,6 +3,8 @@ package com.book.controller;
 import com.book.entity.Blog;
 import com.book.service.BlogService;
 import com.book.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
@@ -34,7 +37,9 @@ public class UserController {
 
     @RequestMapping
     public String account(Model model, Principal principal) {
+        LoggerFactory.getLogger(UserController.class).debug("start controller");
         return getBlogPage(1, model, principal);
+
     }
 
     @RequestMapping(value = "/page/{pageNumber}", method = RequestMethod.GET)
@@ -54,6 +59,7 @@ public class UserController {
         model.addAttribute("current", current);
         model.addAttribute("beginIndex", begin);
         model.addAttribute("endIndex", end);
+
 
         return "user-account";
     }

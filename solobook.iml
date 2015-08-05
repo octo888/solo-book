@@ -70,7 +70,7 @@
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:3.2.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:3.2.7.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.postgresql:postgresql:9.3-1100-jdbc41" level="project" />
+    <orderEntry type="library" name="Maven: org.postgresql:postgresql:9.4-1201-jdbc41" level="project" />
     <orderEntry type="library" name="Maven: commons-dbcp:commons-dbcp:1.4" level="project" />
     <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.5.4" level="project" />
     <orderEntry type="library" name="Maven: org.hsqldb:hsqldb:2.3.2" level="project" />
