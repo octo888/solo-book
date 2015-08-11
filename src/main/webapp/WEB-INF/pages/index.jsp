@@ -142,48 +142,62 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        var images = ${pluginImages};
-        var links = ${pluginLinks};
         var currentBook = 0;
+        var books = [];
 
-        $("#img1").attr("src", images[currentBook]);
-        $("#img2").attr("src", images[currentBook + 1]);
-        $("#img3").attr("src", images[currentBook + 2]);
-        $("#img4").attr("src", images[currentBook + 3]);
+        $.ajax({
+            url: "<spring:url value='/plugin.json' />",
+            dataType: "json",
+            type: 'get',
+            async: false,
+            success: function (data) {
+                books = data;
+            }/*,
+            error: function (data) {
+                alert(JSON.stringify(data) + "error");
+                console.log(data);
+            }*/
+        });
 
-        $("#link1").attr("href", links[currentBook]);
-        $("#link2").attr("href", links[currentBook + 1]);
-        $("#link3").attr("href", links[currentBook + 2]);
-        $("#link4").attr("href", links[currentBook + 3]);
+
+        $("#img1").attr("src", books[currentBook].imageID);
+        $("#img2").attr("src", books[currentBook + 1].imageID);
+        $("#img3").attr("src", books[currentBook + 2].imageID);
+        $("#img4").attr("src", books[currentBook + 3].imageID);
+
+        $("#link1").attr("href", books[currentBook].bookID);
+        $("#link2").attr("href", books[currentBook + 1].bookID);
+        $("#link3").attr("href", books[currentBook + 2].bookID);
+        $("#link4").attr("href", books[currentBook + 3].bookID);
 
 
         $("#previous").click(function () {
             if (currentBook != 0) {
                 currentBook--;
-                $("#img1").attr("src", images[currentBook]);
-                $("#img2").attr("src", images[currentBook + 1]);
-                $("#img3").attr("src", images[currentBook + 2]);
-                $("#img4").attr("src", images[currentBook + 3]);
+                $("#img1").attr("src", books[currentBook].imageID);
+                $("#img2").attr("src", books[currentBook + 1].imageID);
+                $("#img3").attr("src", books[currentBook + 2].imageID);
+                $("#img4").attr("src", books[currentBook + 3].imageID);
 
-                $("#link1").attr("href", links[currentBook]);
-                $("#link2").attr("href", links[currentBook + 1]);
-                $("#link3").attr("href", links[currentBook + 2]);
-                $("#link4").attr("href", links[currentBook + 3]);
+                $("#link1").attr("href", books[currentBook].bookID);
+                $("#link2").attr("href", books[currentBook + 1].bookID);
+                $("#link3").attr("href", books[currentBook + 2].bookID);
+                $("#link4").attr("href", books[currentBook + 3].bookID);
             }
             return false;
         });
         $("#next").click(function () {
-            if (currentBook != images.length - 4) {
+            if (currentBook != books.length - 4) {
                 currentBook++;
-                $("#img1").attr("src", images[currentBook]);
-                $("#img2").attr("src", images[currentBook + 1]);
-                $("#img3").attr("src", images[currentBook + 2]);
-                $("#img4").attr("src", images[currentBook + 3]);
+                $("#img1").attr("src", books[currentBook].imageID);
+                $("#img2").attr("src", books[currentBook + 1].imageID);
+                $("#img3").attr("src", books[currentBook + 2].imageID);
+                $("#img4").attr("src", books[currentBook + 3].imageID);
 
-                $("#link1").attr("href", links[currentBook]);
-                $("#link2").attr("href", links[currentBook + 1]);
-                $("#link3").attr("href", links[currentBook + 2]);
-                $("#link4").attr("href", links[currentBook + 3]);
+                $("#link1").attr("href", books[currentBook].bookID);
+                $("#link2").attr("href", books[currentBook + 1].bookID);
+                $("#link3").attr("href", books[currentBook + 2].bookID);
+                $("#link4").attr("href", books[currentBook + 3].bookID);
 
             }
             return false;
