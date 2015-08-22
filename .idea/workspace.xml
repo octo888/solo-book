@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3531166b-b71e-4fb4-8b60-daba2720dbda" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/book/controller/AdminBookController.java" afterPath="$PROJECT_DIR$/src/main/java/com/book/controller/AdminBookController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/book/service/BookService.java" afterPath="$PROJECT_DIR$/src/main/java/com/book/service/BookService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/book.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/book.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/includes/css/styles.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/includes/css/styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="solobook.iws" />
@@ -31,7 +26,18 @@
     <favorites_list name="solobook" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="AdminBookController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/book/controller/AdminBookController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7677419">
+              <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -108,12 +114,12 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/book.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/includes/css/styles.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/category.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/book/controller/AdminBookController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/book/service/BookService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/book/annotation/UniqueBookNameValidator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/book/annotation/UniqueBookName.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/book/entity/Book.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/addbook.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/book/controller/AdminBookController.java" />
       </list>
     </option>
   </component>
@@ -1322,12 +1328,6 @@
       <workItem from="1438541001160" duration="2281000" />
       <workItem from="1438571837618" duration="146000" />
     </task>
-    <task id="LOCAL-00001" summary="DB connected">
-      <created>1432811917686</created>
-      <option name="number" value="00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1432811917686</updated>
-    </task>
     <task id="LOCAL-00002" summary="After Category creating">
       <created>1433700916355</created>
       <option name="number" value="00002" />
@@ -1616,15 +1616,21 @@
       <option name="project" value="LOCAL" />
       <updated>1438543254843</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="fix">
+      <created>1440258283741</created>
+      <option name="number" value="00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1440258283742</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="449522000" />
+    <option name="totallyTimeSpent" value="449563000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="743" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1640,7 +1646,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3258427" sideWeight="0.4969697" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23313783" sideWeight="0.49191687" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23313783" sideWeight="0.49191687" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1724,9 +1730,9 @@
     <MESSAGE value="controlleradvice and toplist on book page" />
     <MESSAGE value="fix date" />
     <MESSAGE value="jquery validation messages" />
-    <MESSAGE value="fix" />
     <MESSAGE value="user book list" />
-    <option name="LAST_COMMIT_MESSAGE" value="user book list" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2053,14 +2059,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/book/controller/AdminBookController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/book/entity/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2085,14 +2083,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logigng.log.9">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5632.403">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/book/entity/Book.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.040723983">
@@ -2107,6 +2097,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.062394604">
           <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/book/controller/AdminBookController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7677419">
+          <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
           <folding />
         </state>
       </provider>
