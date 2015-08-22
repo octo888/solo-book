@@ -149,7 +149,7 @@
         /*var books = [];
 
         $.ajax({
-            url: "<spring:url value='/plugin.json' />",
+            url: "",
             dataType: "json",
             type: 'get',
             async: false,

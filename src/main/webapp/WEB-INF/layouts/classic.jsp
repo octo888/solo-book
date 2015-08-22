@@ -93,30 +93,30 @@
 
                     <security:authorize access="hasRole('ROLE_ADMIN')" >
 
-                    <li class="dropdown"><a href="#" class="dropdown-toggle"
-                                            data-toggle="dropdown">АдминПанель<strong class="caret"></strong></a>
-                        <ul class="dropdown-menu">
+                        <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                                data-toggle="dropdown">АдминПанель<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
 
-                            <li class="${current == 'addbook' ? 'active' : '' }">
-                                <a href="<spring:url value="/admin/addbook.html" />">Добавить книгу</a></li>
+                                <li class="${current == 'addbook' ? 'active' : '' }">
+                                    <a href="<spring:url value="/admin/addbook.html" />">Добавить книгу</a></li>
 
-                            <li class="${current == 'users' ? 'active' : '' }"><a
-                                    href='<spring:url value="/admin/users.html"/>'>Пользователи</a></li>
+                                <li class="${current == 'users' ? 'active' : '' }"><a
+                                        href='<spring:url value="/admin/users.html"/>'>Пользователи</a></li>
 
-                            <li class="${current == 'categories' ? 'active' : '' }"><a
-                                    href='<spring:url value="/admin/categories.html"/>'>Категории</a></li>
+                                <li class="${current == 'categories' ? 'active' : '' }"><a
+                                        href='<spring:url value="/admin/categories.html"/>'>Категории</a></li>
 
-                            <li class="${current == 'toplist' ? 'active' : '' }"><a
-                                    href='<spring:url value="/admin/toplists.html"/>'>Топы</a></li>
+                                <li class="${current == 'toplist' ? 'active' : '' }"><a
+                                        href='<spring:url value="/admin/toplists.html"/>'>Топы</a></li>
 
-                            <li class="${current == 'newsblog' ? 'active' : '' }"><a
-                                    href='<spring:url value="/admin/newsblog.html"/>'>Новости</a></li>
+                                <li class="${current == 'newsblog' ? 'active' : '' }"><a
+                                        href='<spring:url value="/admin/newsblog.html"/>'>Новости</a></li>
 
-                            <li><a href="<spring:url value="/account.html" />">Добавить рецензию</a></li>
+                                <li><a href="<spring:url value="/account.html" />">Добавить рецензию</a></li>
 
-                            <li class="${current == 'add-day-image' ? 'active' : '' }">
-                                <a href="<spring:url value="/admin/day-image.html" />">Картинка дня</a></li>
-                         </ul>
+                                <li class="${current == 'add-day-image' ? 'active' : '' }">
+                                    <a href="<spring:url value="/admin/day-image.html" />">Картинка дня</a></li>
+                            </ul>
                         </li>
                     </security:authorize>
 
@@ -138,7 +138,7 @@
                             class="caret"></strong></a>
 
                         <ul class="dropdown-menu">
-                            
+
                             <security:authorize access="! isAuthenticated()" >
                                 <li><a href="<spring:url value="/login.html">
                                 </spring:url>">Войти</a></li>
