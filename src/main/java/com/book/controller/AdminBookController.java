@@ -94,4 +94,11 @@ public class AdminBookController {
         bookService.delete(id);
         return "redirect:/admin/categories.html";
     }
+
+    @RequestMapping("/book/available")
+    @ResponseBody
+    public String available(@RequestParam String bookname) {
+        Boolean available = bookService.findOneByName(bookname) == null;
+        return available.toString();
+    }
 }

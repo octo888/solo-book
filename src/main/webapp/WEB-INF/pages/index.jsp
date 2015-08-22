@@ -57,8 +57,8 @@
                 </div>
                 <!-- end panel-heading -->
 
-                <img src="${pageContext.request.contextPath}/resources/images/features/${category.title}.jpg"
-                     alt="${category.name}">
+                <a href="<spring:url value="/category/${category.title}.html" />"> <img src="${pageContext.request.contextPath}/resources/images/features/${category.title}.jpg"
+                     alt="${category.name}"></a>
 
 
                 <a href="<spring:url value="/category/${category.title}.html" /> " class="btn btn-info btn-block">Открыть</a>

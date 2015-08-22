@@ -3,21 +3,22 @@
 
 <%@ include file="../layouts/taglib.jsp" %>
 
-<div class="row" id="categoryBooks">
+<div class="row" id="">
 
     <c:forEach items="${books}" var="book">
 
-        <div class="col-sm-2">
-            <div class="panel" id="categoryPanel">
+        <div class="col-sm-2" id="categoryBooks">
+            <div class="panel " id="categoryPanel">
 
                 <div class="panel-body">
                     <a href="<spring:url value="/${book.id}.html"/>">
-                        <img src="/image/${book.image.id}.html" class="thumbnail" height="150" width="100"
+                        <img data-toggle="tooltip" data-placement="right" title="${book.description}"
+                             src="/image/${book.image.id}.html" class="thumbnail" height="150" width="100"
                              alt="${book.name}"></a>
 
 
-                    <h5 data-toggle="tooltip" data-placement="right" title="${book.description}">
-                        <a href="<spring:url value="/${book.id}.html"/>">${book.name}</a></h5>
+                    <h5 data-toggle="tooltip" data-placement="right" title="${book.name}">
+                        <a class="hideOverflow" href="<spring:url value="/${book.id}.html"/>">${book.name}</a></h5>
                 </div>
             </div>
         </div>
@@ -26,6 +27,27 @@
     </c:forEach>
 </div>
 <!-- end row -->
+
+
+<%--<div class="row">
+<ul class="media-">
+    <c:forEach items="${books}" var="book">
+
+        <li class="col-sm-2">
+            <a href="<spring:url value="/${book.id}.html"/>" >
+                <img src="/image/${book.image.id}.html" class="thumbnail"  height="150" width="100"
+                     alt="${book.name}"></a>
+            <div class="caption">
+                <p data-toggle="tooltip" data-placement="right" title="${book.description}">
+                    <a href="<spring:url value="/${book.id}.html"/>">${book.name}</a></p>
+            </div>
+        </li>
+
+    </c:forEach>
+</ul>
+</div>--%>
+
+
 <div align="center">
     <nav>
         <ul class="pagination">

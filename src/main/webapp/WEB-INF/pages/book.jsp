@@ -36,7 +36,7 @@
         <div class="media-heading">
             <h4><b>Название: </b> <c:out value="${book.name}"/></h4>
             <h4><b>Автор: </b><c:out value="${book.authorName}"/></h4>
-            <h4><b>Жанр: </b><c:out value="${book.category.name}"/></h4>
+            <h4><b>Категория: </b><c:out value="${book.category.name}"/></h4>
 
             <a href="<spring:url value="/account/userbooklist/${book.id}.html"/>" class="btn btn-success">
                 Добавить в свой список</a>

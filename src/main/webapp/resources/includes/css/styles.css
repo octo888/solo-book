@@ -43,7 +43,7 @@
 
 #categoryBooks {
     text-align: center;
-    margin-top: 10px;
+
 }
 
 #categoryBooks img {
@@ -53,6 +53,13 @@
     border: none;
     box-shadow: none;
 }
+
+#categoryPanel a {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+}
+
 
 
 /* for fix footer */
@@ -241,18 +248,3 @@ footer {
     box-shadow: none;
 }
 
-#blog-text {
-    float: none;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
-.hideOverflow {
-    overflow:hidden;
-    white-space: nowrap;
-    text-overflow:ellipsis;
-    width:100%;
-    display:block;
-}

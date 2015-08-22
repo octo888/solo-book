@@ -85,4 +85,7 @@ public class BookService {
         topListRepository.saveAndFlush(topList);
     }
 
+    public Book findOneByName(String bookname) {
+        return bookRepository.findOneByName(bookname);
+    }
 }
