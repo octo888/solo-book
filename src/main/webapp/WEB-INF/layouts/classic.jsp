@@ -29,15 +29,7 @@
 
     <script src="${pageContext.request.contextPath}/resources/includes/js/modernizr-2.6.2.min.js"></script>
 
-    <script src="${pageContext.request.contextPath}/resources/includes/js/jquery-1.8.2.min.js"></script>
 
-    <!-- Bootstrap JS -->
-    <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Custom JS -->
-    <script src="${pageContext.request.contextPath}/resources/includes/js/script.js"></script>
-
-    <script type="text/javascript"
-            src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 
     <!-- end resources -->
 
@@ -175,6 +167,16 @@
 </div> <!-- end container #main -->
 
 <tiles:insertAttribute name="footer"/>
+
+<script src="${pageContext.request.contextPath}/resources/includes/js/jquery-1.8.2.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+<!-- Custom JS -->
+<script src="${pageContext.request.contextPath}/resources/includes/js/script.js"></script>
+
+<script type="text/javascript"
+        src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 
 </body>
 </html>

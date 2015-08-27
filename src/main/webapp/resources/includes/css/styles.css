@@ -193,6 +193,10 @@ footer {
 	#sm-carousel {
       display: none;
    }
+
+    footer {
+        display: none;
+    }
 }
 
 /* Landscape phone to portrait tablet */

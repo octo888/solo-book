@@ -37,7 +37,6 @@ public class UserController {
 
     @RequestMapping
     public String account(Model model, Principal principal) {
-        LoggerFactory.getLogger(UserController.class).debug("start controller");
         return getBlogPage(1, model, principal);
 
     }
